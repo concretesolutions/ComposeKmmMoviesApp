@@ -22,7 +22,7 @@ jobs:
 
       - name: Build project
         working-directory: ${{ env.SAMPLE_PATH }}
-        run: ./gradlew assembleDebug
+        run: ./gradlew androidApp:assembleDebug
 
   test:
     runs-on: macOS-latest
@@ -45,7 +45,7 @@ jobs:
         with:
           api-level: ${{ matrix.api-level }}
           disable-animations: true
-          script: ./gradlew connectedCheck
+          script: ./gradlew androidApp:connectedCheck
 
       - name: Upload test reports
         if: always()
