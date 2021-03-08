@@ -3,25 +3,66 @@ plugins {
     kotlin("android")
 }
 
-dependencies {
-    implementation(project(":shared"))
-    implementation("com.google.android.material:material:1.2.1")
-    implementation("androidx.appcompat:appcompat:1.2.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.0.2")
-}
+val composeVersion: String by extra("composeVersion")
 
 android {
-    compileSdkVersion(29)
+    compileSdkVersion(30)
     defaultConfig {
-        applicationId = "br.com.concrete.composekmmmoviesapp.androidApp"
-        minSdkVersion(24)
-        targetSdkVersion(29)
+        applicationId = "br.com.concrete.composemovies"
+        minSdkVersion(21)
+        targetSdkVersion(30)
         versionCode = 1
         versionName = "1.0"
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
         }
     }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+        useIR = true
+    }
+
+    buildFeatures {
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = composeVersion
+    }
+}
+
+dependencies {
+    implementation(project(":shared"))
+    // Android X & Material
+    implementation("androidx.core:core-ktx:1.3.2")
+    implementation("androidx.appcompat:appcompat:1.2.0")
+    implementation("com.google.android.material:material:1.3.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.0")
+
+    // Compose
+    implementation("androidx.compose.ui:ui:$composeVersion")
+    implementation("androidx.compose.ui:ui-tooling:$composeVersion")
+    implementation("androidx.compose.material:material:$composeVersion")
+    implementation("androidx.compose.material:material-icons-core:$composeVersion")
+    implementation("androidx.compose.material:material-icons-extended:$composeVersion")
+    implementation("androidx.navigation:navigation-compose:1.0.0-alpha08")
+
+    // Compose integrations
+    implementation("androidx.activity:activity-compose:1.3.0-alpha03")
+
+    // Unit test
+    testImplementation("junit:junit:4.13.2")
+
+    // Instrumented tests
+    androidTestImplementation("androidx.test.ext:junit:1.1.2")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.3.0")
 }

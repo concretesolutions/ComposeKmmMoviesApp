@@ -1,4 +1,7 @@
 buildscript {
+    val kotlinVersion by extra { "1.4.30" }
+    val composeVersion by extra { "1.0.0-beta01" }
+
     repositories {
         gradlePluginPortal()
         jcenter()
@@ -6,8 +9,8 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.10")
-        classpath("com.android.tools.build:gradle:4.0.1")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
+        classpath("com.android.tools.build:gradle:7.0.0-alpha09")
     }
 }
 
