@@ -2,8 +2,7 @@ plugins {
     id("com.android.application")
     kotlin("android")
 }
-
-val composeVersion: String by extra("composeVersion")
+val composeVersion: String by project
 
 android {
     compileSdkVersion(30)
