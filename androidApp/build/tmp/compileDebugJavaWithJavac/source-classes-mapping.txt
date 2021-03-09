@@ -1,2 +1,0 @@
-br/com/concrete/composekmmmoviesapp/androidApp/BuildConfig.java
- br.com.concrete.composekmmmoviesapp.androidApp.BuildConfig

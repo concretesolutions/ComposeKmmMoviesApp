@@ -1,2 +1,0 @@
-br/com/concrete/composekmmmoviesapp/shared/BuildConfig.java
- br.com.concrete.composekmmmoviesapp.shared.BuildConfig
