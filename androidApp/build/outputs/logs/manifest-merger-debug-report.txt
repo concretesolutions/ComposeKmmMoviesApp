@@ -1,0 +1,165 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml:2:1-14:12
+INJECTED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml:2:1-14:12
+INJECTED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml:2:1-14:12
+INJECTED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml:2:1-14:12
+MERGED from [:shared] C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\shared\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [com.squareup.sqldelight:android-driver:1.4.4] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\75f2f2831c64acb7c9a0a046216b7d62\android-driver-1.4.4\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.material:material:1.2.1] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\b22fb819cb91a77d8a83f94b0acc9208\material-1.2.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.2] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\a234dab03c7792ba6414c70d99dcd4ff\constraintlayout-2.0.2\AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\1e2fbb4286cae182394ed06f5699d0a4\appcompat-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\e8c97f18d1941cf8d22d7b1ad5458e81\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\afd1012ab58a95e034fccfe120373a3d\coordinatorlayout-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\f14e312a9be0f7357a321b7ea375f48d\transition-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\523914de27c3b2cb4aefc83e4b62eb78\appcompat-resources-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\ef3ae44da67fff7780a25e885557605a\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\2b1aa3b76c042fcde14843f772f0a5b8\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\9aa335a13e0427874dc86379d0ba5286\viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\cf30f29139b7939d1fbc22f653c6cf25\fragment-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\1c1454595d7228826d9002ed32508552\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\c4a07a20d6581143310b3d83d22d4475\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\4d908c1c905e5e9397cee6d19acdec83\recyclerview-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\4b3affbf86a6b7453fa00c75e75fd01d\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\e820bfec68b4fc9a37b54697bc00ed38\customview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\5db8e258a62d93b4b4b110616a200a0c\loader-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\c7ce5ff54cb0c09b05171993ec56c064\activity-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core:1.3.1] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\4b363fc33b770e066abfe8e1f3f965dc\core-1.3.1\AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.sqlite:sqlite-framework:2.1.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\e11725d6f5c7f60185d82c25fa7d5ce5\sqlite-framework-2.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.sqlite:sqlite:2.1.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\4d912785288defb8ab10003525ebd5ea\sqlite-2.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\4a34d4b736c6e0b9a3c818ad3814d0cb\versionedparcelable-1.1.0\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\ccf927334e9226edb6d968f63c6ff426\lifecycle-runtime-2.1.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\b90f7af98c14dd11e49011a8182ab5a1\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\0a45390ab3af334a68e19a162ba62cac\savedstate-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\c88a7f32d09936026ff51c91684f863f\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\7c4ba57750498dfbd2ce1fe8a9cbb75a\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\8e9f14997cf20f7232be60832ecf40eb\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\0d6031254603d5d1acfb1ff9e409a263\core-runtime-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\a58ad5df976d8e8a8d5413d3ba85990c\annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
+INJECTED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml:2:1-14:12
+INJECTED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml:2:1-14:12
+INJECTED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml:2:1-14:12
+	package
+		ADDED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml:2:70-126
+		INJECTED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml
+		ADDED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml:2:1-14:12
+		INJECTED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml
+		ADDED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml:2:1-14:12
+		INJECTED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml:2:11-69
+application
+ADDED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml:3:5-13:19
+MERGED from [com.google.android.material:material:1.2.1] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\b22fb819cb91a77d8a83f94b0acc9208\material-1.2.1\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.2.1] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\b22fb819cb91a77d8a83f94b0acc9208\material-1.2.1\AndroidManifest.xml:22:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.2] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\a234dab03c7792ba6414c70d99dcd4ff\constraintlayout-2.0.2\AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.2] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\a234dab03c7792ba6414c70d99dcd4ff\constraintlayout-2.0.2\AndroidManifest.xml:9:5-20
+MERGED from [androidx.core:core:1.3.1] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\4b363fc33b770e066abfe8e1f3f965dc\core-1.3.1\AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.3.1] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\4b363fc33b770e066abfe8e1f3f965dc\core-1.3.1\AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\4a34d4b736c6e0b9a3c818ad3814d0cb\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\4a34d4b736c6e0b9a3c818ad3814d0cb\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.3.1] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\4b363fc33b770e066abfe8e1f3f965dc\core-1.3.1\AndroidManifest.xml:24:18-86
+	android:supportsRtl
+		ADDED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml:5:13-39
+	android:allowBackup
+		ADDED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml:4:13-40
+	android:theme
+		ADDED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml:6:13-44
+activity#br.com.concrete.composekmmmoviesapp.androidApp.MainActivity
+ADDED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml:7:9-12:20
+	android:name
+		ADDED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml:7:19-47
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml:8:13-11:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml:9:17-68
+	android:name
+		ADDED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml:9:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml:10:17-76
+	android:name
+		ADDED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml:10:27-74
+uses-sdk
+INJECTED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml
+INJECTED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml
+MERGED from [:shared] C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\shared\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:shared] C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\shared\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [com.squareup.sqldelight:android-driver:1.4.4] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\75f2f2831c64acb7c9a0a046216b7d62\android-driver-1.4.4\AndroidManifest.xml:5:5-44
+MERGED from [com.squareup.sqldelight:android-driver:1.4.4] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\75f2f2831c64acb7c9a0a046216b7d62\android-driver-1.4.4\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.material:material:1.2.1] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\b22fb819cb91a77d8a83f94b0acc9208\material-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.2.1] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\b22fb819cb91a77d8a83f94b0acc9208\material-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.2] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\a234dab03c7792ba6414c70d99dcd4ff\constraintlayout-2.0.2\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.2] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\a234dab03c7792ba6414c70d99dcd4ff\constraintlayout-2.0.2\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\1e2fbb4286cae182394ed06f5699d0a4\appcompat-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\1e2fbb4286cae182394ed06f5699d0a4\appcompat-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\e8c97f18d1941cf8d22d7b1ad5458e81\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\e8c97f18d1941cf8d22d7b1ad5458e81\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\afd1012ab58a95e034fccfe120373a3d\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\afd1012ab58a95e034fccfe120373a3d\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\f14e312a9be0f7357a321b7ea375f48d\transition-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\f14e312a9be0f7357a321b7ea375f48d\transition-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\523914de27c3b2cb4aefc83e4b62eb78\appcompat-resources-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\523914de27c3b2cb4aefc83e4b62eb78\appcompat-resources-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\ef3ae44da67fff7780a25e885557605a\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\ef3ae44da67fff7780a25e885557605a\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\2b1aa3b76c042fcde14843f772f0a5b8\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\2b1aa3b76c042fcde14843f772f0a5b8\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\9aa335a13e0427874dc86379d0ba5286\viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\9aa335a13e0427874dc86379d0ba5286\viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\cf30f29139b7939d1fbc22f653c6cf25\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\cf30f29139b7939d1fbc22f653c6cf25\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\1c1454595d7228826d9002ed32508552\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\1c1454595d7228826d9002ed32508552\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\c4a07a20d6581143310b3d83d22d4475\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\c4a07a20d6581143310b3d83d22d4475\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\4d908c1c905e5e9397cee6d19acdec83\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\4d908c1c905e5e9397cee6d19acdec83\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\4b3affbf86a6b7453fa00c75e75fd01d\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\4b3affbf86a6b7453fa00c75e75fd01d\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\e820bfec68b4fc9a37b54697bc00ed38\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\e820bfec68b4fc9a37b54697bc00ed38\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\5db8e258a62d93b4b4b110616a200a0c\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\5db8e258a62d93b4b4b110616a200a0c\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\c7ce5ff54cb0c09b05171993ec56c064\activity-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\c7ce5ff54cb0c09b05171993ec56c064\activity-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.3.1] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\4b363fc33b770e066abfe8e1f3f965dc\core-1.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.3.1] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\4b363fc33b770e066abfe8e1f3f965dc\core-1.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.sqlite:sqlite-framework:2.1.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\e11725d6f5c7f60185d82c25fa7d5ce5\sqlite-framework-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.sqlite:sqlite-framework:2.1.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\e11725d6f5c7f60185d82c25fa7d5ce5\sqlite-framework-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.sqlite:sqlite:2.1.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\4d912785288defb8ab10003525ebd5ea\sqlite-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.sqlite:sqlite:2.1.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\4d912785288defb8ab10003525ebd5ea\sqlite-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\4a34d4b736c6e0b9a3c818ad3814d0cb\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\4a34d4b736c6e0b9a3c818ad3814d0cb\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\ccf927334e9226edb6d968f63c6ff426\lifecycle-runtime-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\ccf927334e9226edb6d968f63c6ff426\lifecycle-runtime-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\b90f7af98c14dd11e49011a8182ab5a1\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\b90f7af98c14dd11e49011a8182ab5a1\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\0a45390ab3af334a68e19a162ba62cac\savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\0a45390ab3af334a68e19a162ba62cac\savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\c88a7f32d09936026ff51c91684f863f\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\c88a7f32d09936026ff51c91684f863f\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\7c4ba57750498dfbd2ce1fe8a9cbb75a\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\7c4ba57750498dfbd2ce1fe8a9cbb75a\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\8e9f14997cf20f7232be60832ecf40eb\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\8e9f14997cf20f7232be60832ecf40eb\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\0d6031254603d5d1acfb1ff9e409a263\core-runtime-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\0d6031254603d5d1acfb1ff9e409a263\core-runtime-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\a58ad5df976d8e8a8d5413d3ba85990c\annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\camila.fonseca.silva\.gradle\caches\transforms-2\files-2.1\a58ad5df976d8e8a8d5413d3ba85990c\annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
+INJECTED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml
+INJECTED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml
+		ADDED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml
+		ADDED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\camila.fonseca.silva\Desktop\KmmCompose\ComposeKmmMoviesApp\androidApp\src\main\AndroidManifest.xml
