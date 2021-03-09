@@ -7,45 +7,30 @@ import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import androidx.navigation.compose.*
-import br.com.concrete.composekmmmoviesapp.androidApp.model.Screen
-import br.com.concrete.composekmmmoviesapp.androidApp.model.bottomBarItems
+import br.com.concrete.composekmmmoviesapp.androidApp.base.Screen
+import br.com.concrete.composekmmmoviesapp.androidApp.base.bottomBarItems
 import br.com.concrete.composekmmmoviesapp.androidApp.theme.ComposeMoviesAppTheme
 import br.com.concrete.composekmmmoviesapp.androidApp.theme.Yellow
 
 @Preview(device = Devices.PIXEL_4_XL)
 @Composable
-fun MoviAddesApp() {
+fun MoviesApp() {
     val navController = rememberNavController()
     ComposeMoviesAppTheme {
         Scaffold(
-            topBar = {
-                TopAppBar(title = { Text(stringResource(id = R.string.app_name)) })
-            },
+            topBar = { TopAppBar(title = { Text(stringResource(id = R.string.app_name)) }) },
             bottomBar = { MoviesAppBottomBar(navController) }
         ) {
             NavHost(navController, startDestination = Screen.Movies.route) {
-                composable(Screen.Movies.route) {
-                    Button(onClick = {
-                        navController.navigate(Screen.Detail.route)
-                    }) {
-                        Text("Go to detail")
-                    }
-                }
-                composable(Screen.Favorites.route) { Text("Favorites") }
-                composable(Screen.Detail.route) {
-                    Box(
-                        modifier = Modifier
-                            .background(Yellow)
-                            .fillMaxSize()
-                    ) {
-                        Text("Detail")
-                    }
-                }
+                composable(Screen.Movies.route) { MoviesList(navController) }
+                composable(Screen.Favorites.route) { Favorites() }
+                composable(Screen.Detail.route) { Detail() }
             }
         }
     }
@@ -60,14 +45,11 @@ fun MoviesAppBottomBar(
 
     BottomNavigation {
         bottomBarItems.forEach { screen ->
+            val title = stringResource(id = screen.titleRes)
             BottomNavigationItem(
                 selected = currentRoute == screen.route,
-                icon = {
-                    Icon(
-                        imageVector = screen.icon,
-                        stringResource(id = screen.titleRes)
-                    )
-                },
+                modifier = Modifier.testTag("Button-$title"),
+                icon = { Icon(imageVector = screen.icon, title) },
                 onClick = {
                     navController.navigate(screen.route) {
                         popUpTo = navController.graph.startDestination
@@ -77,5 +59,30 @@ fun MoviesAppBottomBar(
                 label = { Text(stringResource(screen.titleRes)) }
             )
         }
+    }
+}
+
+@Composable
+fun MoviesList(navController: NavController) {
+    Button(onClick = {
+        navController.navigate(Screen.Detail.route)
+    }) {
+        Text("Go to detail")
+    }
+}
+
+@Composable
+fun Favorites() {
+    Text("Favorites")
+}
+
+@Composable
+fun Detail() {
+    Box(
+        modifier = Modifier
+            .background(Yellow)
+            .fillMaxSize()
+    ) {
+        Text("Detail")
     }
 }
