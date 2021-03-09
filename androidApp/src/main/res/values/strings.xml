@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Movies</string>
+    <string name="title_tab_movies">Movies</string>
+    <string name="title_tab_favorites">Favorites</string>
+</resources>
