@@ -12,11 +12,9 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
 
-private const val CACHE_SIZE = (15 * 1024 * 1024).toLong()
-
 val networkModule = module {
     single {
-        Cache(File(get<Context>().cacheDir, "http-cache"), CACHE_SIZE)
+        Cache(File(get<Context>().cacheDir, "http-cache"), 15 * 1024 * 1024)
     }
 
     single {
@@ -32,13 +30,12 @@ val networkModule = module {
         okHttpClientBuilder.build()
     }
 
-    single<ApiService> {
+    single<MoviesDbApi> {
         val baseUrl = get<Context>().getString(R.string.movies_db_base_url)
         Retrofit.Builder().baseUrl(baseUrl)
             .client(get())
             .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
             .build()
-            .create(ApiService::class.java)
+            .create(MoviesDbApi::class.java)
     }
-
 }

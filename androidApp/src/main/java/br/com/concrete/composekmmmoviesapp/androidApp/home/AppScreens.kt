@@ -1,4 +1,4 @@
-package br.com.concrete.composekmmmoviesapp.androidApp.base
+package br.com.concrete.composekmmmoviesapp.androidApp.home
 
 import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons

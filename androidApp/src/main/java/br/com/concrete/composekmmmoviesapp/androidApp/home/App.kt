@@ -13,8 +13,8 @@ import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import androidx.navigation.compose.*
-import br.com.concrete.composekmmmoviesapp.androidApp.base.Screen
-import br.com.concrete.composekmmmoviesapp.androidApp.base.bottomBarItems
+import br.com.concrete.composekmmmoviesapp.androidApp.home.Screen
+import br.com.concrete.composekmmmoviesapp.androidApp.home.bottomBarItems
 import br.com.concrete.composekmmmoviesapp.androidApp.theme.ComposeMoviesAppTheme
 import br.com.concrete.composekmmmoviesapp.androidApp.theme.Yellow
 

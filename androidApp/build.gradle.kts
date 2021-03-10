@@ -1,8 +1,18 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     kotlin("android")
 }
 val composeVersion: String by project
+
+val localProperties = Properties()
+try {
+    localProperties.load(FileInputStream("local.properties"))
+} catch (ex: java.io.IOException) {
+    localProperties["apiKey"] = "Insert your key in local.properties"
+}
 
 android {
     compileSdkVersion(30)
@@ -14,6 +24,8 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "MoviesDbApiKey", localProperties["apiKey"].toString() )
     }
     buildTypes {
         getByName("release") {
@@ -68,14 +80,18 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.2.0")
     implementation("com.google.android.material:material:1.3.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.0")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.3.0")
 
     // Compose
     implementation("androidx.compose.ui:ui:$composeVersion")
     implementation("androidx.compose.ui:ui-tooling:$composeVersion")
+    implementation("androidx.compose.runtime:runtime-livedata:$composeVersion")
     implementation("androidx.compose.material:material:$composeVersion")
     implementation("androidx.compose.material:material-icons-core:$composeVersion")
     implementation("androidx.compose.material:material-icons-extended:$composeVersion")
     implementation("androidx.navigation:navigation-compose:1.0.0-alpha08")
+
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha03")
 
     // Compose integrations
     implementation("androidx.activity:activity-compose:1.3.0-alpha03")
@@ -92,6 +108,7 @@ dependencies {
 
     // Threading
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")
+
 
     // Unit test
     testImplementation("org.koin:koin-test:$koinVersion")
