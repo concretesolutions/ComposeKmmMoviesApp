@@ -52,6 +52,10 @@ android {
     }
 }
 
+val retrofitVersion = "2.9.0"
+val okHttpVersion = "4.9.1"
+val coroutinesVersion = "1.4.2"
+
 dependencies {
     implementation(project(":shared"))
     // Android X & Material
@@ -71,8 +75,19 @@ dependencies {
     // Compose integrations
     implementation("androidx.activity:activity-compose:1.3.0-alpha03")
 
+    // Networking
+    implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
+    implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
+    implementation("com.squareup.okhttp3:okhttp:$okHttpVersion")
+    implementation("com.squareup.okhttp3:logging-interceptor:$okHttpVersion")
+
+    // Threading
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")
+
     // Unit test
     testImplementation("junit:junit:4.13.2")
+    testImplementation("com.squareup.retrofit2:retrofit-mock:$retrofitVersion")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion")
 
     // Instrumented tests
     androidTestImplementation("androidx.test.ext:junit:1.1.2")
