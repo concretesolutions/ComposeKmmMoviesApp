@@ -34,6 +34,10 @@ android {
         compose = true
     }
 
+    testOptions.unitTests.apply {
+        isIncludeAndroidResources = true
+    }
+
     composeOptions {
         kotlinCompilerExtensionVersion = composeVersion
     }
@@ -55,6 +59,7 @@ android {
 val retrofitVersion = "2.9.0"
 val okHttpVersion = "4.9.1"
 val coroutinesVersion = "1.4.2"
+val koinVersion = "2.2.2"
 
 dependencies {
     implementation(project(":shared"))
@@ -81,13 +86,22 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp:$okHttpVersion")
     implementation("com.squareup.okhttp3:logging-interceptor:$okHttpVersion")
 
+    // DI
+    implementation("org.koin:koin-core:$koinVersion")
+    implementation("org.koin:koin-androidx-viewmodel:$koinVersion")
+
     // Threading
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")
 
     // Unit test
+    testImplementation("org.koin:koin-test:$koinVersion")
     testImplementation("junit:junit:4.13.2")
     testImplementation("com.squareup.retrofit2:retrofit-mock:$retrofitVersion")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion")
+    testImplementation("io.mockk:mockk:1.10.6")
+    testImplementation("androidx.test.ext:junit:1.1.2")
+    testImplementation("androidx.test.espresso:espresso-core:3.3.0")
+    testImplementation("org.robolectric:robolectric:4.5.1")
 
     // Instrumented tests
     androidTestImplementation("androidx.test.ext:junit:1.1.2")
