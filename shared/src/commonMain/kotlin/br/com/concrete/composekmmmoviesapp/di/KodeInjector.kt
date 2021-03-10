@@ -18,7 +18,7 @@ val di = DI {
 
     bind<MovieApi>() with provider { MovieApi() }
 
-    bind<MovieRepository>() with factory { movieApi: MovieApi -> MovieRepository(movieApi) }
+    bind<MovieRepository>() with singleton { MovieRepository(instance()) }
 
     bind<HttpClient>() with provider {
         HttpClient {
