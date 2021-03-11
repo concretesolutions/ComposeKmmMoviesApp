@@ -8,7 +8,7 @@ class MovieDao constructor(val name:String, val moviePicture:Int){
         fun getMovies():List<MovieDao>{
             return arrayListOf(
                 MovieDao("HEROI", R.drawable.ic_banner_movie),
-                MovieDao("THOR", R.drawable.ic_banner_movie),
+                MovieDao("HEROI", R.drawable.ic_banner_movie),
                 MovieDao("HEROI", R.drawable.ic_banner_movie),
                 MovieDao("HEROI", R.drawable.ic_banner_movie),
                 MovieDao("HEROI", R.drawable.ic_banner_movie),
