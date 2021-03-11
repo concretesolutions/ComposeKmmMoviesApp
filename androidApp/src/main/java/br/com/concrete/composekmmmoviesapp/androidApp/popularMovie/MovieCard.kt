@@ -62,12 +62,15 @@ fun MovieItemView(movieDao: MovieDao) {
                     Text(
                         text = movieDao.name,
                         textAlign = TextAlign.Center,
-                        modifier = Modifier.padding(start = 8.dp, top = 16.dp)
+                        modifier = Modifier
+                            .padding(start = 8.dp, top = 16.dp)
 
 
                     )
-                    Spacer(modifier = Modifier.padding(45.dp,0.dp))
-                    IconButton(onClick = {  /*doSomething()*/ }) {
+                    Spacer(modifier = Modifier.padding(45.dp, 0.dp))
+                    IconButton(
+                        onClick = {  /*doSomething()*/ },
+                    ) {
                         Icon(Icons.Filled.Favorite, contentDescription = null)
 
                     }
@@ -81,14 +84,13 @@ fun MovieItemView(movieDao: MovieDao) {
 }
 
 
-
 @ExperimentalFoundationApi
 @Preview
 @Composable
 fun PopularMovieItemPreview() {
     /* val movieList = MovieDao.getMovies()
      MovieListView(list = movieList)*/
-    MovieItemView(MovieDao("Thor", R.drawable.ic_banner_movie))
+    MovieItemView(MovieDao("Interestellar", R.drawable.ic_banner_movie))
 }
 
 
