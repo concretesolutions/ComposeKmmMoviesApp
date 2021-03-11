@@ -4,6 +4,7 @@ import br.com.concrete.composekmmmoviesapp.data.Response
 import br.com.concrete.composekmmmoviesapp.di.di
 import br.com.concrete.composekmmmoviesapp.domain.Genres
 import br.com.concrete.composekmmmoviesapp.domain.Movies
+import br.com.concrete.composekmmmoviesapp.repository.FindMovieRepository
 import br.com.concrete.composekmmmoviesapp.repository.GenreRepository
 import br.com.concrete.composekmmmoviesapp.repository.MovieRepository
 import org.kodein.di.instance
@@ -13,6 +14,7 @@ class MoviesSdk {
 
     private val movieRepository by di.newInstance { MovieRepository(instance()) }
     private val genreRepository by di.newInstance { GenreRepository(instance()) }
+    private val findMovieRepository by di.newInstance { FindMovieRepository(instance()) }
 
     suspend fun getPopularMovies() : Response<Movies> {
         return  movieRepository.getPopularMovies()
@@ -32,7 +34,7 @@ class MoviesSdk {
     suspend fun getFavoriteMovies(){
         TODO()
     }
-    suspend fun findMovie(){
-        TODO()
+    suspend fun findMovie() : Response<Movies>{
+        return findMovieRepository.findMovies()
     }
 }

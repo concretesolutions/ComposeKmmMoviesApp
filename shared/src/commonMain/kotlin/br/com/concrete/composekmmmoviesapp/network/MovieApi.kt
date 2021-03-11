@@ -1,7 +1,6 @@
 package br.com.concrete.composekmmmoviesapp.network
 
 import br.com.concrete.composekmmmoviesapp.data.Response
-import br.com.concrete.composekmmmoviesapp.domain.Genres
 import br.com.concrete.composekmmmoviesapp.domain.Movies
 
 class MovieApi {

@@ -40,5 +40,12 @@ class MainActivity : ComponentActivity() {
           Toast.makeText(this@MainActivity,response.data.genres[0].name,Toast.LENGTH_SHORT).show()
 
         }
+
+        mainScope.launch {
+            val response : Response<Movies> = moviesSdk.findMovie()
+            if(response is Response.Success)
+                Toast.makeText(this@MainActivity,response.data.results[0].originalTitle,Toast.LENGTH_LONG).show()
+
+        }
     }
 }

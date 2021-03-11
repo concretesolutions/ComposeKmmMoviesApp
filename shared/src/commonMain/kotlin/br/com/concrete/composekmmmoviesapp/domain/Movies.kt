@@ -18,5 +18,8 @@ data class Movie(
     @SerialName("genre_ids")
     val genres: List<Int>,
     @SerialName("release_date")
-    val releaseDate: String
+    val releaseDate: String,
+    @SerialName("id")
+    val movie_id:Int
+
 )
