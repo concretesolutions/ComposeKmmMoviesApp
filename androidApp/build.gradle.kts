@@ -55,6 +55,7 @@ dependencies {
     implementation("androidx.compose.material:material-icons-extended:$composeVersion")
     implementation("androidx.navigation:navigation-compose:1.0.0-alpha08")
 
+
     // Compose integrations
     implementation("androidx.activity:activity-compose:1.3.0-alpha03")
 
