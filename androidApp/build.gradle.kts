@@ -89,12 +89,12 @@ dependencies {
     implementation("androidx.compose.material:material:$composeVersion")
     implementation("androidx.compose.material:material-icons-core:$composeVersion")
     implementation("androidx.compose.material:material-icons-extended:$composeVersion")
-    implementation("androidx.navigation:navigation-compose:1.0.0-alpha08")
+    implementation("androidx.navigation:navigation-compose:1.0.0-alpha09")
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha03")
 
     // Compose integrations
-    implementation("androidx.activity:activity-compose:1.3.0-alpha03")
+    implementation("androidx.activity:activity-compose:1.3.0-alpha04")
 
     // Networking
     implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
