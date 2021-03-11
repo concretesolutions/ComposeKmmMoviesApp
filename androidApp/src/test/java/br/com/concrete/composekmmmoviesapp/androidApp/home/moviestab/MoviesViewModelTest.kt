@@ -2,7 +2,7 @@ package br.com.concrete.composekmmmoviesapp.androidApp.home.moviestab
 
 import br.com.concrete.composekmmmoviesapp.androidApp.R
 import br.com.concrete.composekmmmoviesapp.androidApp.data.MoviesDbApi
-import br.com.concrete.composekmmmoviesapp.androidApp.data.dto.MoviePage
+import br.com.concrete.composekmmmoviesapp.androidApp.data.dto.MoviePageDto
 import br.com.concrete.composekmmmoviesapp.androidApp.data.mapper.MoviesMapper
 import br.com.concrete.composekmmmoviesapp.androidApp.util.CoroutineTestRule
 import io.mockk.coEvery
@@ -30,7 +30,7 @@ class MoviesViewModelTest {
     fun givenSuccessfulRequest_shouldEmitSuccessStateWithList() {
         coEvery {
             apiMock.getPopularMovies()
-        } returns Response.success(MoviePage(1, emptyList()))
+        } returns Response.success(MoviePageDto(1, emptyList()))
 
         viewModel.moviesList.observeForever {
             assertEquals(MoviesListUiState.Success(emptyList()), viewModel.moviesList.value)

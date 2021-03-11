@@ -35,7 +35,7 @@ fun MoviesScreen() {
                 val movies = uiState.moviesList
                 LazyColumn(modifier = Modifier.fillMaxSize()) {
                     items(movies.size) { index ->
-                        Text(movies[index].title, modifier = Modifier.padding(16.dp))
+                        Text(movies[index].overview, modifier = Modifier.padding(16.dp))
                     }
                 }
             }

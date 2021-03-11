@@ -23,8 +23,9 @@ class MoviesViewModel(
         emit(MoviesListUiState.Loading)
         try {
             val popularMovies = api.getPopularMovies().body()
-            if (popularMovies != null) {
-                emit(MoviesListUiState.Success(mapper.mapMoviesDtoToMovie(popularMovies)))
+            val genres = api.getGenres().body()
+            if (popularMovies != null && genres != null) {
+                emit(MoviesListUiState.Success(mapper.mapMoviesDtoToMovie(popularMovies, genres)))
             }
         } catch (ex: Throwable) {
             emit(MoviesListUiState.Error(R.string.generic_error))
