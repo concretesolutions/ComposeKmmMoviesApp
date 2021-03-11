@@ -10,7 +10,7 @@ class FindMovieApi {
 
     private companion object {
 
-        private val SEARCH_URL = "https://api.themoviedb.org/3/search/movie?api_key=1b29aa34f93afb40731208d5ab0a5c47&language=en-US&query={movie_id}&page=1&include_adult=false"
+        private val SEARCH_URL = "https://api.themoviedb.org/3/search/movie?api_key=1b29aa34f93afb40731208d5ab0a5c47&language=en-US&query={originaltitle}&page=1&include_adult=false"
     }
 
 
