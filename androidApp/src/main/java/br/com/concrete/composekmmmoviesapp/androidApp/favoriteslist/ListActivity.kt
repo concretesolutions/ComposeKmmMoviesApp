@@ -77,7 +77,7 @@ fun FavoritesCard(moviesList: DataList,onClick:() -> Unit){
                             style = TextStyle(fontSize = 22.sp),
                             color = Color.Black
                         )
-                        Spacer(modifier = Modifier./*padding(120.dp,0.dp,0.dp,0.dp)*//*.padding(70.dp,0.dp)*/)
+                        Spacer(modifier = Modifier.padding(120.dp,0.dp,0.dp,0.dp)/*.padding(70.dp,0.dp)*/)
                         Surface(
                             modifier = Modifier
                                 .size(30.dp)
