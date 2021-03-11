@@ -1,12 +1,15 @@
 package br.com.concrete.composekmmmoviesapp.androidApp.data
 
 import android.content.Context
+import br.com.concrete.composekmmmoviesapp.androidApp.BuildConfig.MoviesDbApiKey
 import br.com.concrete.composekmmmoviesapp.androidApp.R
 import com.google.gson.GsonBuilder
 import okhttp3.Cache
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.BuildConfig
+import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -17,15 +20,33 @@ val networkModule = module {
         Cache(File(get<Context>().cacheDir, "http-cache"), 15 * 1024 * 1024)
     }
 
+    single(named("injectApiKey")) {
+        Interceptor { chain ->
+            val request = chain.request()
+            val newUrl = request.url.newBuilder()
+                .addQueryParameter("api_key", MoviesDbApiKey)
+                .build()
+            val newRequest = request.newBuilder()
+                .url(newUrl)
+                .build()
+
+            chain.proceed(newRequest)
+        }
+    }
+
+    single(named("loggingInterceptor")) {
+        HttpLoggingInterceptor().apply {
+            level = HttpLoggingInterceptor.Level.BODY
+        }
+    }
+
     single {
         val okHttpClientBuilder = OkHttpClient.Builder()
+            .addInterceptor(get<Interceptor>(named("injectApiKey")))
             .cache(get())
 
         if (BuildConfig.DEBUG) {
-            val loggingInterceptor = HttpLoggingInterceptor().apply {
-                level = HttpLoggingInterceptor.Level.BODY
-            }
-            okHttpClientBuilder.addInterceptor(loggingInterceptor)
+            okHttpClientBuilder.addInterceptor(get<Interceptor>(named("loggingInterceptor")))
         }
         okHttpClientBuilder.build()
     }
