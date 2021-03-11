@@ -49,7 +49,8 @@ fun MovieItemView(movieDao: MovieDao) {
     ) {
         Surface(
             modifier = Modifier
-                .padding(9.dp)
+                .padding(9.dp),
+            color = MaterialTheme.colors.onSurface.copy(alpha = 0.2f)
         ) {
             Column {
                 val image: Painter = painterResource(movieDao.moviePicture)
@@ -67,7 +68,10 @@ fun MovieItemView(movieDao: MovieDao) {
 
 
                     )
-                    Spacer(modifier = Modifier.padding(45.dp, 0.dp))
+                    Spacer(
+                        modifier = Modifier
+                            .padding(45.dp, 0.dp)
+                    )
                     IconButton(
                         onClick = {  /*doSomething()*/ },
                     ) {
