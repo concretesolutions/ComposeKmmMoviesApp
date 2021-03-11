@@ -2,34 +2,36 @@ package br.com.concrete.composekmmmoviesapp
 
 import br.com.concrete.composekmmmoviesapp.data.Response
 import br.com.concrete.composekmmmoviesapp.di.di
-import br.com.concrete.composekmmmoviesapp.domain.Movies
+import br.com.concrete.composekmmmoviesapp.domain.FavoriteMovie
+import br.com.concrete.composekmmmoviesapp.domain.MoviesResponse
 import br.com.concrete.composekmmmoviesapp.repository.MovieRepository
 import org.kodein.di.instance
 import org.kodein.di.newInstance
 
 class MoviesSdk {
 
-    private val movieRepository by di.newInstance { MovieRepository(instance()) }
+    private val movieRepository by di.newInstance { MovieRepository(instance(), instance()) }
 
-    suspend fun getPopularMovies() : Response<Movies> {
-        return  movieRepository.getPopularMovies()
+    suspend fun getPopularMovies(): Response<MoviesResponse> {
+        return movieRepository.getPopularMovies()
     }
 
-    suspend fun getGenreList(){
+    suspend fun getGenreList() {
         TODO()
     }
 
-    suspend fun saveMovie(){
-        TODO()
-    }
-    suspend fun unsaveMovie(){
-        TODO()
+    fun saveMovie(favoriteMovie: FavoriteMovie) {
+        movieRepository.saveFavoriteMovie(favoriteMovie)
     }
 
-    suspend fun getFavoriteMovies(){
-        TODO()
+    fun unsaveMovie(idMovie: Long) {
+        movieRepository.unsaveFavoriteMovie(idMovie)
     }
-    suspend fun findMovie(){
+
+    fun getFavoriteMovies(): List<FavoriteMovie> = movieRepository.getFavoriteMovies()
+
+
+    suspend fun findMovie() {
         TODO()
     }
 }

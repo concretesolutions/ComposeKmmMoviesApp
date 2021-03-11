@@ -1,0 +1,19 @@
+CREATE TABLE Movies (
+    id INTEGER NOT NULL PRIMARY KEY,
+    posterPath TEXT NOT NULL,
+    originalTitle TEXT NOT NULL,
+    releaseYear INTEGER AS Int NOT NULL DEFAULT 0,
+    genres TEXT NOT NULL,
+    overview TEXT
+);
+
+insertMovie:
+INSERT INTO Movies(id, posterPath, originalTitle, releaseYear, genres, overview)
+VALUES(?, ?, ?, ?, ?, ?);
+
+removeMovie:
+DELETE FROM Movies
+WHERE id = ?;
+
+selectAllMovies:
+SELECT * FROM Movies;
