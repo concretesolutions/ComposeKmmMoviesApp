@@ -7,4 +7,5 @@ import br.com.concrete.composekmmmoviesapp.network.MovieApi
 class MovieRepository(private val movieApi: MovieApi) {
 
     suspend fun getPopularMovies(): Response<Movies> = movieApi.getMovies()
+
 }
