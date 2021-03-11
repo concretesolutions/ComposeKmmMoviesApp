@@ -4,6 +4,7 @@ import java.util.Properties
 plugins {
     id("com.android.application")
     kotlin("android")
+    kotlin("kapt")
 }
 val composeVersion: String by project
 
@@ -72,6 +73,7 @@ val retrofitVersion = "2.9.0"
 val okHttpVersion = "4.9.1"
 val coroutinesVersion = "1.4.3"
 val koinVersion = "2.2.2"
+val roomVersion = "2.2.6"
 
 dependencies {
     // Android X & Material
@@ -109,6 +111,10 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")
 
+    // DB
+    implementation("androidx.room:room-runtime:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
 
     // Unit test
     testImplementation("org.koin:koin-test:$koinVersion")
@@ -120,6 +126,7 @@ dependencies {
     testImplementation("androidx.test.espresso:espresso-core:3.3.0")
     testImplementation("org.robolectric:robolectric:4.5.1")
     testImplementation("androidx.arch.core:core-testing:2.1.0")
+    testImplementation("androidx.room:room-testing:$roomVersion")
 
     // Instrumented tests
     androidTestImplementation("androidx.test.ext:junit:1.1.2")

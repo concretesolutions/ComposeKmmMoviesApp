@@ -1,5 +1,6 @@
 package br.com.concrete.composekmmmoviesapp.androidApp
 
+import br.com.concrete.composekmmmoviesapp.androidApp.data.databaseModule
 import br.com.concrete.composekmmmoviesapp.androidApp.data.mapper.MoviesMapper
 import br.com.concrete.composekmmmoviesapp.androidApp.data.networkModule
 import br.com.concrete.composekmmmoviesapp.androidApp.home.moviestab.MoviesViewModel
@@ -17,5 +18,5 @@ val screenModules = module {
 }
 
 val appModules = listOf(
-    networkModule, screenModules
+    networkModule, screenModules, databaseModule
 )
