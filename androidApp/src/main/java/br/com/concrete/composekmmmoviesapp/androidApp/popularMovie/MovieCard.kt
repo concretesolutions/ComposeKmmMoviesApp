@@ -2,18 +2,18 @@ package br.com.concrete.composekmmmoviesapp.androidApp.popularMovie
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.GridCells
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
+import androidx.compose.material.Card
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
+import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -31,11 +31,11 @@ fun MovieListView(
     list: List<MovieDao>
 ) {
     LazyVerticalGrid(cells = GridCells.Fixed(2),
+        contentPadding = PaddingValues(8.dp),
         content = {
             items(list) { movie ->
                 MovieItemView(movieDao = movie)
             }
-
         })
 
 
@@ -44,46 +44,41 @@ fun MovieListView(
 @Composable
 fun MovieItemView(movieDao: MovieDao) {
     Card(
+        backgroundColor = Color.DarkGray,
         modifier = Modifier
             .padding(8.dp)
+            .clip(RoundedCornerShape(8.dp))
     ) {
-        Surface(
+        Column(
             modifier = Modifier
-                .padding(9.dp),
-            color = MaterialTheme.colors.onSurface.copy(alpha = 0.2f)
+                .fillMaxWidth()
+                .padding(8.dp)
         ) {
-            Column {
-                val image: Painter = painterResource(movieDao.moviePicture)
-                Image(
-                    painter = image, contentDescription = "",
-                    contentScale = ContentScale.Crop,
-                    modifier = Modifier.clip(RoundedCornerShape(8.dp))
+            val image: Painter = painterResource(movieDao.moviePicture)
+            Image(
+                painter = image, contentDescription = "",
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .clip(RoundedCornerShape(8.dp))
+                    .aspectRatio(9f / 16)
+            )
+            Row {
+                Text(
+                    text = movieDao.name,
+                    textAlign = TextAlign.Center,
+                    color = Color.Yellow,
+                    modifier = Modifier
+                        .padding(start = 8.dp, top = 16.dp)
+                        .weight(1f)
                 )
-                Row {
-                    Text(
-                        text = movieDao.name,
-                        textAlign = TextAlign.Center,
-                        modifier = Modifier
-                            .padding(start = 8.dp, top = 16.dp)
+                IconButton(
+                    onClick = {  /*doSomething()*/ },
+                ) {
+                    Icon(Icons.Filled.Favorite, contentDescription = null)
 
-
-                    )
-                    Spacer(
-                        modifier = Modifier
-                            .padding(45.dp, 0.dp)
-                    )
-                    IconButton(
-                        onClick = {  /*doSomething()*/ },
-                    ) {
-                        Icon(Icons.Filled.Favorite, contentDescription = null)
-
-                    }
                 }
-
             }
-
         }
-
     }
 }
 
@@ -94,7 +89,7 @@ fun MovieItemView(movieDao: MovieDao) {
 fun PopularMovieItemPreview() {
     /* val movieList = MovieDao.getMovies()
      MovieListView(list = movieList)*/
-    MovieItemView(MovieDao("Interestellar", R.drawable.ic_banner_movie))
+    MovieItemView(MovieDao("Thor", R.drawable.ic_banner_movie))
 }
 
 
