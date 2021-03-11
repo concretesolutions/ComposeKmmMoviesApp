@@ -11,7 +11,7 @@ val localProperties = Properties()
 try {
     localProperties.load(FileInputStream("local.properties"))
 } catch (ex: java.io.IOException) {
-    localProperties["apiKey"] = "Insert your key in local.properties"
+    localProperties["apiKey"] = "\"Insert your key in local.properties;\""
 }
 
 android {
@@ -70,11 +70,10 @@ android {
 
 val retrofitVersion = "2.9.0"
 val okHttpVersion = "4.9.1"
-val coroutinesVersion = "1.4.2"
+val coroutinesVersion = "1.4.3"
 val koinVersion = "2.2.2"
 
 dependencies {
-    implementation(project(":shared"))
     // Android X & Material
     implementation("androidx.core:core-ktx:1.3.2")
     implementation("androidx.appcompat:appcompat:1.2.0")
@@ -107,6 +106,7 @@ dependencies {
     implementation("org.koin:koin-androidx-viewmodel:$koinVersion")
 
     // Threading
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")
 
 
@@ -119,6 +119,7 @@ dependencies {
     testImplementation("androidx.test.ext:junit:1.1.2")
     testImplementation("androidx.test.espresso:espresso-core:3.3.0")
     testImplementation("org.robolectric:robolectric:4.5.1")
+    testImplementation("androidx.arch.core:core-testing:2.1.0")
 
     // Instrumented tests
     androidTestImplementation("androidx.test.ext:junit:1.1.2")
