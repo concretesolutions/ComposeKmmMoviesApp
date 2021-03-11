@@ -37,7 +37,7 @@ kotlin {
     val ktorVersion = "1.4.2"
     val serializationVersion = "1.0.1"
     val sqlDelightVersion = "1.4.4"
-    val coroutinesVersion = "1.4.2"
+    val coroutinesVersion = "1.4.3"
 
     sourceSets {
         val commonMain by getting{
