@@ -7,6 +7,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.material.Text
 import br.com.concrete.composekmmmoviesapp.MoviesSdk
 import br.com.concrete.composekmmmoviesapp.data.Response
+import br.com.concrete.composekmmmoviesapp.domain.Genres
 import br.com.concrete.composekmmmoviesapp.domain.Movies
 import br.com.concrete.composekmmmoviesapp.shared.Greeting
 import kotlinx.coroutines.MainScope
@@ -28,9 +29,16 @@ class MainActivity : ComponentActivity() {
         }
 
         mainScope.launch {
-                val response : Response<Movies> = moviesSdk.getPopularMovies()
-                if(response is Response.Success)
-                    Toast.makeText(this@MainActivity,response.data.results[0].originalTitle,Toast.LENGTH_SHORT).show()
+              val response : Response<Movies> = moviesSdk.getPopularMovies()
+            if(response is Response.Success)
+             Toast.makeText(this@MainActivity,response.data.results[0].originalTitle,Toast.LENGTH_SHORT).show()
+       }
+
+        mainScope.launch {
+            val response : Response<Genres> = moviesSdk.getGenresList()
+         if(response is Response.Success)
+          Toast.makeText(this@MainActivity,response.data.genres[0].name,Toast.LENGTH_SHORT).show()
+
         }
     }
 }
