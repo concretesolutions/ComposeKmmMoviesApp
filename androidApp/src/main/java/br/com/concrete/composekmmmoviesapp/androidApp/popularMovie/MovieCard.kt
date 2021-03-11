@@ -1,11 +1,15 @@
 package br.com.concrete.composekmmmoviesapp.androidApp.popularMovie
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Card
 import androidx.compose.material.Icon
@@ -19,39 +23,40 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import br.com.concrete.composekmmmoviesapp.androidApp.R
 
-/*@Composable
-fun CharactersList(
-    items: List<MovieDao> = listOf(),
-    cols: Int = 2
-) {
-    val movieList = items.chunked(cols)
-    LazyColumn(items = chunkedList) {
-        Row {
-            for(character in it) {
-                MovieItemView(character)
+/*@ExperimentalFoundationApi
+@Composable
+fun Board(board: Array<IntArray>) {
+    LazyVerticalGrid(cells = GridCells.Fixed(Game2048.BOARD_SIZE),
+        modifier = Modifier
+            .clip(shapes.large)
+            .background(color = ProjectColors.surface)
+            .padding(4.dp),
+        content = {
+            items(Game2048.BOARD_SIZE * Game2048.BOARD_SIZE) { index ->
+
             }
-        }
-    }
+        })
 }*/
+
+@ExperimentalFoundationApi
 @Composable
 fun MovieListView(
     list: List<MovieDao>
 ) {
-    val colunas = 2
-    LazyColumn (){
-        items(list.chunked(colunas)) { movie ->
-            Row() {
-                for (movie in list){
+    LazyVerticalGrid(cells = GridCells.Fixed(2),
+        content = {
+                items(list) { movie ->
                     MovieItemView(movieDao = movie)
-                }
-
             }
 
-        }
-    }
+        })
+
+
 }
 
 @Composable
@@ -70,9 +75,10 @@ fun MovieItemView(movieDao: MovieDao) {
                 Text(
                     text = movieDao.name,
                     color = Color.Yellow,
-                    modifier = Modifier.weight(1F)
+                    textAlign = TextAlign.Center
+                    //modifier = Modifier.weight(1F)
 
-                    )
+                )
                 IconButton(onClick = { /* doSomething() */ }) {
                     Icon(Icons.Filled.Favorite, contentDescription = null)
 
@@ -93,15 +99,3 @@ fun PopularMovieItemPreview() {
 }
 
 
-/*@Composable
-fun GridLayoutComponent(movieDao: List<MovieDao>) {
-    val numberOfColumns = 2
-    Table(columns = numberOfColumns) {
-        for (i in movieDao.indices step numberOfColumns) {
-            tableRow {
-                for (j in 0 until numberOfColumns)
-                   }
-                }
-            }
-        }
-    }*/
