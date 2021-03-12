@@ -1,8 +1,8 @@
 package br.com.concrete.composekmmmoviesapp.androidApp
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -11,12 +11,14 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.*
+import br.com.concrete.composekmmmoviesapp.androidApp.data.model.Movie
 import br.com.concrete.composekmmmoviesapp.androidApp.home.favoritestab.FavoritesScreen
 import br.com.concrete.composekmmmoviesapp.androidApp.home.moviestab.MoviesScreen
+import br.com.concrete.composekmmmoviesapp.androidApp.moviedetail.MovieDetailScreen
 import br.com.concrete.composekmmmoviesapp.androidApp.theme.ComposeMoviesAppTheme
-import br.com.concrete.composekmmmoviesapp.androidApp.theme.Yellow
 
 @Preview(device = Devices.PIXEL_4_XL)
 @Composable
@@ -27,10 +29,23 @@ fun MoviesApp() {
             topBar = { TopAppBar(title = { Text(stringResource(id = R.string.app_name)) }) },
             bottomBar = { MoviesAppBottomBar(navController) }
         ) {
-            NavHost(navController, startDestination = Screen.Movies.route) {
-                composable(Screen.Movies.route) { MoviesScreen() }
-                composable(Screen.Favorites.route) { FavoritesScreen() }
-                composable(Screen.Detail.route) { Detail() }
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(bottom = 50.dp)
+            ) {
+                NavHost(navController, startDestination = Screen.Movies.route) {
+                    composable(Screen.Movies.route) { MoviesScreen(navController) }
+                    composable(Screen.Favorites.route) { FavoritesScreen(navController) }
+                    composable("detail") {
+                        val movie = navController.previousBackStackEntry
+                            ?.arguments?.getParcelable<Movie>("movie")
+
+                        if (movie != null) {
+                            MovieDetailScreen(movie)
+                        }
+                    }
+                }
             }
         }
     }
@@ -74,15 +89,4 @@ fun MoviesList(navController: NavController) {
 @Composable
 fun Favorites() {
     Text("Favorites")
-}
-
-@Composable
-fun Detail() {
-    Box(
-        modifier = Modifier
-            .background(Yellow)
-            .fillMaxSize()
-    ) {
-        Text("Detail")
-    }
 }

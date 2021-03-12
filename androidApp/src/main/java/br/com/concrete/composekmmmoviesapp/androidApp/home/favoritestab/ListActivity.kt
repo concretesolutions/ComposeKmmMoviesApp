@@ -7,8 +7,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.MaterialTheme.typography
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
@@ -19,32 +17,47 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import br.com.concrete.composekmmmoviesapp.androidApp.common.FavoriteMovieButton
 import br.com.concrete.composekmmmoviesapp.androidApp.data.model.Movie
 import dev.chrisbanes.accompanist.coil.CoilImage
 
 @Composable
-fun SetFavoriteMovieList(movies: List<Movie>) {
+fun SetFavoriteMovieList(
+    movies: List<Movie>,
+    onClickCard: (Movie) -> Unit,
+    onClickFavorite: (Movie) -> Unit
+) {
     LazyColumn(modifier = Modifier.fillMaxSize()) {
         items(movies.size) { index ->
-            SetFavoriteMovieView1(movie = movies[index])
+            SetFavoriteMovieView1(movie = movies[index], onClickCard, onClickFavorite)
         }
     }
 }
 
 @Composable
-fun SetFavoriteMovieView1(movie: Movie) {
+fun SetFavoriteMovieView1(
+    movie: Movie,
+    onClickCard: (Movie) -> Unit,
+    onClickFavorite: (Movie) -> Unit
+) {
     Card {
-        FavoritesCard(movie, onClick = { /*TODO*/ })
+        FavoritesCard(
+            movie, onClickCard, onClickFavorite
+        )
     }
 }
 
 @Composable
-fun FavoritesCard(movie: Movie, onClick: () -> Unit) {
+fun FavoritesCard(
+    movie: Movie,
+    onClickCard: (Movie) -> Unit,
+    onClickFavorite: (Movie) -> Unit
+) {
     Card(
         modifier = Modifier
             .padding(10.dp)
             .fillMaxWidth()
-            .clickable(onClick = onClick),
+            .clickable(onClick = { onClickCard(movie) }),
         elevation = 16.dp
     ) {
         Row(
@@ -93,13 +106,8 @@ fun FavoritesCard(movie: Movie, onClick: () -> Unit) {
                     Surface(
                         modifier = Modifier
                             .size(30.dp)
-                            //.padding(5.dp)
-                            .clickable(onClick = onClick),
-                        //  color = MaterialTheme.colors.onSurface.copy(alpha = 0.2f)
                     ) {
-                        IconButton(onClick = { }) {
-                            Icon(Icons.Filled.Favorite, contentDescription = null)
-                        }
+                        FavoriteMovieButton(movie, onClickFavorite)
                     }
                 }
                 Text(

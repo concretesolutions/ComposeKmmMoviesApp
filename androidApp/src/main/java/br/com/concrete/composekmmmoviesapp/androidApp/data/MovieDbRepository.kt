@@ -27,11 +27,9 @@ class MovieDbRepository(
                 mapMovies
             } else {
                 emptyList()
-//                Result.failure(IllegalStateException())
             }
         } catch (ex: Throwable) {
             emptyList()
-//            Result.failure(ex)
         }
     }
 

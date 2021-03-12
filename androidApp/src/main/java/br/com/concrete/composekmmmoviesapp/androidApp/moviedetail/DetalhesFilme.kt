@@ -17,8 +17,7 @@ import br.com.concrete.composekmmmoviesapp.androidApp.util.DataSamples
 import dev.chrisbanes.accompanist.coil.CoilImage
 
 @Composable
-fun NewsStory(movie: Movie) {
-
+fun MovieDetailScreen(movie: Movie) {
     MaterialTheme {
         val typography = MaterialTheme.typography
         Column(
@@ -57,7 +56,7 @@ fun NewsStory(movie: Movie) {
                 style = typography.h6
             )
             Text(
-                movie.genres.joinToString(),
+                movie.genres.joinToString { it.name },
                 style = typography.body2
             )
             Text(
@@ -75,5 +74,5 @@ fun NewsStory(movie: Movie) {
 @Preview
 @Composable
 fun DefultPreview() {
-    NewsStory(DataSamples.movie)
+    MovieDetailScreen(DataSamples.movie)
 }

@@ -1,6 +1,7 @@
 package br.com.concrete.composekmmmoviesapp.androidApp.popularMovie
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyVerticalGrid
@@ -24,13 +25,14 @@ import dev.chrisbanes.accompanist.coil.CoilImage
 @Composable
 fun MovieListView(
     list: List<Movie>,
-    favoriteUnfavoriteAction: (Movie) -> Unit
+    favoriteUnfavoriteAction: (Movie) -> Unit,
+    clickMovieAction: (Movie) -> Unit
 ) {
     LazyVerticalGrid(cells = GridCells.Fixed(2),
         contentPadding = PaddingValues(8.dp),
         content = {
             items(list) { movie ->
-                MovieItemView(movie = movie, favoriteUnfavoriteAction)
+                MovieItemView(movie = movie, favoriteUnfavoriteAction, clickMovieAction)
             }
         })
 }
@@ -38,13 +40,15 @@ fun MovieListView(
 @Composable
 fun MovieItemView(
     movie: Movie,
-    favoriteUnfavoriteAction: (Movie) -> Unit
+    favoriteUnfavoriteAction: (Movie) -> Unit,
+    clickMovieAction: (Movie) -> Unit
 ) {
     Card(
         backgroundColor = Color.DarkGray,
         modifier = Modifier
             .padding(8.dp)
             .clip(RoundedCornerShape(8.dp))
+            .clickable { clickMovieAction(movie) }
     ) {
         Column(
             modifier = Modifier
