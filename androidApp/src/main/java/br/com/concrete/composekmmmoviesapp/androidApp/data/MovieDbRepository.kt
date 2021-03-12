@@ -26,10 +26,10 @@ class MovieDbRepository(
                 val mapMovies = mapper.mapMoviesDtoToMovie(popularMovies, favoriteMovies, genres)
                 mapMovies
             } else {
-                emptyList()
+                throw IllegalStateException()
             }
         } catch (ex: Throwable) {
-            emptyList()
+            throw ex
         }
     }
 

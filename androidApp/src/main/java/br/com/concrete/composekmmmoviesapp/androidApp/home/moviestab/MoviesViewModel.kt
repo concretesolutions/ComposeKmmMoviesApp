@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import br.com.concrete.composekmmmoviesapp.androidApp.R
 import br.com.concrete.composekmmmoviesapp.androidApp.data.MovieDbRepository
 import br.com.concrete.composekmmmoviesapp.androidApp.data.model.Movie
 import kotlinx.coroutines.launch
@@ -27,9 +28,12 @@ class MoviesViewModel(
     private fun getMoviesListState() {
         viewModelScope.launch {
             _moviesList.value = MoviesListUiState.Loading
-            val resultPopularMovies = moviesDbRepository.getPopularMovies()
-
-            _moviesList.value = MoviesListUiState.Success(resultPopularMovies)
+            try {
+                val resultPopularMovies = moviesDbRepository.getPopularMovies()
+                _moviesList.value = MoviesListUiState.Success(resultPopularMovies)
+            }catch (ex: Throwable){
+                _moviesList.value = MoviesListUiState.Error(R.string.generic_error)
+            }
         }
     }
 
