@@ -2,8 +2,8 @@ package br.com.concrete.composekmmmoviesapp.androidApp.home.moviestab
 
 import androidx.annotation.StringRes
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import br.com.concrete.composekmmmoviesapp.androidApp.data.MovieDbRepository
 import br.com.concrete.composekmmmoviesapp.androidApp.data.model.Movie
@@ -18,26 +18,39 @@ sealed class MoviesListUiState {
 class MoviesViewModel(
     private val moviesDbRepository: MovieDbRepository
 ) : ViewModel() {
-    val moviesList: LiveData<MoviesListUiState> = liveData {
-        emit(MoviesListUiState.Loading)
-        val resultPopularMovies = moviesDbRepository.getPopularMovies()
+    private val _moviesList = MutableLiveData<MoviesListUiState>()
+    val moviesList: LiveData<MoviesListUiState> by lazy {
+        getMoviesListState()
+        _moviesList
+    }
 
-//        if (resultPopularMovies.isSuccess) {
-            emit(MoviesListUiState.Success(resultPopularMovies))
-//        } else {
-//            emit(MoviesListUiState.Error(R.string.generic_error))
-//        }
+    private fun getMoviesListState() {
+        viewModelScope.launch {
+            _moviesList.value = MoviesListUiState.Loading
+            val resultPopularMovies = moviesDbRepository.getPopularMovies()
+
+            _moviesList.value = MoviesListUiState.Success(resultPopularMovies)
+        }
     }
 
     fun addToFavorite(movie: Movie) {
         viewModelScope.launch {
             moviesDbRepository.addToFavorite(movie)
+            updateFavoriteState()
         }
     }
 
     fun removeFrom(movie: Movie) {
         viewModelScope.launch {
             moviesDbRepository.removeFromFavorite(movie)
+            updateFavoriteState()
+        }
+    }
+
+    private fun updateFavoriteState() {
+        viewModelScope.launch {
+            val resultPopularMovies = moviesDbRepository.getPopularMovies()
+            _moviesList.value = MoviesListUiState.Success(resultPopularMovies)
         }
     }
 }
