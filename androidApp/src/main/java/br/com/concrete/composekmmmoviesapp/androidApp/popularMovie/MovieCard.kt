@@ -50,14 +50,6 @@ fun MovieItemView(movieDao: MovieDao) {
                 .fillMaxWidth()
                 .padding(8.dp)
         ) {
-            /* val image: Painter = painterResource(movieDao.moviePicture)
-             Image(
-                 painter = image, contentDescription = "",
-                 contentScale = ContentScale.Crop,
-                 modifier = Modifier
-                     .clip(RoundedCornerShape(8.dp))
-                     .aspectRatio(9f / 16)
-             )*/
             CoilImage(
                 data = movieDao.moviePicture,
                 modifier = Modifier
@@ -94,7 +86,12 @@ fun MovieItemView(movieDao: MovieDao) {
 fun PopularMovieItemPreview() {
     /* val movieList = MovieDao.getMovies()
      MovieListView(list = movieList)*/
-    MovieItemView(MovieDao("Thor", "https://williansallan.files.wordpress.com/2011/03/pc3b4ster-thor.jpg?w=425&h=&zoom=2"))
+    MovieItemView(
+        MovieDao(
+            "Thor",
+            "https://williansallan.files.wordpress.com/2011/03/pc3b4ster-thor.jpg?w=425&h=&zoom=2"
+        )
+    )
 }
 
 
