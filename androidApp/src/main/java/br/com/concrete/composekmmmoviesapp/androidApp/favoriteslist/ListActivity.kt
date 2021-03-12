@@ -29,14 +29,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import br.com.concrete.composekmmmoviesapp.androidApp.R
 
-
-
-
 @Composable
 fun FavoritesCard(moviesList: DataList,onClick:() -> Unit){
     Card(
         modifier = Modifier
-            .padding(8.dp)
+            .padding(10.dp)
             .fillMaxWidth()
             .clickable(onClick = onClick),
         elevation = 16.dp
@@ -74,10 +71,11 @@ fun FavoritesCard(moviesList: DataList,onClick:() -> Unit){
                         Text(
                             text = moviesList.name,
                             fontWeight = FontWeight.Bold,
-                            style = TextStyle(fontSize = 22.sp),
+                            style = typography.h5,
                             color = Color.Black
                         )
-                        Spacer(modifier = Modifier.padding(120.dp,0.dp,0.dp,0.dp)/*.padding(70.dp,0.dp)*/)
+                        Spacer(modifier = Modifier
+                            .weight(0.7f))
                         Surface(
                             modifier = Modifier
                                 .size(30.dp)
@@ -87,29 +85,13 @@ fun FavoritesCard(moviesList: DataList,onClick:() -> Unit){
                         ) {
                             IconButton(onClick = { }) {
                                 Icon(Icons.Filled.Favorite, contentDescription = null)
-
                             }
-                            //Arrangement.End
-                            /* Image(painter = painterResource(id = moviesList.favoritstar),
-                                 contentDescription = null,
-                                 modifier = Modifier
-                                     .height(120.dp)
-                                    // .clip(shape = RoundedCornerShape(15.dp)),
-                               //  contentScale = ContentScale.Crop*/
-                            //)
                         }
-
-                        /*Row(
-                            //modifier = Modifier,
-                            horizontalArrangement = Arrangement.End){
-
-                            }*/
-
                     }
                     Text(
                         text = moviesList.year,
                         fontWeight = FontWeight.Black,
-                        style = TextStyle(fontSize = 17.sp),
+                        style = typography.body1/*TextStyle(fontSize = 17.sp)*/,
                         color = Color.Black
                     )
                 CompositionLocalProvider(
