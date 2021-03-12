@@ -2,7 +2,11 @@ package br.com.concrete.composekmmmoviesapp.androidApp.home.moviestab
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material.Button
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -10,6 +14,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import br.com.concrete.composekmmmoviesapp.androidApp.popularMovie.MovieListView
 import org.koin.java.KoinJavaComponent.inject
 
@@ -33,7 +38,32 @@ fun MoviesScreen() {
             }
             is MoviesListUiState.Success -> {
                 val movies = uiState.moviesList
-                MovieListView(list = movies)
+
+                val anaUI = false
+                if (anaUI) {
+                    MovieListView(list = movies)
+                } else {
+                    LazyColumn(modifier = Modifier.fillMaxSize()) {
+                        items(movies.size) { index ->
+                            val movie = movies[index]
+                            Column {
+                                Text(movie.title, modifier = Modifier.padding(16.dp))
+                                Text(movie.imageUrl, modifier = Modifier.padding(16.dp))
+                                Button({
+                                    moviesViewModel.addToFavorite(movie)
+                                }) {
+                                    Text("Add to favorite")
+                                }
+
+                                Button({
+                                    moviesViewModel.removeFrom(movie)
+                                }) {
+                                    Text("Remove from favorites")
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
