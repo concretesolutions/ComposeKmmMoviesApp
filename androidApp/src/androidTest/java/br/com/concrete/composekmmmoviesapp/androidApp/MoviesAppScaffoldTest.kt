@@ -1,9 +1,11 @@
 package br.com.concrete.composekmmmoviesapp.androidApp
 
-import androidx.compose.ui.test.*
+import androidx.compose.ui.test.assertIsNotSelected
+import androidx.compose.ui.test.assertIsSelected
+import androidx.compose.ui.test.hasTestTag
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import androidx.compose.ui.test.performClick
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import br.com.concrete.composekmmmoviesapp.androidApp.home.MoviesApp
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test

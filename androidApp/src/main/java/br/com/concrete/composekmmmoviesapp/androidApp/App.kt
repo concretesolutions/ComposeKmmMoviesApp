@@ -1,4 +1,4 @@
-package br.com.concrete.composekmmmoviesapp.androidApp.home
+package br.com.concrete.composekmmmoviesapp.androidApp
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -13,7 +13,6 @@ import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import androidx.navigation.compose.*
-import br.com.concrete.composekmmmoviesapp.androidApp.R
 import br.com.concrete.composekmmmoviesapp.androidApp.home.favoritestab.FavoritesScreen
 import br.com.concrete.composekmmmoviesapp.androidApp.home.moviestab.MoviesScreen
 import br.com.concrete.composekmmmoviesapp.androidApp.theme.ComposeMoviesAppTheme
