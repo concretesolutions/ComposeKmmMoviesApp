@@ -6,5 +6,5 @@ import br.com.concrete.composekmmmoviesapp.androidApp.data.MovieDbRepository
 class FavoritesViewModel(
     movieDbRepository: MovieDbRepository
 ) : ViewModel() {
-    val favoritesLiveData = movieDbRepository.getFavoriteMovies()
+    val favoritesLiveData = movieDbRepository.getFavoriteMoviesLiveData()
 }

@@ -7,11 +7,7 @@ import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
 import androidx.compose.material.Text
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -20,23 +16,30 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import br.com.concrete.composekmmmoviesapp.androidApp.common.FavoriteMovieButton
 import br.com.concrete.composekmmmoviesapp.androidApp.data.model.Movie
 import dev.chrisbanes.accompanist.coil.CoilImage
 
 @ExperimentalFoundationApi
 @Composable
-fun MovieListView(list: List<Movie>) {
+fun MovieListView(
+    list: List<Movie>,
+    favoriteUnfavoriteAction: (Movie) -> Unit
+) {
     LazyVerticalGrid(cells = GridCells.Fixed(2),
         contentPadding = PaddingValues(8.dp),
         content = {
             items(list) { movie ->
-                MovieItemView(movie = movie)
+                MovieItemView(movie = movie, favoriteUnfavoriteAction)
             }
         })
 }
 
 @Composable
-fun MovieItemView(movie: Movie) {
+fun MovieItemView(
+    movie: Movie,
+    favoriteUnfavoriteAction: (Movie) -> Unit
+) {
     Card(
         backgroundColor = Color.DarkGray,
         modifier = Modifier
@@ -65,11 +68,8 @@ fun MovieItemView(movie: Movie) {
                         .padding(start = 8.dp, top = 16.dp)
                         .weight(1f)
                 )
-                IconButton(
-                    onClick = {  /*doSomething()*/ },
-                ) {
-                    Icon(Icons.Filled.Favorite, contentDescription = null)
-                }
+
+                FavoriteMovieButton(movie, favoriteUnfavoriteAction)
             }
         }
     }

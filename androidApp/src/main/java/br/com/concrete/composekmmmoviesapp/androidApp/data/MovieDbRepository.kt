@@ -19,8 +19,11 @@ class MovieDbRepository(
         try {
             val popularMovies = api.getPopularMovies().body()
             val genres = api.getGenres().body()
+            val favoriteMovies = favoriteDao.getFavoriteMovies().map {
+                favoritesMapper.mapDbToMovie(it)
+            }
             if (popularMovies != null && genres != null) {
-                val mapMovies = mapper.mapMoviesDtoToMovie(popularMovies, genres)
+                val mapMovies = mapper.mapMoviesDtoToMovie(popularMovies, favoriteMovies, genres)
                 mapMovies
             } else {
                 emptyList()
@@ -42,8 +45,8 @@ class MovieDbRepository(
         favoriteDao.deleteFavorite(movieDbEntity)
     }
 
-    fun getFavoriteMovies(): LiveData<List<Movie>> {
-        return favoriteDao.getFavoriteMovies().map {
+    fun getFavoriteMoviesLiveData(): LiveData<List<Movie>> {
+        return favoriteDao.getFavoriteMoviesLiveData().map {
             favoritesMapper.mapDbToMovies(it)
         }
     }

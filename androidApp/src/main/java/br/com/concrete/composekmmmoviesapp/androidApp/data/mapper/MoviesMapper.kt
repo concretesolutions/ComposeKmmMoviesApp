@@ -14,6 +14,7 @@ class MoviesMapper {
 
     fun mapMoviesDtoToMovie(
         moviePage: MoviePageDto,
+        favoriteMovies: List<Movie>,
         genreDto: GenreDto
     ): List<Movie> {
         return moviePage.movieItems.map { apiMovie ->
@@ -35,7 +36,8 @@ class MoviesMapper {
                 imageUrl = "${imageBaseUrl}${apiMovie.backdropPath}",
                 genres = movieGenres,
                 overview = apiMovie.overview,
-                releaseYear = apiMovie.releaseDate.parseToDate()?.getYearFromDate() ?: -1
+                releaseYear = apiMovie.releaseDate.parseToDate()?.getYearFromDate() ?: -1,
+                isfavorite = favoriteMovies.any { it.id == apiMovie.id }
             )
         }
     }

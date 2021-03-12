@@ -6,16 +6,19 @@ import br.com.concrete.composekmmmoviesapp.androidApp.data.model.Movie
 
 class FavoritesMapper {
     fun mapDbToMovies(favoriteMovies: List<FavoriteMovieDbEntity>): List<Movie> {
-        return favoriteMovies.map {
-            Movie(
-                id = it.id,
-                title = it.title,
-                imageUrl = it.imageUrl,
-                genres = it.genres.split(",").map { Genre(1, it) },
-                overview = it.overview,
-                releaseYear = it.releaseYear
-            )
-        }
+        return favoriteMovies.map { mapDbToMovie(it) }
+    }
+
+    fun mapDbToMovie(favoriteEntity: FavoriteMovieDbEntity): Movie{
+        return Movie(
+            id = favoriteEntity.id,
+            title = favoriteEntity.title,
+            imageUrl = favoriteEntity.imageUrl,
+            genres = favoriteEntity.genres.split(",").map { Genre(1, it) },
+            overview = favoriteEntity.overview,
+            releaseYear = favoriteEntity.releaseYear,
+            isfavorite = true
+        )
     }
 
     fun mapMovieToDbEntity(movie: Movie): FavoriteMovieDbEntity {
@@ -26,7 +29,6 @@ class FavoritesMapper {
             imageUrl = movie.imageUrl,
             releaseYear = movie.releaseYear,
             genres = movie.genres.joinToString { it.name }
-
         )
     }
 

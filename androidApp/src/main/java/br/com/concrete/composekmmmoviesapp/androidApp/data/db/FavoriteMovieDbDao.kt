@@ -6,7 +6,10 @@ import androidx.room.*
 @Dao
 interface FavoriteMovieDbDao {
     @Query("SELECT * FROM FavoriteMovie")
-    fun getFavoriteMovies(): LiveData<List<FavoriteMovieDbEntity>>
+    fun getFavoriteMoviesLiveData(): LiveData<List<FavoriteMovieDbEntity>>
+
+    @Query("SELECT * FROM FavoriteMovie")
+    suspend fun getFavoriteMovies(): List<FavoriteMovieDbEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertFavorite(movie: FavoriteMovieDbEntity)

@@ -6,5 +6,6 @@ data class Movie(
     val imageUrl: String,
     val overview: String,
     val releaseYear: Int,
-    val genres: List<Genre>
+    val genres: List<Genre>,
+    val isfavorite: Boolean
 )
