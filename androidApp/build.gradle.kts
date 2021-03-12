@@ -58,7 +58,7 @@ dependencies {
     // Compose integrations
     implementation("androidx.activity:activity-compose:1.3.0-alpha03")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.3.0")
-
+    implementation ("dev.chrisbanes.accompanist:accompanist-coil:0.6.0")
     // Unit test
     testImplementation("junit:junit:4.13.2")
 

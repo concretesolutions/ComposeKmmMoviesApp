@@ -3,30 +3,34 @@ package br.com.concrete.composekmmmoviesapp.androidApp.popularMovie
 import br.com.concrete.composekmmmoviesapp.androidApp.R
 
 
-class MovieDao constructor(val name:String, val moviePicture:Int){
+class MovieDao(val name:String, val moviePicture: String){
     companion object{
         fun getMovies():List<MovieDao>{
             return arrayListOf(
-                MovieDao("HEROI", R.drawable.ic_banner_movie),
-                MovieDao("HEROI", R.drawable.ic_banner_movie),
-                MovieDao("HEROI", R.drawable.ic_banner_movie),
-                MovieDao("HEROI", R.drawable.ic_banner_movie),
-                MovieDao("HEROI", R.drawable.ic_banner_movie),
-                MovieDao("HEROI", R.drawable.ic_banner_movie),
-                MovieDao("HEROI", R.drawable.ic_banner_movie),
-                MovieDao("HEROI", R.drawable.ic_banner_movie),
-                MovieDao("HEROI", R.drawable.ic_banner_movie),
-                MovieDao("HEROI", R.drawable.ic_banner_movie),
-                MovieDao("HEROI", R.drawable.ic_banner_movie),
-                MovieDao("HEROI", R.drawable.ic_banner_movie),
-                MovieDao("HEROI", R.drawable.ic_banner_movie),
-                MovieDao("HEROI", R.drawable.ic_banner_movie),
-                MovieDao("HEROI", R.drawable.ic_banner_movie),
-                MovieDao("HEROI", R.drawable.ic_banner_movie),
-                MovieDao("HEROI", R.drawable.ic_banner_movie),
-                MovieDao("HEROI", R.drawable.ic_banner_movie),
-                MovieDao("HEROI", R.drawable.ic_banner_movie),
-                MovieDao("HEROI", R.drawable.ic_banner_movie)
+                MovieDao("HEROI", "https://pics.filmaffinity.com/interstellar-366875261-large.jpg"),
+                MovieDao("HEROI", "https://pics.filmaffinity.com/interstellar-366875261-large.jpg"),
+                MovieDao("HEROI", "https://pics.filmaffinity.com/interstellar-366875261-large.jpg"),
+                MovieDao("HEROI", "https://pics.filmaffinity.com/interstellar-366875261-large.jpg"),
+                MovieDao("HEROI", "https://pics.filmaffinity.com/interstellar-366875261-large.jpg"),
+                MovieDao("HEROI", "https://pics.filmaffinity.com/interstellar-366875261-large.jpg"),
+                MovieDao("HEROI", "https://pics.filmaffinity.com/interstellar-366875261-large.jpg"),
+                MovieDao("HEROI", "https://pics.filmaffinity.com/interstellar-366875261-large.jpg"),
+                MovieDao("HEROI", "https://pics.filmaffinity.com/interstellar-366875261-large.jpg"),
+                MovieDao("HEROI", "https://pics.filmaffinity.com/interstellar-366875261-large.jpg"),
+                MovieDao("HEROI", "https://pics.filmaffinity.com/interstellar-366875261-large.jpg"),
+                MovieDao("HEROI", "https://pics.filmaffinity.com/interstellar-366875261-large.jpg"),
+                MovieDao("HEROI", "https://pics.filmaffinity.com/interstellar-366875261-large.jpg"),
+                MovieDao("HEROI", "https://pics.filmaffinity.com/interstellar-366875261-large.jpg"),
+                MovieDao("HEROI", "https://pics.filmaffinity.com/interstellar-366875261-large.jpg"),
+                MovieDao("HEROI", "https://pics.filmaffinity.com/interstellar-366875261-large.jpg"),
+                MovieDao("HEROI", "https://pics.filmaffinity.com/interstellar-366875261-large.jpg"),
+                MovieDao("HEROI", "https://pics.filmaffinity.com/interstellar-366875261-large.jpg"),
+                MovieDao("HEROI", "https://pics.filmaffinity.com/interstellar-366875261-large.jpg"),
+                MovieDao("HEROI", "https://pics.filmaffinity.com/interstellar-366875261-large.jpg"),
+                MovieDao("HEROI", "https://pics.filmaffinity.com/interstellar-366875261-large.jpg"),
+                MovieDao("HEROI", "https://pics.filmaffinity.com/interstellar-366875261-large.jpg"),
+                MovieDao("HEROI", "https://pics.filmaffinity.com/interstellar-366875261-large.jpg"),
+                MovieDao("HEROI", "https://pics.filmaffinity.com/interstellar-366875261-large.jpg")
 
 
             ).toList()

@@ -1,7 +1,6 @@
 package br.com.concrete.composekmmmoviesapp.androidApp.popularMovie
 
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyVerticalGrid
@@ -17,13 +16,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import br.com.concrete.composekmmmoviesapp.androidApp.R
+import dev.chrisbanes.accompanist.coil.CoilImage
 
 @ExperimentalFoundationApi
 @Composable
@@ -54,14 +50,22 @@ fun MovieItemView(movieDao: MovieDao) {
                 .fillMaxWidth()
                 .padding(8.dp)
         ) {
-            val image: Painter = painterResource(movieDao.moviePicture)
-            Image(
-                painter = image, contentDescription = "",
-                contentScale = ContentScale.Crop,
+            /* val image: Painter = painterResource(movieDao.moviePicture)
+             Image(
+                 painter = image, contentDescription = "",
+                 contentScale = ContentScale.Crop,
+                 modifier = Modifier
+                     .clip(RoundedCornerShape(8.dp))
+                     .aspectRatio(9f / 16)
+             )*/
+            CoilImage(
+                data = movieDao.moviePicture,
                 modifier = Modifier
                     .clip(RoundedCornerShape(8.dp))
                     .aspectRatio(9f / 16)
-            )
+            ) {
+
+            }
             Row {
                 Text(
                     text = movieDao.name,
@@ -77,6 +81,7 @@ fun MovieItemView(movieDao: MovieDao) {
                     Icon(Icons.Filled.Favorite, contentDescription = null)
 
                 }
+
             }
         }
     }
@@ -89,7 +94,7 @@ fun MovieItemView(movieDao: MovieDao) {
 fun PopularMovieItemPreview() {
     /* val movieList = MovieDao.getMovies()
      MovieListView(list = movieList)*/
-    MovieItemView(MovieDao("Thor", R.drawable.ic_banner_movie))
+    MovieItemView(MovieDao("Thor", "https://williansallan.files.wordpress.com/2011/03/pc3b4ster-thor.jpg?w=425&h=&zoom=2"))
 }
 
 
