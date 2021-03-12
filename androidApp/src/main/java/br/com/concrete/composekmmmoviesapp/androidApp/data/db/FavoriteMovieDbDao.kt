@@ -1,17 +1,14 @@
 package br.com.concrete.composekmmmoviesapp.androidApp.data.db
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface FavoriteMovieDbDao {
     @Query("SELECT * FROM FavoriteMovie")
     fun getFavoriteMovies(): LiveData<List<FavoriteMovieDbEntity>>
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertFavorite(movie: FavoriteMovieDbEntity)
 
     @Delete
