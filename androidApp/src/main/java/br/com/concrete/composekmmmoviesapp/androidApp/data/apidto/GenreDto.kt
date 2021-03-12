@@ -1,4 +1,4 @@
-package br.com.concrete.composekmmmoviesapp.androidApp.data.dto
+package br.com.concrete.composekmmmoviesapp.androidApp.data.apidto
 
 data class GenreDto(
     val genres: List<GenreItemDto>

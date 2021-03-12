@@ -12,4 +12,8 @@ val databaseModule = module {
     factory {
         get<AppDatabase>().favoriteMoviesDao()
     }
+
+    single {
+        MovieDbRepository(get(), get(), get(), get())
+    }
 }

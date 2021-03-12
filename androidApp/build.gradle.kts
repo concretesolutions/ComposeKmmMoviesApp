@@ -41,6 +41,7 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
         useIR = true
+        freeCompilerArgs = listOf("-Xallow-result-return-type")
     }
 
     buildFeatures {

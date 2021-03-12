@@ -1,7 +1,7 @@
 package br.com.concrete.composekmmmoviesapp.androidApp.data.mapper
 
-import br.com.concrete.composekmmmoviesapp.androidApp.data.dto.GenreDto
-import br.com.concrete.composekmmmoviesapp.androidApp.data.dto.MoviePageDto
+import br.com.concrete.composekmmmoviesapp.androidApp.data.apidto.GenreDto
+import br.com.concrete.composekmmmoviesapp.androidApp.data.apidto.MoviePageDto
 import br.com.concrete.composekmmmoviesapp.androidApp.data.model.Genre
 import br.com.concrete.composekmmmoviesapp.androidApp.data.model.Movie
 import br.com.concrete.composekmmmoviesapp.androidApp.util.getYearFromDate

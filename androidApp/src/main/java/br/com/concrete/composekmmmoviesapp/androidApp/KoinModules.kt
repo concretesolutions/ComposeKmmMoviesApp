@@ -11,11 +11,11 @@ import org.koin.dsl.module
 
 val screenModules = module {
     viewModel {
-        MoviesViewModel(get(), get(), get(), get())
+        MoviesViewModel(get())
     }
 
     viewModel {
-        FavoritesViewModel(get(), get())
+        FavoritesViewModel(get())
     }
 
     single {

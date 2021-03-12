@@ -2,7 +2,7 @@ package br.com.concrete.composekmmmoviesapp.androidApp.home.moviestab
 
 import br.com.concrete.composekmmmoviesapp.androidApp.R
 import br.com.concrete.composekmmmoviesapp.androidApp.data.MoviesDbApi
-import br.com.concrete.composekmmmoviesapp.androidApp.data.dto.MoviePageDto
+import br.com.concrete.composekmmmoviesapp.androidApp.data.apidto.MoviePageDto
 import br.com.concrete.composekmmmoviesapp.androidApp.data.mapper.MoviesMapper
 import br.com.concrete.composekmmmoviesapp.androidApp.util.CoroutineTestRule
 import io.mockk.coEvery

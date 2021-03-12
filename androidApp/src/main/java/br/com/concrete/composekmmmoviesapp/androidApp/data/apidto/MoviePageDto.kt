@@ -1,4 +1,4 @@
-package br.com.concrete.composekmmmoviesapp.androidApp.data.dto
+package br.com.concrete.composekmmmoviesapp.androidApp.data.apidto
 
 import com.google.gson.annotations.SerializedName
 
