@@ -1,5 +1,6 @@
 package br.com.concrete.composekmmmoviesapp.androidApp.data.db
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -8,7 +9,7 @@ import androidx.room.Query
 @Dao
 interface FavoriteMovieDbDao {
     @Query("SELECT * FROM FavoriteMovie")
-    suspend fun getFavoriteMovies(): List<FavoriteMovieDbEntity>
+    fun getFavoriteMovies(): LiveData<List<FavoriteMovieDbEntity>>
 
     @Insert
     suspend fun insertFavorite(movie: FavoriteMovieDbEntity)

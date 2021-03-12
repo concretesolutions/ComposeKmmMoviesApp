@@ -14,6 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import androidx.navigation.compose.*
 import br.com.concrete.composekmmmoviesapp.androidApp.R
+import br.com.concrete.composekmmmoviesapp.androidApp.home.favoritestab.FavoritesScreen
 import br.com.concrete.composekmmmoviesapp.androidApp.home.moviestab.MoviesScreen
 import br.com.concrete.composekmmmoviesapp.androidApp.theme.ComposeMoviesAppTheme
 import br.com.concrete.composekmmmoviesapp.androidApp.theme.Yellow
@@ -29,7 +30,7 @@ fun MoviesApp() {
         ) {
             NavHost(navController, startDestination = Screen.Movies.route) {
                 composable(Screen.Movies.route) { MoviesScreen() }
-                composable(Screen.Favorites.route) { Favorites() }
+                composable(Screen.Favorites.route) { FavoritesScreen() }
                 composable(Screen.Detail.route) { Detail() }
             }
         }

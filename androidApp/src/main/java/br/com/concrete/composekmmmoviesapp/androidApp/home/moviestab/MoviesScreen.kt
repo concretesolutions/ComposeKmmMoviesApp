@@ -1,9 +1,11 @@
 package br.com.concrete.composekmmmoviesapp.androidApp.home.moviestab
 
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material.Button
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -35,7 +37,23 @@ fun MoviesScreen() {
                 val movies = uiState.moviesList
                 LazyColumn(modifier = Modifier.fillMaxSize()) {
                     items(movies.size) { index ->
-                        Text(movies[index].overview, modifier = Modifier.padding(16.dp))
+                        val movie = movies[index]
+                        Column {
+                            Text(movie.title, modifier = Modifier.padding(16.dp))
+                            Text(movie.imageUrl, modifier = Modifier.padding(16.dp))
+                            Button({
+                                moviesViewModel.addToFavorite(movie)
+                            }) {
+                                Text("Add to favorite")
+                            }
+
+                            Button({
+                                moviesViewModel.removeFrom(movie)
+                            }) {
+                                Text("Remove from favorites")
+                            }
+                        }
+
                     }
                 }
             }

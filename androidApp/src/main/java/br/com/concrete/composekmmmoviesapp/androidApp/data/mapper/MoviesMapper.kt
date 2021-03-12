@@ -30,6 +30,7 @@ class MoviesMapper {
             }.filterNotNull()
 
             Movie(
+                id = apiMovie.id,
                 title = apiMovie.title,
                 imageUrl = "${imageBaseUrl}${apiMovie.backdropPath}",
                 genres = movieGenres,

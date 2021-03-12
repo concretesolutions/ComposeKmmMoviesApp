@@ -8,6 +8,7 @@ data class MoviePageDto(
 )
 
 class MovieItemDto(
+    @SerializedName("id") val id: Int,
     @SerializedName("backdrop_path") val backdropPath: String,
     @SerializedName("title") val title: String,
     @SerializedName("genre_ids") val genreIds: List<Int>,

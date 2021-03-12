@@ -1,14 +1,13 @@
 package br.com.concrete.composekmmmoviesapp.androidApp.data
 
 import android.content.Context
-import br.com.concrete.composekmmmoviesapp.androidApp.BuildConfig.MoviesDbApiKey
+import br.com.concrete.composekmmmoviesapp.androidApp.BuildConfig
 import br.com.concrete.composekmmmoviesapp.androidApp.R
 import com.google.gson.GsonBuilder
 import okhttp3.Cache
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import org.koin.android.BuildConfig
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -24,7 +23,7 @@ val networkModule = module {
         Interceptor { chain ->
             val request = chain.request()
             val newUrl = request.url.newBuilder()
-                .addQueryParameter("api_key", MoviesDbApiKey)
+                .addQueryParameter("api_key", BuildConfig.MoviesDbApiKey)
                 .build()
             val newRequest = request.newBuilder()
                 .url(newUrl)
@@ -46,7 +45,7 @@ val networkModule = module {
             .cache(get())
 
         if (BuildConfig.DEBUG) {
-            okHttpClientBuilder.addInterceptor(get<Interceptor>(named("loggingInterceptor")))
+            okHttpClientBuilder.addInterceptor(get<HttpLoggingInterceptor>(named("loggingInterceptor")))
         }
         okHttpClientBuilder.build()
     }
