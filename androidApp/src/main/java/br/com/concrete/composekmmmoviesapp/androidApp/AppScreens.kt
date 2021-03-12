@@ -1,11 +1,10 @@
-package br.com.concrete.composekmmmoviesapp.androidApp.base
+package br.com.concrete.composekmmmoviesapp.androidApp
 
 import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Movie
 import androidx.compose.ui.graphics.vector.ImageVector
-import br.com.concrete.composekmmmoviesapp.androidApp.R
 
 sealed class Screen(
     val route: String,

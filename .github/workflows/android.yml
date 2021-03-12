@@ -7,7 +7,7 @@ on:
     branches: [ develop ]
 
 jobs:
-  build:
+  build_and_test:
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
@@ -20,9 +20,9 @@ jobs:
         with:
           java-version: 11
 
-      - name: Build project
+      - name: Build and test project
         working-directory: ${{ env.SAMPLE_PATH }}
-        run: ./gradlew androidApp:assembleDebug
+        run: ./gradlew androidApp:assembleDebug androidApp:testDebugUnitTest
 
   test:
     runs-on: macOS-latest
