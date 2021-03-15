@@ -2,6 +2,7 @@ package br.com.concrete.composekmmmoviesapp.di
 
 import br.com.concrete.composekmmmoviesapp.MoviesSdk
 import br.com.concrete.composekmmmoviesapp.network.GenreApi
+import br.com.concrete.composekmmmoviesapp.database.MovieDao
 import br.com.concrete.composekmmmoviesapp.network.MovieApi
 import br.com.concrete.composekmmmoviesapp.repository.GenreRepository
 import br.com.concrete.composekmmmoviesapp.repository.MovieRepository
@@ -16,13 +17,15 @@ import kotlin.native.concurrent.ThreadLocal
 @ThreadLocal
 val di = DI {
 
-    bind<MoviesSdk>() with singleton { MoviesSdk() }
+    bind<DataDriverManager>() with provider { instance() }
 
     bind<MovieApi>() with provider { MovieApi() }
 
     bind<GenreApi>() with provider { GenreApi() }
 
-    bind<MovieRepository>() with singleton { MovieRepository(instance()) }
+    bind<MovieRepository>() with singleton { MovieRepository(instance(), instance()) }
+
+    bind<MovieDao>() with singleton { MovieDao(instance()) }
 
     bind<GenreRepository>() with singleton { GenreRepository(instance()) }
 
@@ -32,7 +35,7 @@ val di = DI {
                 val json: Json = kotlinx.serialization.json.Json { ignoreUnknownKeys = true }
                 serializer = KotlinxSerializer(json)
             }
-            install(Logging){
+            install(Logging) {
                 logger = Logger.DEFAULT
                 level = LogLevel.INFO
             }

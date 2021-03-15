@@ -3,6 +3,7 @@ plugins {
     kotlin("android")
 }
 val composeVersion: String by project
+val kodeinVersion: String by project
 
 android {
     compileSdkVersion(30)
@@ -64,4 +65,7 @@ dependencies {
     // Instrumented tests
     androidTestImplementation("androidx.test.ext:junit:1.1.2")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.3.0")
+
+    //Kodein
+    implementation("org.kodein.di:kodein-di-framework-android-x:$kodeinVersion")
 }

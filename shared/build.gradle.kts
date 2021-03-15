@@ -35,6 +35,16 @@ android {
         }
     }
 
+//    buildTypes {
+//        debug {
+//            buildConfigField("String", "API_URL", "https://api.themoviedb.org/3/")
+//        }
+//    }
+    sqldelight {
+        database("AppDatabase") {
+            packageName = "br.com.concrete.composekmmmoviesapp.cache"
+        }
+    }
 }
 
 kotlin {
@@ -75,6 +85,7 @@ kotlin {
                 implementation("com.google.android.material:material:1.2.1")
                 implementation("io.ktor:ktor-client-android:$ktorVersion")
                 implementation("com.squareup.sqldelight:android-driver:$sqlDelightVersion")
+                implementation("org.kodein.di:kodein-di-framework-android-x:$kodeinVersion")
             }
         }
         val androidTest by getting {
@@ -92,18 +103,18 @@ kotlin {
         val iosTest by getting
     }
 }
-//
-//val packForXcode by tasks.creating(Sync::class) {
-//    group = "build"
-//    val mode = System.getenv("CONFIGURATION") ?: "DEBUG"
-//    val sdkName = System.getenv("SDK_NAME") ?: "iphonesimulator"
-//    val targetName = "ios" + if (sdkName.startsWith("iphoneos")) "Arm64" else "X64"
-//    val framework = kotlin.targets.getByName<KotlinNativeTarget>(targetName).binaries.getFramework(mode)
-//    inputs.property("mode", mode)
-//    dependsOn(framework.linkTask)
-//    val targetDir = File(buildDir, "xcode-frameworks")
-//    from({ framework.outputDirectory })
-//    into(targetDir)
-//}
-//
-//tasks.getByName("build").dependsOn(packForXcode)
+
+val packForXcode by tasks.creating(Sync::class) {
+    group = "build"
+    val mode = System.getenv("CONFIGURATION") ?: "DEBUG"
+    val sdkName = System.getenv("SDK_NAME") ?: "iphonesimulator"
+    val targetName = "ios" + if (sdkName.startsWith("iphoneos")) "Arm64" else "X64"
+    val framework = kotlin.targets.getByName<KotlinNativeTarget>(targetName).binaries.getFramework(mode)
+    inputs.property("mode", mode)
+    dependsOn(framework.linkTask)
+    val targetDir = File(buildDir, "xcode-frameworks")
+    from({ framework.outputDirectory })
+    into(targetDir)
+}
+
+tasks.getByName("build").dependsOn(packForXcode)
