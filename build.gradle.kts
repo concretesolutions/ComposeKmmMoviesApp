@@ -1,6 +1,6 @@
 buildscript {
-    val kotlinVersion by extra { "1.4.30" }
-    val composeVersion by extra { "1.0.0-beta01" }
+    val kotlinVersion by extra { "1.4.31" }
+    val composeVersion by extra { "1.0.0-beta02" }
     val sqlDelightVersion by extra { "1.4.4" }
     val kodeinVersion by extra { "7.4.0" }
 
