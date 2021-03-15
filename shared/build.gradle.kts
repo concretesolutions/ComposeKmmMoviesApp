@@ -56,7 +56,7 @@ kotlin {
             }
         }
     }
-    val ktorVersion = "1.4.2"
+    val ktorVersion = "1.5.2"
     val serializationVersion = "1.1.0"
     val sqlDelightVersion = "1.4.4"
     val coroutinesVersion = "1.4.2"
