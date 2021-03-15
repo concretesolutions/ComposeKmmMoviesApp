@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("multiplatform")
@@ -22,6 +23,28 @@ android {
         create("testDebugApi")
         create("testReleaseApi")
     }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    tasks.withType<KotlinCompile> {
+        kotlinOptions {
+            jvmTarget = "1.8"
+        }
+    }
+
+//    buildTypes {
+//        debug {
+//            buildConfigField("String", "API_URL", "https://api.themoviedb.org/3/")
+//        }
+//    }
+    sqldelight {
+        database("AppDatabase") {
+            packageName = "br.com.concrete.composekmmmoviesapp.cache"
+        }
+    }
 }
 
 kotlin {
@@ -33,11 +56,11 @@ kotlin {
             }
         }
     }
-
     val ktorVersion = "1.4.2"
     val serializationVersion = "1.1.0"
     val sqlDelightVersion = "1.4.4"
     val coroutinesVersion = "1.4.2"
+    val kodeinVersion = "7.4.0"
 
     sourceSets {
         val commonMain by getting{
@@ -47,7 +70,8 @@ kotlin {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
                 implementation("io.ktor:ktor-client-serialization:$ktorVersion")
                 implementation("com.squareup.sqldelight:runtime:$sqlDelightVersion")
-
+                implementation("org.kodein.di:kodein-di:$kodeinVersion")
+                implementation("io.ktor:ktor-client-logging:$ktorVersion")
             }
         }
         val commonTest by getting {
@@ -61,6 +85,7 @@ kotlin {
                 implementation("com.google.android.material:material:1.2.1")
                 implementation("io.ktor:ktor-client-android:$ktorVersion")
                 implementation("com.squareup.sqldelight:android-driver:$sqlDelightVersion")
+                implementation("org.kodein.di:kodein-di-framework-android-x:$kodeinVersion")
             }
         }
         val androidTest by getting {

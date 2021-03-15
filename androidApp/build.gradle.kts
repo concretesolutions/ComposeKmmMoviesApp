@@ -8,6 +8,7 @@ plugins {
     id("kotlin-parcelize")
 }
 val composeVersion: String by project
+val kodeinVersion: String by project
 
 val localProperties = Properties()
 try {
@@ -78,6 +79,9 @@ val koinVersion = "2.2.2"
 val roomVersion = "2.2.6"
 
 dependencies {
+    // Shared
+    implementation(project(":shared"))
+
     // Android X & Material
     implementation("androidx.core:core-ktx:1.3.2")
     implementation("androidx.appcompat:appcompat:1.2.0")
@@ -135,4 +139,7 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.2")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.3.0")
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:$composeVersion")
+
+    //Kodein
+    implementation("org.kodein.di:kodein-di-framework-android-x:$kodeinVersion")
 }
