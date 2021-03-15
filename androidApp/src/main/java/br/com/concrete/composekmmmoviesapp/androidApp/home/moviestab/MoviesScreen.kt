@@ -12,7 +12,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 import androidx.navigation.compose.navigate
-import br.com.concrete.composekmmmoviesapp.androidApp.popularMovie.MovieListView
 import org.koin.java.KoinJavaComponent.inject
 
 val moviesViewModel: MoviesViewModel by inject(MoviesViewModel::class.java)
