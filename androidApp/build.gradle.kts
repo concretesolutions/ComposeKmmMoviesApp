@@ -79,6 +79,9 @@ val koinVersion = "2.2.2"
 val roomVersion = "2.2.6"
 
 dependencies {
+    // Shared
+    implementation(project(":shared"))
+
     // Android X & Material
     implementation("androidx.core:core-ktx:1.3.2")
     implementation("androidx.appcompat:appcompat:1.2.0")
