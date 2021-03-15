@@ -1,6 +1,9 @@
 package br.com.concrete.composekmmmoviesapp
 
 import br.com.concrete.composekmmmoviesapp.data.Response
+import br.com.concrete.composekmmmoviesapp.database.DatabaseDriverFactory
+import br.com.concrete.composekmmmoviesapp.database.MovieDao
+import br.com.concrete.composekmmmoviesapp.di.DataDriverManager
 import br.com.concrete.composekmmmoviesapp.di.di
 import br.com.concrete.composekmmmoviesapp.domain.FavoriteMovie
 import br.com.concrete.composekmmmoviesapp.domain.MoviesResponse
@@ -8,9 +11,15 @@ import br.com.concrete.composekmmmoviesapp.repository.MovieRepository
 import org.kodein.di.instance
 import org.kodein.di.newInstance
 
-class MoviesSdk {
+class MoviesSdk(databaseDriverFactory: DatabaseDriverFactory) {
 
-    private val movieRepository by di.newInstance { MovieRepository(instance(), instance()) }
+    private val driverManager by di.newInstance { DataDriverManager(databaseDriverFactory) }
+    private val movieRepository by di.newInstance {
+        MovieRepository(
+            instance(),
+            MovieDao(driverManager)
+        )
+    }
 
     suspend fun getPopularMovies(): Response<MoviesResponse> {
         return movieRepository.getPopularMovies()
@@ -29,7 +38,6 @@ class MoviesSdk {
     }
 
     fun getFavoriteMovies(): List<FavoriteMovie> = movieRepository.getFavoriteMovies()
-
 
     suspend fun findMovie() {
         TODO()

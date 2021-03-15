@@ -1,10 +1,13 @@
 package br.com.concrete.composekmmmoviesapp.database
 
 import br.com.concrete.composekmmmoviesapp.cache.AppDatabase
+import br.com.concrete.composekmmmoviesapp.di.DataDriverManager
+import br.com.concrete.composekmmmoviesapp.di.di
 import br.com.concrete.composekmmmoviesapp.domain.FavoriteMovie
+import org.kodein.di.instance
 
-class MovieDao(databaseDriverFactory: DatabaseDriverFactory) {
-    private val database = AppDatabase(databaseDriverFactory.createDriver())
+class MovieDao(dataDriverManager: DataDriverManager) {
+    private val database = AppDatabase(dataDriverManager.databaseDriverFactory.createDriver())
     private val dbQuery = database.appDatabaseQueries
 
     internal fun clearDatabase() {
@@ -18,14 +21,16 @@ class MovieDao(databaseDriverFactory: DatabaseDriverFactory) {
     }
 
     fun insertFavoriteMovie(favoriteMovie: FavoriteMovie) {
-        dbQuery.insertMovie(
-            id = favoriteMovie.id,
-            posterPath = favoriteMovie.posterPath,
-            originalTitle = favoriteMovie.originalTitle,
-            releaseYear = favoriteMovie.releaseYear,
-            genres = favoriteMovie.genres,
-            overview = favoriteMovie.overview
-        )
+        if (dbQuery.selectMovieById(favoriteMovie.id).executeAsOneOrNull() == null) {
+            dbQuery.insertMovie(
+                id = favoriteMovie.id,
+                posterPath = favoriteMovie.posterPath,
+                originalTitle = favoriteMovie.originalTitle,
+                releaseYear = favoriteMovie.releaseYear,
+                genres = favoriteMovie.genres,
+                overview = favoriteMovie.overview
+            )
+        }
     }
 
     fun removeFavoriteMovie(idMovie: Long) {

@@ -3,7 +3,6 @@
     package="br.com.concrete.composekmmmoviesapp.androidApp">
 
     <application
-        android:name=".MainApplication"
         android:allowBackup="false"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">

@@ -1,7 +1,5 @@
 package br.com.concrete.composekmmmoviesapp.di
 
-import br.com.concrete.composekmmmoviesapp.MoviesSdk
-import br.com.concrete.composekmmmoviesapp.database.DatabaseDriverFactory
 import br.com.concrete.composekmmmoviesapp.database.MovieDao
 import br.com.concrete.composekmmmoviesapp.network.MovieApi
 import br.com.concrete.composekmmmoviesapp.repository.MovieRepository
@@ -14,14 +12,9 @@ import org.kodein.di.*
 import kotlin.native.concurrent.ThreadLocal
 
 @ThreadLocal
-val sharedDi = DI.Module("Shared") {
-    bind<DatabaseDriverFactory>() with provider { instance() }
-}
-
 val di = DI {
-    importAll(sharedDi)
 
-    bind<MoviesSdk>() with singleton { MoviesSdk() }
+    bind<DataDriverManager>() with provider { instance() }
 
     bind<MovieApi>() with provider { MovieApi() }
 
@@ -41,5 +34,4 @@ val di = DI {
             }
         }
     }
-
 }

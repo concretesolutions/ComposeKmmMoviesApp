@@ -17,3 +17,6 @@ WHERE id = ?;
 
 selectAllMovies:
 SELECT * FROM Movies;
+
+selectMovieById:
+SELECT * FROM Movies WHERE id = ?;
