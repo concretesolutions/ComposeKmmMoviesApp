@@ -7,6 +7,9 @@ import br.com.concrete.composekmmmoviesapp.di.DataDriverManager
 import br.com.concrete.composekmmmoviesapp.di.di
 import br.com.concrete.composekmmmoviesapp.domain.FavoriteMovie
 import br.com.concrete.composekmmmoviesapp.domain.MoviesResponse
+import br.com.concrete.composekmmmoviesapp.domain.Genres
+import br.com.concrete.composekmmmoviesapp.domain.Movies
+import br.com.concrete.composekmmmoviesapp.repository.GenreRepository
 import br.com.concrete.composekmmmoviesapp.repository.MovieRepository
 import org.kodein.di.instance
 import org.kodein.di.newInstance
@@ -20,13 +23,14 @@ class MoviesSdk(databaseDriverFactory: DatabaseDriverFactory) {
             MovieDao(driverManager)
         )
     }
+    private val genreRepository by di.newInstance { GenreRepository(instance()) }
 
     suspend fun getPopularMovies(): Response<MoviesResponse> {
         return movieRepository.getPopularMovies()
     }
 
-    suspend fun getGenreList() {
-        TODO()
+    suspend fun getGenresList() : Response<Genres>{
+        return genreRepository.getGenresList()
     }
 
     fun saveMovie(favoriteMovie: FavoriteMovie) {

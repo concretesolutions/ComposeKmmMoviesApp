@@ -15,6 +15,8 @@ import br.com.concrete.composekmmmoviesapp.data.Response
 import br.com.concrete.composekmmmoviesapp.database.DatabaseDriverFactory
 import br.com.concrete.composekmmmoviesapp.domain.FavoriteMovie
 import br.com.concrete.composekmmmoviesapp.domain.MoviesResponse
+import br.com.concrete.composekmmmoviesapp.domain.Genres
+import br.com.concrete.composekmmmoviesapp.domain.Movies
 import br.com.concrete.composekmmmoviesapp.shared.Greeting
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
@@ -98,7 +100,12 @@ class MainActivity : ComponentActivity() {
                     Toast.LENGTH_SHORT
                 ).show()
             else
-                Toast.makeText(this@MainActivity, "ERRO", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@MainActivity, "ERRO", Toast.LENGTH_SHORT).show()}
+
+        mainScope.launch {
+            val response : Response<Genres> = moviesSdk.getGenresList()
+         if(response is Response.Success)
+          Toast.makeText(this@MainActivity,response.data.genres[0].name,Toast.LENGTH_SHORT).show()
         }
     }
 }

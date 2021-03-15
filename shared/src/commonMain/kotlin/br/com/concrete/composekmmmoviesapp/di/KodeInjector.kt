@@ -1,7 +1,10 @@
 package br.com.concrete.composekmmmoviesapp.di
 
+import br.com.concrete.composekmmmoviesapp.MoviesSdk
+import br.com.concrete.composekmmmoviesapp.network.GenreApi
 import br.com.concrete.composekmmmoviesapp.database.MovieDao
 import br.com.concrete.composekmmmoviesapp.network.MovieApi
+import br.com.concrete.composekmmmoviesapp.repository.GenreRepository
 import br.com.concrete.composekmmmoviesapp.repository.MovieRepository
 import io.ktor.client.*
 import io.ktor.client.features.json.*
@@ -18,9 +21,13 @@ val di = DI {
 
     bind<MovieApi>() with provider { MovieApi() }
 
+    bind<GenreApi>() with provider { GenreApi() }
+
     bind<MovieRepository>() with singleton { MovieRepository(instance(), instance()) }
 
     bind<MovieDao>() with singleton { MovieDao(instance()) }
+
+    bind<GenreRepository>() with singleton { GenreRepository(instance()) }
 
     bind<HttpClient>() with provider {
         HttpClient {
