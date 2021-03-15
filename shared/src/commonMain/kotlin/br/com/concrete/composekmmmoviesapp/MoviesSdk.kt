@@ -8,7 +8,6 @@ import br.com.concrete.composekmmmoviesapp.di.di
 import br.com.concrete.composekmmmoviesapp.domain.FavoriteMovie
 import br.com.concrete.composekmmmoviesapp.domain.MoviesResponse
 import br.com.concrete.composekmmmoviesapp.domain.Genres
-import br.com.concrete.composekmmmoviesapp.domain.Movies
 import br.com.concrete.composekmmmoviesapp.repository.GenreRepository
 import br.com.concrete.composekmmmoviesapp.repository.MovieRepository
 import org.kodein.di.instance
