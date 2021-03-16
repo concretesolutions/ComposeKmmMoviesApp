@@ -8,7 +8,7 @@ import br.com.concrete.composekmmmoviesapp.network.GenreApi
 class GenreRepository (private val genreApi : GenreApi, private val genreDao: GenreDao) {
 
     suspend fun getGenresList(): Response<Genres> {
-        var genres = genreDao.getAllGenres()
+        val genres = genreDao.getAllGenres()
 
         if (genres.isEmpty()) {
             val apiResult = genreApi.getGenres()
