@@ -88,24 +88,21 @@ fun FavoritesCard(
                     .padding(start = 12.dp)
                     .align(Alignment.CenterVertically)
             ) {
-                Row(
-                    modifier = Modifier,
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
+                Row() {
 
                     Text(
+                        modifier = Modifier
+                            .fillMaxWidth(0.85f)
+                            .wrapContentWidth(Alignment.Start),
                         text = movie.title,
                         fontWeight = FontWeight.Bold,
                         style = typography.h5,
                         color = Color.Black
                     )
-                    Spacer(
-                        modifier = Modifier
-                            .weight(0.7f)
-                    )
                     Surface(
                         modifier = Modifier
                             .size(30.dp)
+                            .wrapContentWidth(Alignment.End)
                     ) {
                         FavoriteMovieButton(movie, onClickFavorite)
                     }
@@ -122,9 +119,10 @@ fun FavoritesCard(
                     Text(
                         text = movie.overview,
                         style = typography.body2,
-                        maxLines = 3,
+                        maxLines = 2,
                         overflow = TextOverflow.Ellipsis,
-                        modifier = Modifier.padding(end = 25.dp)
+                        modifier = Modifier.padding(end = 25.dp,bottom = 8.dp)
+
                     )
                 }
             }
