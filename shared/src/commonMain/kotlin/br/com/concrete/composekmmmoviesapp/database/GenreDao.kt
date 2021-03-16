@@ -3,6 +3,7 @@ package br.com.concrete.composekmmmoviesapp.database
 import br.com.concrete.composekmmmoviesapp.cache.AppDatabase
 import br.com.concrete.composekmmmoviesapp.di.DataDriverManager
 import br.com.concrete.composekmmmoviesapp.domain.Genre
+import br.com.concrete.composekmmmoviesapp.domain.Genres
 
 class GenreDao(dataDriverManager: DataDriverManager) {
     private val database = AppDatabase(dataDriverManager.databaseDriverFactory.createDriver())
@@ -14,6 +15,10 @@ class GenreDao(dataDriverManager: DataDriverManager) {
 
     fun getGenreById(id: Long): Genre? {
         return dbQuery.selectGenreById(id, ::mapGenreSelecting).executeAsOneOrNull()
+    }
+
+    fun insertGenres(genres: Genres) {
+        insertGenres(genres.genres)
     }
 
     fun insertGenres(genres: List<Genre>) {
