@@ -12,4 +12,4 @@ rootProject.name = "ComposeKmmMoviesApp"
 
 include(":androidApp")
 include(":shared")
-
+include(":components")
