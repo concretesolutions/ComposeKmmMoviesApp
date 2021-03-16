@@ -1,3 +1,5 @@
+![Pre Merge Checks](https://github.com/concretesolutions/ComposeKmmMoviesApp/workflows/Pre-merge%20checks/badge.svg?event=push)
+
 # ComposeKmmMoviesApp
 This project showcases Jetpack Compose and KMM
 
