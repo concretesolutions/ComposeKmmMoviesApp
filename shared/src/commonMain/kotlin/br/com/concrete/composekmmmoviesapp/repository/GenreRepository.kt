@@ -9,5 +9,6 @@ class GenreRepository (private val genreApi : GenreApi, private val genreDao: Ge
 
     suspend fun getGenresList(): Response<Genres> = genreApi.getGenres()
 
+    fun removeAllGenres() = genreDao.removeAllGenres()
 
 }
