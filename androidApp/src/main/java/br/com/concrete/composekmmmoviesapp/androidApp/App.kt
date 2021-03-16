@@ -42,7 +42,11 @@ fun MoviesApp() {
                             ?.arguments?.getParcelable<Movie>("movie")
 
                         if (movie != null) {
-                            MovieDetailScreen(movie)
+                            MovieDetailScreen(
+                                movie,
+                                onClickFavorite = { movie ->
+                                    favoritesViewModel.removeFromFavorite(movie)
+                                })
                         }
                     }
                 }
