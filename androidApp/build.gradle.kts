@@ -79,6 +79,10 @@ val koinVersion = "2.2.2"
 val roomVersion = "2.2.6"
 
 dependencies {
+
+    //Modulo Components
+    implementation(project(":components"))
+
     // Shared
     implementation(project(":shared"))
 
