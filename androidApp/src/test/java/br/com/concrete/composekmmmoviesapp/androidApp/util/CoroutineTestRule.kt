@@ -13,16 +13,15 @@ import org.junit.rules.TestRule
 import org.junit.runner.Description
 import org.junit.runners.model.Statement
 import java.util.concurrent.Executors
-
-class CoroutineTestRule : TestRule {
-    private val mainThreadSurrogate = Executors.newSingleThreadExecutor().asCoroutineDispatcher()
-
-    @ExperimentalCoroutinesApi
+@ExperimentalCoroutinesApi
+class CoroutineTestRule(
+    val testDispatcher: TestCoroutineDispatcher = TestCoroutineDispatcher()
+) : TestRule {
     override fun apply(base: Statement?, description: Description?): Statement {
         return object : Statement() {
             override fun evaluate() {
                 try {
-                    Dispatchers.setMain(mainThreadSurrogate)
+                    Dispatchers.setMain(testDispatcher)
                     ArchTaskExecutor.getInstance().setDelegate(object : TaskExecutor() {
                         override fun executeOnDiskIO(runnable: Runnable) = runnable.run()
 
@@ -32,6 +31,7 @@ class CoroutineTestRule : TestRule {
                     })
                     base?.evaluate()
                 } finally {
+                    testDispatcher.cleanupTestCoroutines()
                     Dispatchers.resetMain()
                     ArchTaskExecutor.getInstance().setDelegate(null)
                 }
