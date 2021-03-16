@@ -71,8 +71,9 @@ fun MovieItemView(
                         .padding(start = 8.dp, top = 16.dp)
                         .weight(1f)
                 )
-
+                Spacer(modifier = Modifier.padding(top=32.dp))
                 FavoriteMovieButton(movie, favoriteUnfavoriteAction)
+
             }
         }
     }

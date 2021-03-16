@@ -1,5 +1,6 @@
 package br.com.concrete.composekmmmoviesapp.androidApp.common
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Icon
@@ -22,8 +23,8 @@ fun FavoriteMovieButton(
     IconButton(
         onClick = { action(movie) },
         modifier = Modifier
-            .padding(top = 16.dp )
-            .size(32.dp)
+            .size(48.dp)
+
 
 
 
