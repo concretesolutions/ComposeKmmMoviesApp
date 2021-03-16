@@ -3,7 +3,9 @@ package br.com.concrete.composekmmmoviesapp.androidApp
 import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.IntegrationInstructions
 import androidx.compose.material.icons.filled.Movie
+import androidx.compose.material.icons.filled.QuestionAnswer
 import androidx.compose.ui.graphics.vector.ImageVector
 
 sealed class Screen(
@@ -14,9 +16,11 @@ sealed class Screen(
     object Movies : Screen("movies", R.string.title_tab_movies, Icons.Default.Movie)
     object Favorites : Screen("favorites", R.string.title_tab_favorites, Icons.Default.Favorite)
     object Detail : Screen("detail", R.string.title_tab_favorites)
+    object SampleCompose : Screen("compose", R.string.title_compose , Icons.Default.IntegrationInstructions)
 }
 
 val bottomBarItems = listOf(
     Screen.Movies,
     Screen.Favorites,
+    Screen.SampleCompose,
 )

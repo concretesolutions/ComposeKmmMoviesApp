@@ -26,7 +26,7 @@ fun MoviesApp() {
     val navController = rememberNavController()
     ComposeMoviesAppTheme {
         Scaffold(
-            topBar = { TopAppBar(title = { Text(stringResource(id = R.string.app_name)) }) },
+            topBar = { TopAppBar(title = { Text(stringResource(id = R.string.app_name)) }, ) },
             bottomBar = { MoviesAppBottomBar(navController) }
         ) {
             Box(
@@ -45,6 +45,7 @@ fun MoviesApp() {
                             MovieDetailScreen(movie)
                         }
                     }
+                    composable(Screen.SampleCompose.route) { Text(text = "Composeble")}
                 }
             }
         }
