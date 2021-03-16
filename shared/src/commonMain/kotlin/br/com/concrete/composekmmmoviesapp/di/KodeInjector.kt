@@ -1,6 +1,7 @@
 package br.com.concrete.composekmmmoviesapp.di
 
 import br.com.concrete.composekmmmoviesapp.MoviesSdk
+import br.com.concrete.composekmmmoviesapp.database.GenreDao
 import br.com.concrete.composekmmmoviesapp.network.GenreApi
 import br.com.concrete.composekmmmoviesapp.database.MovieDao
 import br.com.concrete.composekmmmoviesapp.network.MovieApi
@@ -27,7 +28,9 @@ val di = DI {
 
     bind<MovieDao>() with singleton { MovieDao(instance()) }
 
-    bind<GenreRepository>() with singleton { GenreRepository(instance()) }
+    bind<GenreDao>() with singleton { GenreDao(instance()) }
+
+    bind<GenreRepository>() with singleton { GenreRepository(instance(), instance()) }
 
     bind<HttpClient>() with provider {
         HttpClient {
