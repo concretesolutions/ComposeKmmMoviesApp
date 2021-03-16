@@ -1,5 +1,6 @@
 package br.com.concrete.composekmmmoviesapp.androidApp.common
 
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
@@ -20,13 +21,22 @@ fun FavoriteMovieButton(
 ) {
     IconButton(
         onClick = { action(movie) },
-        modifier = Modifier.size(40.dp)
+        modifier = Modifier
+            .padding(top = 16.dp )
+            .size(32.dp)
+
+
+
     ) {
         val tintIcon = if (movie.isfavorite) {
             Yellow
         } else {
             Color.LightGray
         }
-        Icon(Icons.Filled.Favorite, contentDescription = null, tint = tintIcon)
+        Icon(
+            Icons.Filled.Favorite,
+            contentDescription = null,
+            tint = tintIcon
+        )
     }
 }
