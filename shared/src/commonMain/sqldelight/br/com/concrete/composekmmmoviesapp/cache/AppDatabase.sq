@@ -7,6 +7,11 @@ CREATE TABLE Movies (
     overview TEXT
 );
 
+CREATE TABLE Genres (
+    id INTEGER NOT NULL PRIMARY KEY,
+    name TEXT NOT NULL
+);
+
 insertMovie:
 INSERT INTO Movies(id, posterPath, originalTitle, releaseYear, genres, overview)
 VALUES(?, ?, ?, ?, ?, ?);
@@ -20,3 +25,16 @@ SELECT * FROM Movies;
 
 selectMovieById:
 SELECT * FROM Movies WHERE id = ?;
+
+insertGenre:
+INSERT INTO Genres(id, name)
+VALUES(?, ?);
+
+removeAllGenres:
+DELETE FROM Genres;
+
+selectAllGenres:
+SELECT * FROM Genres;
+
+selectGenreById:
+SELECT * FROM Genres WHERE id = ?;
