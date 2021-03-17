@@ -1,4 +1,4 @@
-package br.com.concrete.components.devexperience
+package br.com.concrete.components
 
 import androidx.compose.ui.graphics.vector.ImageVector
 
