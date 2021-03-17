@@ -8,7 +8,7 @@ import br.com.concrete.composekmmmoviesapp.network.MovieApi
 
 class MovieRepository(private val movieApi: MovieApi, private val movieDao: MovieDao) {
 
-    suspend fun getPopularMovies(): Response<MoviesResponse> = movieApi.getMovies()
+    suspend fun getPopularMovies(page:Int): Response<MoviesResponse> = movieApi.getMovies(page)
 
     fun saveFavoriteMovie(favoriteMovie: FavoriteMovie) {
         movieDao.insertFavoriteMovie(favoriteMovie)
