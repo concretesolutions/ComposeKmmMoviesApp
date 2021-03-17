@@ -1,19 +1,18 @@
 import SwiftUI
-import shared
 
 struct MovieListView: View {
     
-    @ObservedObject var viewModel: MovieListViewModel
+    @EnvironmentObject var movieViewModel: MovieListViewModel
     private let maxColumns = 2
     
     var body: some View {
         NavigationView {
             //No iOS 14 é possível utilizar LazyVStack
             ScrollView {
-                ForEach(0..<viewModel.moviesInColumns.count, id: \.self) { index in
+                ForEach(0..<movieViewModel.moviesInColumns.count, id: \.self) { index in
                     HStack(spacing: 15) {
-                        ForEach(viewModel.moviesInColumns[index]) { movie in
-                            MovieCell(viewModel: movie)
+                        ForEach(movieViewModel.moviesInColumns[index]) { movie in
+                            MovieCell(viewModel: movie, tapSaveButton: tapSaveButton(movie:))
                                 .frame(height: 250)
                         }
                     }
@@ -21,18 +20,22 @@ struct MovieListView: View {
             }
             .frame(maxWidth: .infinity)
             .padding([.leading, .trailing], 15)
-            .onAppear {
-                viewModel.fetchMoviesInColumns(numberOfColumns: maxColumns)
-            }
             .navigationBarTitle("Movies", displayMode: .inline)
         }
+        .onAppear {
+            movieViewModel.fetchMoviesInColumns(numberOfColumns: maxColumns)
+        }
     }
+    
+    func tapSaveButton(movie: MovieViewModelProtocol) {
+        movieViewModel.updateMovie(movie)
+    }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        let sdk = MoviesSdk(databaseDriverFactory: DatabaseDriverFactory())
-        let viewModel = MovieListViewModel(moviesSdk: sdk)
-        MovieListView(viewModel: viewModel)
+        //Falta criar preview content e setar como environment object
+        MovieListView()
     }
 }

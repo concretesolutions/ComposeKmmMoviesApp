@@ -12,9 +12,14 @@ import Kingfisher
 struct MovieCell: View {
     
     private let viewModel: MovieViewModelProtocol
+    var tapSaveButton: ((MovieViewModelProtocol) -> Void)?
+    @State private var isFavorite: Bool = false
     
-    init(viewModel: MovieViewModelProtocol) {
+    init(viewModel: MovieViewModelProtocol,
+         tapSaveButton: ((MovieViewModelProtocol) -> Void)? = nil) {
         self.viewModel = viewModel
+        self.tapSaveButton = tapSaveButton
+        _isFavorite = State(initialValue: viewModel.isFavorite)
     }
     
     var body: some View {
@@ -31,11 +36,12 @@ struct MovieCell: View {
                     Spacer()
                     
                     Button(action: {
-                        //Favorite movie
+                        isFavorite.toggle()
+                        tapSaveButton?(viewModel)
                     }, label: {
                         Image(systemName: "heart.fill")
                             .resizable()
-                            .foregroundColor(.white)
+                            .foregroundColor(isFavorite ? .yellow : .white)
                             .frame(width: 20, height: 20, alignment: .trailing)
                     })
                 }
@@ -46,17 +52,11 @@ struct MovieCell: View {
             }
         }
     }
+
 }
 
 struct MovieCell_Previews: PreviewProvider {
-    
-    final class MovieViewModelPreview: MovieViewModelProtocol {
-        var id: Int32 { 1 }
-        var title: String { "Movie" }
-        var imageURL: URL? { nil }
         
-    }
-    
     static var previews: some View {
         MovieCell(viewModel: MovieViewModelPreview())
             .previewLayout(.fixed(width: 120, height: 220))

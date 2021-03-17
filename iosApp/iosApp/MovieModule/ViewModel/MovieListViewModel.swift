@@ -7,45 +7,43 @@
 //
 
 import Foundation
-import shared
 
 final class MovieListViewModel: ObservableObject {
     
-    private let moviesSdk: MoviesSdk
-    @Published var movies: [MovieViewModel] = []
+    private let manager: MovieManagerProtocol
     @Published var moviesInColumns: [[MovieViewModel]] = []
     
-    init(moviesSdk: MoviesSdk) {
-        self.moviesSdk = moviesSdk
+    init(manager: MovieManagerProtocol) {
+        self.manager = manager
     }
     
     // Fetch movies and separate in columns
     func fetchMoviesInColumns(numberOfColumns: Int) {
-        fetchMovies { [weak self] in
+        
+        moviesInColumns = []
+        
+        manager.fetchMoviesAPI { [weak self] movies in
             
             guard let self = self else { return }
             
             var column: [MovieViewModel] = []
             
-            for i in 0..<self.movies.count {
+            
+            for i in 0..<movies.count {
                 
                 if column.count == numberOfColumns {
                     self.moviesInColumns.append(column)
                     column = []
                 }
                 
-                column.append(self.movies[i])
+                column.append(movies[i])
             }
         }
     }
     
-    func fetchMovies(completion: (() -> Void)? = nil) {
-        moviesSdk.getPopularMovies { [weak self] (response, error) in
-            if let response = response as? ResponseSuccess,
-               let result = response.data?.results {
-                self?.movies = result.map { MovieViewModel(movie: $0) }
-                completion?()
-            }
-        }
+    func updateMovie(_ movie: MovieViewModelProtocol) {
+        manager.updateMovie(movie)
     }
+    
 }
+
