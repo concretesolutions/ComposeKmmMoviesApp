@@ -82,6 +82,7 @@ fun MoviesApp() {
                     }
                     composable(Screen.SampleCompose.route) {
                         showBottomBar.value = false
+
                         ListComponents()
                     }
                 }
