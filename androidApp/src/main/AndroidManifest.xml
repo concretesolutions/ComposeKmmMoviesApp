@@ -15,7 +15,5 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="br.com.concrete.components.ListComponentActivity">
-        </activity>
     </application>
 </manifest>
