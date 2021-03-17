@@ -15,7 +15,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Create the SwiftUI view that provides the window contents.
         
         let sdk = MoviesSdk(databaseDriverFactory: DatabaseDriverFactory())
-        let contentView = MovieListView(viewModel: MovieListViewModel(moviesSdk: sdk))
+        let manager = MovieManager(moviesSdk: sdk)
+        
+        let moviesViewModel = MovieListViewModel(manager: manager)
+        let favoriteMovieListModel = FavoriteMovieListViewModel(manager: manager)
+        
+        let contentView = MainView()
+            .environmentObject(moviesViewModel)
+            .environmentObject(favoriteMovieListModel)
         
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
