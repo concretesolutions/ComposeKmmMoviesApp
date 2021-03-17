@@ -89,3 +89,6 @@ lint/tmp/
 *.hprof
 
 .idea
+
+#iOS
+**/.DS_Store

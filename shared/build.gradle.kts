@@ -40,11 +40,6 @@ android {
 //            buildConfigField("String", "API_URL", "https://api.themoviedb.org/3/")
 //        }
 //    }
-    sqldelight {
-        database("AppDatabase") {
-            packageName = "br.com.concrete.composekmmmoviesapp.cache"
-        }
-    }
 }
 
 kotlin {
@@ -56,10 +51,11 @@ kotlin {
             }
         }
     }
-    val ktorVersion = "1.4.2"
-    val serializationVersion = "1.1.0"
+
+    val ktorVersion = "1.4.0"
+    val serializationVersion = "1.0.0-RC"
     val sqlDelightVersion = "1.4.4"
-    val coroutinesVersion = "1.4.2"
+    val coroutinesVersion = "1.3.9-native-mt"
     val kodeinVersion = "7.4.0"
 
     sourceSets {
@@ -102,6 +98,13 @@ kotlin {
         }
         val iosTest by getting
     }
+
+    val onPhone = System.getenv("SDK_NAME")?.startsWith("iphoneos") ?: false
+    if (onPhone) {
+        iosArm64("ios")
+    } else {
+        iosX64("ios")
+    }
 }
 
 val packForXcode by tasks.creating(Sync::class) {
@@ -118,3 +121,9 @@ val packForXcode by tasks.creating(Sync::class) {
 }
 
 tasks.getByName("build").dependsOn(packForXcode)
+
+sqldelight {
+    database("AppDatabase") {
+        packageName = "br.com.concrete.composekmmmoviesapp.cache"
+    }
+}
