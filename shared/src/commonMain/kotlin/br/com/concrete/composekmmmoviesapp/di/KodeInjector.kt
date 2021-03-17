@@ -5,8 +5,10 @@ import br.com.concrete.composekmmmoviesapp.database.GenreDao
 import br.com.concrete.composekmmmoviesapp.network.GenreApi
 import br.com.concrete.composekmmmoviesapp.database.MovieDao
 import br.com.concrete.composekmmmoviesapp.network.MovieApi
+import br.com.concrete.composekmmmoviesapp.network.SearchMovieApi
 import br.com.concrete.composekmmmoviesapp.repository.GenreRepository
 import br.com.concrete.composekmmmoviesapp.repository.MovieRepository
+import br.com.concrete.composekmmmoviesapp.repository.SearchMovieRepository
 import io.ktor.client.*
 import io.ktor.client.features.json.*
 import io.ktor.client.features.json.serializer.*
@@ -24,6 +26,8 @@ val di = DI {
 
     bind<GenreApi>() with provider { GenreApi() }
 
+    bind<SearchMovieApi>() with provider { SearchMovieApi() }
+
     bind<MovieRepository>() with singleton { MovieRepository(instance(), instance()) }
 
     bind<MovieDao>() with singleton { MovieDao(instance()) }
@@ -31,6 +35,8 @@ val di = DI {
     bind<GenreDao>() with singleton { GenreDao(instance()) }
 
     bind<GenreRepository>() with singleton { GenreRepository(instance(), instance()) }
+
+    bind<SearchMovieRepository>() with singleton { SearchMovieRepository(instance()) }
 
     bind<HttpClient>() with provider {
         HttpClient {

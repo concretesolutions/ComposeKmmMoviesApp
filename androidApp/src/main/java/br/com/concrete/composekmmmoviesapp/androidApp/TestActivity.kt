@@ -9,6 +9,7 @@ import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.ui.Alignment
 import br.com.concrete.composekmmmoviesapp.MoviesSdk
+import br.com.concrete.composekmmmoviesapp.cache.Movies
 import br.com.concrete.composekmmmoviesapp.data.Response
 import br.com.concrete.composekmmmoviesapp.database.DatabaseDriverFactory
 import br.com.concrete.composekmmmoviesapp.domain.FavoriteMovie
@@ -101,5 +102,13 @@ class TestActivity : ComponentActivity() {
                 Toast.makeText(this@TestActivity, response.data.genres[0].name, Toast.LENGTH_SHORT)
                     .show()
         }
+
+        mainScope.launch {
+            val response : Response<MoviesResponse> = moviesSdk.searchMovie("soul")
+            if(response is Response.Success)
+                Toast.makeText(this@TestActivity,response.data.results[0].originalTitle,Toast.LENGTH_LONG).show()
+        }
     }
+
+
 }
