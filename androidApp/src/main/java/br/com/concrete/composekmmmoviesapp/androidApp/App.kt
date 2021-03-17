@@ -1,16 +1,12 @@
 package br.com.concrete.composekmmmoviesapp.androidApp
 
-import android.content.Intent
 import androidx.compose.animation.*
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Devices
@@ -21,6 +17,7 @@ import androidx.navigation.compose.*
 import br.com.concrete.components.ListComponents
 import br.com.concrete.composekmmmoviesapp.androidApp.data.model.Movie
 import br.com.concrete.composekmmmoviesapp.androidApp.home.favoritestab.FavoritesScreen
+import br.com.concrete.composekmmmoviesapp.androidApp.home.favoritestab.favoritesViewModel
 import br.com.concrete.composekmmmoviesapp.androidApp.home.moviestab.MoviesScreen
 import br.com.concrete.composekmmmoviesapp.androidApp.moviedetail.MovieDetailScreen
 import br.com.concrete.composekmmmoviesapp.androidApp.theme.ComposeMoviesAppTheme
@@ -77,7 +74,11 @@ fun MoviesApp() {
                         val movie = navController.previousBackStackEntry
                             ?.arguments?.getParcelable<Movie>("movie")
                         if (movie != null) {
-                            MovieDetailScreen(movie)
+                            MovieDetailScreen(
+                                movie,
+                                onClickFavorite = { movie ->
+                                    favoritesViewModel.removeFromFavorite(movie)
+                                })
                         }
                     }
                     composable(Screen.SampleCompose.route) {

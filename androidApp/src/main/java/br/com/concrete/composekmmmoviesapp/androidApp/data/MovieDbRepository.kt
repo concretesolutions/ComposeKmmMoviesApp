@@ -6,6 +6,7 @@ import br.com.concrete.composekmmmoviesapp.androidApp.data.db.FavoriteMovieDbDao
 import br.com.concrete.composekmmmoviesapp.androidApp.data.mapper.FavoritesMapper
 import br.com.concrete.composekmmmoviesapp.androidApp.data.mapper.MoviesMapper
 import br.com.concrete.composekmmmoviesapp.androidApp.data.model.Movie
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -13,9 +14,10 @@ class MovieDbRepository(
     private val api: MoviesDbApi,
     private val mapper: MoviesMapper,
     private val favoriteDao: FavoriteMovieDbDao,
-    private val favoritesMapper: FavoritesMapper
+    private val favoritesMapper: FavoritesMapper,
+    private val dispatcher: CoroutineDispatcher = Dispatchers.IO
 ) {
-    suspend fun getPopularMovies(): List<Movie> = withContext(Dispatchers.IO) {
+    suspend fun getPopularMovies(): List<Movie> = withContext(dispatcher) {
         try {
             val popularMovies = api.getPopularMovies().body()
             val genres = api.getGenres().body()

@@ -1,6 +1,7 @@
 package br.com.concrete.composekmmmoviesapp.androidApp.home.moviestab
 
 import androidx.annotation.StringRes
+import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -25,7 +26,7 @@ class MoviesViewModel(
         _moviesList
     }
 
-    private fun getMoviesListState() {
+     private fun getMoviesListState() {
         viewModelScope.launch {
             _moviesList.value = MoviesListUiState.Loading
             try {

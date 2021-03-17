@@ -2,6 +2,7 @@ package br.com.concrete.composekmmmoviesapp
 
 import br.com.concrete.composekmmmoviesapp.data.Response
 import br.com.concrete.composekmmmoviesapp.database.DatabaseDriverFactory
+import br.com.concrete.composekmmmoviesapp.database.GenreDao
 import br.com.concrete.composekmmmoviesapp.database.MovieDao
 import br.com.concrete.composekmmmoviesapp.di.DataDriverManager
 import br.com.concrete.composekmmmoviesapp.di.di
@@ -22,13 +23,18 @@ class MoviesSdk(databaseDriverFactory: DatabaseDriverFactory) {
             MovieDao(driverManager)
         )
     }
-    private val genreRepository by di.newInstance { GenreRepository(instance()) }
+    private val genreRepository by di.newInstance {
+        GenreRepository(
+            instance(),
+            GenreDao(driverManager)
+        )
+    }
 
     suspend fun getPopularMovies(): Response<MoviesResponse> {
         return movieRepository.getPopularMovies()
     }
 
-    suspend fun getGenresList() : Response<Genres>{
+    suspend fun getGenresList() : Response<Genres> {
         return genreRepository.getGenresList()
     }
 
@@ -44,5 +50,9 @@ class MoviesSdk(databaseDriverFactory: DatabaseDriverFactory) {
 
     suspend fun findMovie() {
         TODO()
+    }
+
+    fun removeGenresCache() {
+        genreRepository.removeAllGenres()
     }
 }
