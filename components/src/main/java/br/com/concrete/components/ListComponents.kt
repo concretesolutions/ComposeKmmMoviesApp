@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
+import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -38,6 +39,9 @@ fun ListComponents() {
                // context.startActivity(Intent(context, ExampleFragment()::class.java))
 
                 //XmlCompose()
+Surface() {
+    
+}
 
             }
             composable(AppComposeScreen.XmlCompose.route) {

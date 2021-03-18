@@ -10,6 +10,7 @@
         android:layout_height="246dp"
         android:padding="8dp"
         android:paddingStart="8dp"
+        android:paddingBottom="16dp"
         android:scaleType="centerCrop"
         app:srcCompat="@drawable/header" />
 
