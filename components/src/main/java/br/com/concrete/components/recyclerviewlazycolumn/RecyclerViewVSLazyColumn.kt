@@ -1,4 +1,4 @@
-package br.com.concrete.components.recyclerview
+package br.com.concrete.components.recyclerviewlazycolumn
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -15,8 +15,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
-import br.com.concrete.components.AppComposeHome
-import br.com.concrete.components.AppComposeScreen
+import br.com.concrete.components.recyclerviewlazycolumn.recycleview.RecycleViewPage
 
 @Composable
 fun ListRecyclerViewVSLazyColumn() {

@@ -15,7 +15,6 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.*
 import br.com.concrete.components.ListComponents
-import br.com.concrete.components.recyclerview.ListRecyclerViewVSLazyColumn
 import br.com.concrete.composekmmmoviesapp.androidApp.data.model.Movie
 import br.com.concrete.composekmmmoviesapp.androidApp.home.favoritestab.FavoritesScreen
 import br.com.concrete.composekmmmoviesapp.androidApp.home.favoritestab.favoritesViewModel

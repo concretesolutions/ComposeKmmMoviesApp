@@ -110,7 +110,7 @@ fun FavoritesCard(
                 Text(
                     text = movie.releaseYear.toString(),
                     fontWeight = FontWeight.Black,
-                    style = typography.body1/*TextStyle(fontSize = 17.sp)*/,
+                    style = typography.body1,
                     color = Color.Black
                 )
                 CompositionLocalProvider(

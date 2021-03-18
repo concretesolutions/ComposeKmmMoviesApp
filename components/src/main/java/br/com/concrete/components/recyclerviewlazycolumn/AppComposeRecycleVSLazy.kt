@@ -1,7 +1,6 @@
-package br.com.concrete.components.recyclerview
+package br.com.concrete.components.recyclerviewlazycolumn
 
 import androidx.compose.ui.graphics.vector.ImageVector
-import br.com.concrete.components.AppComposeScreen
 
 
 sealed class AppComposeRecycleVSLazy(

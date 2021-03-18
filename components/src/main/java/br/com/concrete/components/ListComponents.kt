@@ -16,8 +16,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
 import br.com.concrete.components.devexperience.xml.XmlCompose
-import br.com.concrete.components.recyclerview.ListRecyclerViewVSLazyColumn
-import br.com.concrete.components.recyclerview.RecyclerViewVSLazyColumn
+import br.com.concrete.components.recyclerviewlazycolumn.ListRecyclerViewVSLazyColumn
 
 @Composable
 fun ListComponents() {
