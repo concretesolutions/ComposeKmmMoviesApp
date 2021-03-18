@@ -48,7 +48,7 @@ fun ListComponents() {
 }
 
 @Composable
-fun TextHome(navController: NavController){
+fun TextHome(navController: NavController) {
     Column {
 
 
@@ -60,7 +60,7 @@ fun TextHome(navController: NavController){
 
 
         }) {
-            Text("Text na activity")
+            Text("TextView Android")
 
         }
         Button(modifier = Modifier.padding(top = 64.dp, start = 124.dp), onClick = {
@@ -71,7 +71,7 @@ fun TextHome(navController: NavController){
 
 
         }) {
-            Text("TextView no Compose")
+            Text("TextView Compose")
 
         }
 
@@ -104,7 +104,7 @@ fun AppComposeHome(navController: NavController) {
 
 
         }) {
-            Text("TextView Home")
+            Text("Comparacao TextView")
 
         }
 
