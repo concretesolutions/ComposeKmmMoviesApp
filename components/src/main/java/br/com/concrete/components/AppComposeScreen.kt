@@ -8,4 +8,5 @@ sealed class AppComposeScreen(
 ) {
     object SampleComposeHome : AppComposeScreen("composeHome")
     object EditText : AppComposeScreen("editText")
+    object RecyclerVsLazy : AppComposeScreen("recyclerV")
 }

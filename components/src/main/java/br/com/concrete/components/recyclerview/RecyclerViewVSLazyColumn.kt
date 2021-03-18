@@ -1,4 +1,4 @@
-package br.com.concrete.components
+package br.com.concrete.components.recyclerview
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -15,58 +15,54 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
-import br.com.concrete.components.devexperience.xml.XmlCompose
-import br.com.concrete.components.recyclerview.ListRecyclerViewVSLazyColumn
-import br.com.concrete.components.recyclerview.RecyclerViewVSLazyColumn
+import br.com.concrete.components.AppComposeHome
+import br.com.concrete.components.AppComposeScreen
 
 @Composable
-fun ListComponents() {
+fun ListRecyclerViewVSLazyColumn() {
     val navController = rememberNavController()
-            Column (
-            modifier = Modifier
-                .fillMaxWidth()
-                .fillMaxHeight()
-            ) {
-        NavHost(navController, startDestination = AppComposeScreen.SampleComposeHome.route) {
-            composable(AppComposeScreen.SampleComposeHome.route) {
-                AppComposeHome(navController)
+    Column (
+        modifier = Modifier
+            .fillMaxWidth()
+            .fillMaxHeight()
+    ) {
+        NavHost(navController, startDestination = AppComposeRecycleVSLazy.SampleComposeRecycleLazy.route) {
+            composable(AppComposeRecycleVSLazy.SampleComposeRecycleLazy.route) {
+                RecyclerViewVSLazyColumn(navController)
             }
-            composable(AppComposeScreen.EditText.route) {
-                XmlCompose()
+            composable(AppComposeRecycleVSLazy.RecyclerPage.route) {
+                RecycleViewPage()
             }
-            composable(AppComposeScreen.RecyclerVsLazy.route) {
-                ListRecyclerViewVSLazyColumn()
-               // RecyclerViewVSLazyColumn(navController)
+            composable(AppComposeRecycleVSLazy.LazyPage.route) {
+                LazyColumnPage()
             }
         }
     }
 }
 
-
 @Composable
-fun AppComposeHome(navController: NavController) {
-
+fun RecyclerViewVSLazyColumn(navController: NavController) {
     Button(modifier = Modifier.padding(top = 64.dp, start = 124.dp), onClick = {
-        navController.navigate(AppComposeScreen.EditText.route) {
+        navController.navigate(AppComposeRecycleVSLazy.RecyclerPage.route) {
             popUpTo = navController.graph.startDestination
             launchSingleTop = true
         }
 
 
     }) {
-        Text("XML no Compose")
+        Text("RecycleView",textAlign = TextAlign.Center)
 
     }
 
     Button(modifier = Modifier.padding(top = 64.dp, start = 124.dp), onClick = {
-        navController.navigate(AppComposeScreen.RecyclerVsLazy.route) {
+        navController.navigate(AppComposeRecycleVSLazy.LazyPage.route) {
             popUpTo = navController.graph.startDestination
             launchSingleTop = true
         }
 
 
     }) {
-        Text("RecycleView \n vs \n LazyColumn",textAlign = TextAlign.Center)
+        Text("LazyColumn",textAlign = TextAlign.Center)
 
     }
 }
