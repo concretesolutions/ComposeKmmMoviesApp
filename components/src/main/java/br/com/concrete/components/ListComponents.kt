@@ -19,17 +19,20 @@ import br.com.concrete.components.devexperience.xml.XmlCompose
 @Composable
 fun ListComponents() {
     val navController = rememberNavController()
-            Column (
-            modifier = Modifier
-                .fillMaxWidth()
-                .fillMaxHeight()
-            ) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .fillMaxHeight()
+    ) {
         NavHost(navController, startDestination = AppComposeScreen.SampleComposeHome.route) {
             composable(AppComposeScreen.SampleComposeHome.route) {
                 AppComposeHome(navController)
             }
             composable(AppComposeScreen.EditText.route) {
                 XmlCompose()
+            }
+            composable(AppComposeScreen.TextViewText.route) {
+                TextViewCompose()
             }
         }
     }
@@ -38,16 +41,31 @@ fun ListComponents() {
 
 @Composable
 fun AppComposeHome(navController: NavController) {
+    Column() {
 
-    Button(modifier = Modifier.padding(top = 64.dp, start = 124.dp), onClick = {
-        navController.navigate(AppComposeScreen.EditText.route) {
-            popUpTo = navController.graph.startDestination
-            launchSingleTop = true
+
+        Button(modifier = Modifier.padding(top = 64.dp, start = 124.dp), onClick = {
+            navController.navigate(AppComposeScreen.EditText.route) {
+                popUpTo = navController.graph.startDestination
+                launchSingleTop = true
+            }
+
+
+        }) {
+            Text("XML no Compose")
+
         }
+        Button(modifier = Modifier.padding(top = 64.dp, start = 124.dp), onClick = {
+            navController.navigate(AppComposeScreen.TextViewText.route) {
+                popUpTo = navController.graph.startDestination
+                launchSingleTop = true
+            }
 
 
-    }) {
-        Text("XML no Compose")
+        }) {
+            Text("TextView no Compose")
+
+        }
 
     }
 }
