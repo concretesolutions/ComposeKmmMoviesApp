@@ -1,5 +1,6 @@
 package br.com.concrete.composekmmmoviesapp.shared
 
+import io.mockk.mockkClass
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
