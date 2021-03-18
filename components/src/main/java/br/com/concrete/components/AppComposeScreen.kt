@@ -9,4 +9,6 @@ sealed class AppComposeScreen(
     object SampleComposeHome : AppComposeScreen("composeHome")
     object EditText : AppComposeScreen("editText")
     object TextViewText : AppComposeScreen("textViewText")
+    object TextActivity : AppComposeScreen("textActivity")
+    object TextHome : AppComposeScreen("textHome")
 }

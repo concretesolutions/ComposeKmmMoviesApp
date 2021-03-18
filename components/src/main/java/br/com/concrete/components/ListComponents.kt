@@ -1,5 +1,6 @@
 package br.com.concrete.components
 
+import android.content.Intent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -8,6 +9,7 @@ import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
@@ -19,6 +21,7 @@ import br.com.concrete.components.devexperience.xml.XmlCompose
 @Composable
 fun ListComponents() {
     val navController = rememberNavController()
+    val context = LocalContext.current
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -31,11 +34,49 @@ fun ListComponents() {
             composable(AppComposeScreen.EditText.route) {
                 XmlCompose()
             }
+            composable(AppComposeScreen.TextHome.route) {
+                TextHome(navController)
+            }
             composable(AppComposeScreen.TextViewText.route) {
                 TextViewCompose()
             }
+            composable(AppComposeScreen.TextActivity.route) {
+                context.startActivity(Intent(context, MainActivity()::class.java))
+            }
         }
     }
+}
+
+@Composable
+fun TextHome(navController: NavController){
+    Column() {
+
+
+        Button(modifier = Modifier.padding(top = 64.dp, start = 124.dp), onClick = {
+            navController.navigate(AppComposeScreen.TextActivity.route) {
+                popUpTo = navController.graph.startDestination
+                launchSingleTop = true
+            }
+
+
+        }) {
+            Text("Text na activity")
+
+        }
+        Button(modifier = Modifier.padding(top = 64.dp, start = 124.dp), onClick = {
+            navController.navigate(AppComposeScreen.TextViewText.route) {
+                popUpTo = navController.graph.startDestination
+                launchSingleTop = true
+            }
+
+
+        }) {
+            Text("TextView no Compose")
+
+        }
+
+    }
+
 }
 
 
