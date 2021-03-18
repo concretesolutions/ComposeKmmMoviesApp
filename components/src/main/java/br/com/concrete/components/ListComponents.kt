@@ -41,7 +41,7 @@ fun ListComponents() {
                 TextViewCompose()
             }
             composable(AppComposeScreen.TextActivity.route) {
-                context.startActivity(Intent(context, MainActivity()::class.java))
+                context.startActivity(Intent(context, TextCompose()::class.java))
             }
         }
     }
@@ -49,7 +49,7 @@ fun ListComponents() {
 
 @Composable
 fun TextHome(navController: NavController){
-    Column() {
+    Column {
 
 
         Button(modifier = Modifier.padding(top = 64.dp, start = 124.dp), onClick = {
@@ -97,14 +97,14 @@ fun AppComposeHome(navController: NavController) {
 
         }
         Button(modifier = Modifier.padding(top = 64.dp, start = 124.dp), onClick = {
-            navController.navigate(AppComposeScreen.TextViewText.route) {
+            navController.navigate(AppComposeScreen.TextHome.route) {
                 popUpTo = navController.graph.startDestination
                 launchSingleTop = true
             }
 
 
         }) {
-            Text("TextView no Compose")
+            Text("TextView Home")
 
         }
 
