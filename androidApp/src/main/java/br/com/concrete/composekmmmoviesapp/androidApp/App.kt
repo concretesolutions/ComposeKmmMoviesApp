@@ -36,9 +36,13 @@ fun MoviesApp() {
                     title = { Text(stringResource(id = R.string.app_name)) },
                     actions = {
                         topAppBarItems.forEach { screen ->
-                            IconButton(onClick = {
-                                navController.navigate(screen.route)
-                            }) {
+                            IconButton(
+                                onClick = {
+                                    navController.navigate(screen.route) {
+                                        launchSingleTop = true
+                                    }
+                                }
+                            ) {
                                 Icon(screen.icon, null)
                             }
                         }
@@ -83,9 +87,7 @@ fun MoviesApp() {
                     }
                     composable(Screen.SampleCompose.route) {
                         showBottomBar.value = false
-
                         ListComponents()
-                       // ListRecyclerViewVSLazyColumn()
                     }
                 }
             }

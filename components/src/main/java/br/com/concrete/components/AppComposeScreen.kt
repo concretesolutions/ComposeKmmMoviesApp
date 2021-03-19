@@ -1,12 +1,15 @@
 package br.com.concrete.components
 
-import androidx.compose.ui.graphics.vector.ImageVector
-
 sealed class AppComposeScreen(
     val route: String,
-    val icon: ImageVector? = null
+    val name: String = "composeHome"
 ) {
     object SampleComposeHome : AppComposeScreen("composeHome")
-    object EditText : AppComposeScreen("editText")
-    object RecyclerVsLazy : AppComposeScreen("recyclerV")
+    object EditText : AppComposeScreen("editText", "EditText vs TextField")
+    object RecyclerVsLazy : AppComposeScreen("recyclerV", "RecyclerView vs LazyComponents")
 }
+
+val listItems = listOf(
+    AppComposeScreen.EditText,
+    AppComposeScreen.RecyclerVsLazy,
+)
