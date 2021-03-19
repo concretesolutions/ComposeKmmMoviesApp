@@ -44,12 +44,14 @@ fun ListComponents() {
             }
             composable(AppComposeScreen.TextActivity.route) {
                 context.startActivity(Intent(context, TextCompose()::class.java))
+            }
             composable(AppComposeScreen.ModifiersCompose.route) {
                 Modifiers()
             }
         }
     }
 }
+
 
 @Composable
 fun TextHome(navController: NavController) {
@@ -62,7 +64,6 @@ fun TextHome(navController: NavController) {
                 launchSingleTop = true
             }
 
-
         }) {
             Text("TextView Android")
 
@@ -72,61 +73,30 @@ fun TextHome(navController: NavController) {
                 popUpTo = navController.graph.startDestination
                 launchSingleTop = true
             }
-
-
         }) {
             Text("TextView Compose")
-
         }
-
     }
-
 }
-
 
 @Composable
 fun AppComposeHome(navController: NavController) {
     Column() {
-
-
         Button(modifier = Modifier.padding(top = 64.dp, start = 124.dp), onClick = {
             navController.navigate(AppComposeScreen.EditText.route) {
                 popUpTo = navController.graph.startDestination
                 launchSingleTop = true
             }
-
-
         }) {
             Text("XML no Compose")
-
-
-    Button(modifier = Modifier.padding(top = 64.dp, start = 124.dp), onClick = {
-        navController.navigate(AppComposeScreen.XmlCompose.route) {
-            popUpTo = navController.graph.startDestination
-            launchSingleTop = true
         }
         Button(modifier = Modifier.padding(top = 64.dp, start = 124.dp), onClick = {
             navController.navigate(AppComposeScreen.TextHome.route) {
                 popUpTo = navController.graph.startDestination
                 launchSingleTop = true
             }
-
-
         }) {
-            Text("Comparacao TextView")
-
+            Text("TextView no Compose")
         }
-
-    }
-    Button(modifier = Modifier.padding(top = 64.dp, start = 148.dp), onClick = {
-        navController.navigate(AppComposeScreen.ModifiersCompose.route) {
-            popUpTo = navController.graph.startDestination
-            launchSingleTop = true
-        }
-
-
-    }) {
-        Text("Modifiers")
-
     }
 }
