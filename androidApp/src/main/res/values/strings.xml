@@ -5,4 +5,5 @@
     <string name="title_tab_favorites">Favorites</string>
     <string name="generic_error">An unexpected error ocurred. Please, try again.</string>
     <string name="title_compose">compose</string>
+    <string name="icon_description">Botão de favoritar</string>
 </resources>
