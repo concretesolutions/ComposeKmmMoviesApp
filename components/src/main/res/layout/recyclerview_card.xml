@@ -35,7 +35,9 @@ android:id="@+id/cardview1">
         android:layout_marginTop="8dp"
         android:layout_marginEnd="159dp"
         android:layout_toEndOf="@+id/imageRecycler"
-        android:text="TextView" />
+        android:text="Thor"
+        android:textStyle="bold"
+        android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"/>
 
     <TextView
         android:id="@+id/yearRecycler"
@@ -47,23 +49,27 @@ android:id="@+id/cardview1">
         android:layout_marginTop="6dp"
         android:layout_marginEnd="157dp"
         android:layout_toEndOf="@+id/imageRecycler"
-        android:text="TextView" />
+        android:text="2008"
+        android:textStyle="bold"
+        android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"/>
 
-    <EditText
+    <TextView
         android:id="@+id/synopsisMultiLineRecycler"
-        android:layout_width="226dp"
-        android:layout_height="48dp"
+        android:layout_width="214dp"
+        android:layout_height="61dp"
         android:layout_below="@+id/yearRecycler"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="11dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="0dp"
         android:layout_toEndOf="@+id/imageRecycler"
         android:ems="10"
         android:gravity="start|top"
-        android:inputType="textMultiLine" />
+        android:maxLines="3"
+        android:textStyle="bold"
+        android:text="Como filho de Odin, rei dos deuses nórdicos, Thor logo herdará o trono de Asgard de seu idoso pai. Porém, no dia de sua coroação, Thor reage com brutalidade quando os inimigos dos deuses entram no palácio violando o tratado. Como punição, Odin manda Thor para a Terra. Enquanto seu irmão Loki conspira em Asgard, Thor, agora sem seus poderes, enfrenta sua maior ameaça." />
 
 </RelativeLayout>
 

@@ -10,7 +10,9 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import br.com.concrete.composekmmmoviesapp.androidApp.R
 import br.com.concrete.composekmmmoviesapp.androidApp.data.model.Movie
 import br.com.concrete.composekmmmoviesapp.androidApp.theme.Yellow
 import br.com.concrete.composekmmmoviesapp.androidApp.util.DataSamples
@@ -23,7 +25,7 @@ fun FavoriteMovieButton(
     IconButton(
         onClick = { action(movie) },
         modifier = Modifier
-            .size(48.dp)
+            .size(48.dp),
 
 
 
@@ -36,8 +38,9 @@ fun FavoriteMovieButton(
         }
         Icon(
             Icons.Filled.Favorite,
-            contentDescription = null,
-            tint = tintIcon
+            contentDescription = stringResource(R.string.icon_description),
+            tint = tintIcon,
+
         )
     }
 }

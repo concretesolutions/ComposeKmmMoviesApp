@@ -16,6 +16,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
 import br.com.concrete.components.recyclerviewlazycolumn.recycleview.RecycleViewPage
+import br.com.concrete.components.recyclerviewlazycolumn.LazyColumnPage as LazyColumnPage1
 
 @Composable
 fun ListRecyclerViewVSLazyColumn() {
@@ -33,11 +34,13 @@ fun ListRecyclerViewVSLazyColumn() {
                 RecycleViewPage()
             }
             composable(AppComposeRecycleVSLazy.LazyPage.route) {
-                LazyColumnPage()
+                SetLazyColumnList()
             }
         }
     }
 }
+
+
 
 @Composable
 fun RecyclerViewVSLazyColumn(navController: NavController) {
