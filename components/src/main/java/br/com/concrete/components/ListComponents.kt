@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
-import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -19,6 +18,7 @@ import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
 import br.com.concrete.components.design.Modifiers
 import br.com.concrete.components.devexperience.xml.XmlCompose
+import br.com.concrete.components.devexperience.xml.XmlVsCompose
 
 @Composable
 fun ListComponents() {
@@ -37,8 +37,6 @@ fun ListComponents() {
 
             composable(AppComposeScreen.XmlHome.route) {
                 XmlHome(navController)
-    
-}
 
             }
             composable(AppComposeScreen.XmlCompose.route) {
@@ -46,10 +44,9 @@ fun ListComponents() {
 
             }
             composable(AppComposeScreen.XmlComposeActivity.route) {
-                
-                context.startActivity(Intent(context, ExampleFragment()::class.java))
 
-               
+                context.startActivity(Intent(context, XmlVsCompose()::class.java))
+
 
             }
             composable(AppComposeScreen.ModifiersCompose.route) {
@@ -58,8 +55,9 @@ fun ListComponents() {
         }
     }
 }
+
 @Composable
-fun XmlHome(navController: NavController){
+fun XmlHome(navController: NavController) {
     Button(modifier = Modifier.padding(top = 64.dp, start = 124.dp), onClick = {
         navController.navigate(AppComposeScreen.XmlCompose.route) {
             popUpTo = navController.graph.startDestination

@@ -62,7 +62,7 @@ fun XmlCompose() {
 }
 
 
-class ExampleFragment : AppCompatActivity() {
+class XmlVsCompose : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.jetpack_compose)
