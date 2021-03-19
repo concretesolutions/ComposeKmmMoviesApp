@@ -7,11 +7,11 @@
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="246dp"
-        android:padding="8dp"
+        android:layout_height="226dp"
+        android:paddingTop="16dp"
         android:paddingStart="8dp"
-        android:paddingBottom="16dp"
-        android:scaleType="centerCrop"
+        android:paddingEnd="8dp"
+        android:scaleType="centerInside"
         app:srcCompat="@drawable/header" />
 
     <TextView
@@ -19,16 +19,17 @@
         android:layout_height="wrap_content"
         android:maxLines="2"
         android:paddingStart="8dp"
+        android:paddingTop="12dp"
         android:text="A day wandering through the sandhills in Shark Fin Cove, and a few of the sights I saw"
         android:textColor="@color/Black"
-        android:textSize="20dp"
-        android:textStyle="bold" />
+        android:textSize="24dp"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Davenport, California"
         android:paddingStart="8dp"
+        android:textSize="16dp"
         android:paddingTop="8dp"
         android:textColor="@color/Black"/>
 
@@ -36,6 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="December 2018"
+        android:textSize="16dp"
         android:paddingStart="8dp"
         android:textColor="@color/Black"/>
     <androidx.compose.ui.platform.ComposeView
