@@ -16,12 +16,14 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
+import br.com.concrete.components.design.Modifiers
 import br.com.concrete.components.devexperience.xml.XmlCompose
 
 @Composable
 fun ListComponents() {
     val navController = rememberNavController()
     val context = LocalContext.current
+
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -31,7 +33,7 @@ fun ListComponents() {
             composable(AppComposeScreen.SampleComposeHome.route) {
                 AppComposeHome(navController)
             }
-            composable(AppComposeScreen.EditText.route) {
+            composable(AppComposeScreen.XmlCompose.route) {
                 XmlCompose()
             }
             composable(AppComposeScreen.TextHome.route) {
@@ -42,6 +44,8 @@ fun ListComponents() {
             }
             composable(AppComposeScreen.TextActivity.route) {
                 context.startActivity(Intent(context, TextCompose()::class.java))
+            composable(AppComposeScreen.ModifiersCompose.route) {
+                Modifiers()
             }
         }
     }
@@ -95,6 +99,11 @@ fun AppComposeHome(navController: NavController) {
         }) {
             Text("XML no Compose")
 
+
+    Button(modifier = Modifier.padding(top = 64.dp, start = 124.dp), onClick = {
+        navController.navigate(AppComposeScreen.XmlCompose.route) {
+            popUpTo = navController.graph.startDestination
+            launchSingleTop = true
         }
         Button(modifier = Modifier.padding(top = 64.dp, start = 124.dp), onClick = {
             navController.navigate(AppComposeScreen.TextHome.route) {
@@ -107,6 +116,17 @@ fun AppComposeHome(navController: NavController) {
             Text("Comparacao TextView")
 
         }
+
+    }
+    Button(modifier = Modifier.padding(top = 64.dp, start = 148.dp), onClick = {
+        navController.navigate(AppComposeScreen.ModifiersCompose.route) {
+            popUpTo = navController.graph.startDestination
+            launchSingleTop = true
+        }
+
+
+    }) {
+        Text("Modifiers")
 
     }
 }
