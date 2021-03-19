@@ -30,8 +30,8 @@ class MoviesSdk(databaseDriverFactory: DatabaseDriverFactory) {
         )
     }
 
-    suspend fun getPopularMovies(): Response<MoviesResponse> {
-        return movieRepository.getPopularMovies()
+    suspend fun getPopularMovies(page:Int = 1): Response<MoviesResponse> {
+        return movieRepository.getPopularMovies(page)
     }
 
     suspend fun getGenresList() : Response<Genres> {

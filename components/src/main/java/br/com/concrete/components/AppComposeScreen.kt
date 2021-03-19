@@ -7,4 +7,5 @@ sealed class AppComposeScreen(
     object XmlCompose : AppComposeScreen("xmlCompose")
     object XmlHome: AppComposeScreen("xmlHome")
     object XmlComposeActivity: AppComposeScreen("xmlComposeActivity")
+    object ModifiersCompose: AppComposeScreen("modifiers")
 }

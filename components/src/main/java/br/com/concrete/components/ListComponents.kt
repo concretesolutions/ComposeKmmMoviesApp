@@ -17,7 +17,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
-import br.com.concrete.components.devexperience.xml.ExampleFragment
+import br.com.concrete.components.design.Modifiers
 import br.com.concrete.components.devexperience.xml.XmlCompose
 
 @Composable
@@ -34,29 +34,26 @@ fun ListComponents() {
             composable(AppComposeScreen.SampleComposeHome.route) {
                 AppComposeHome(navController)
             }
+
             composable(AppComposeScreen.XmlHome.route) {
                 XmlHome(navController)
-               // context.startActivity(Intent(context, ExampleFragment()::class.java))
-
-                //XmlCompose()
-Surface() {
     
 }
 
             }
             composable(AppComposeScreen.XmlCompose.route) {
-                //XmlHome(navController)
-                // context.startActivity(Intent(context, ExampleFragment()::class.java))
-
                 XmlCompose()
 
             }
             composable(AppComposeScreen.XmlComposeActivity.route) {
-                //XmlHome(navController)
+                
                 context.startActivity(Intent(context, ExampleFragment()::class.java))
 
-                //XmlCompose()
+               
 
+            }
+            composable(AppComposeScreen.ModifiersCompose.route) {
+                Modifiers()
             }
         }
     }
@@ -101,6 +98,17 @@ fun AppComposeHome(navController: NavController) {
 
     }) {
         Text("Comparações")
+
+    }
+    Button(modifier = Modifier.padding(top = 64.dp, start = 148.dp), onClick = {
+        navController.navigate(AppComposeScreen.ModifiersCompose.route) {
+            popUpTo = navController.graph.startDestination
+            launchSingleTop = true
+        }
+
+
+    }) {
+        Text("Modifiers")
 
     }
 }
