@@ -13,6 +13,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
+import br.com.concrete.components.design.Modifiers
 import br.com.concrete.components.devexperience.xml.XmlCompose
 import br.com.concrete.components.recyclerviewlazycolumn.ListRecyclerViewVSLazyColumn
 
@@ -28,11 +29,13 @@ fun ListComponents() {
             composable(AppComposeScreen.SampleComposeHome.route) {
                 AppComposeHome(navController)
             }
-            composable(AppComposeScreen.EditText.route) {
+            composable(AppComposeScreen.XmlCompose.route) {
                 XmlCompose()
             }
             composable(AppComposeScreen.RecyclerVsLazy.route) {
                 ListRecyclerViewVSLazyColumn()
+            composable(AppComposeScreen.ModifiersCompose.route) {
+                Modifiers()
             }
         }
     }
@@ -40,6 +43,7 @@ fun ListComponents() {
 
 @Composable
 fun AppComposeHome(navController: NavController) {
+
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(4.dp)
     ) {
@@ -55,6 +59,4 @@ fun AppComposeHome(navController: NavController) {
             ) {
                 Text(item.name)
             }
-        }
-    }
 }
