@@ -1,9 +1,8 @@
 package br.com.concrete.components
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -43,26 +42,21 @@ fun ListComponents() {
 @Composable
 fun AppComposeHome(navController: NavController) {
 
-    Button(modifier = Modifier.padding(top = 64.dp, start = 124.dp), onClick = {
-        navController.navigate(AppComposeScreen.XmlCompose.route) {
-            popUpTo = navController.graph.startDestination
-            launchSingleTop = true
+    LazyColumn(
+        verticalArrangement = Arrangement.spacedBy(4.dp)
+    ) {
+        items(listItems) { item ->
+            Button(
+                modifier = Modifier.fillMaxWidth(),
+                onClick = {
+                    navController.navigate(item.route) {
+                        popUpTo = navController.graph.startDestination
+                        launchSingleTop = true
+                    }
+                }
+            ) {
+                Text(item.name)
+            }
         }
-
-
-    }) {
-        Text("XML no Compose")
-
-    }
-    Button(modifier = Modifier.padding(top = 64.dp, start = 148.dp), onClick = {
-        navController.navigate(AppComposeScreen.ModifiersCompose.route) {
-            popUpTo = navController.graph.startDestination
-            launchSingleTop = true
-        }
-
-
-    }) {
-        Text("Modifiers")
-
     }
 }

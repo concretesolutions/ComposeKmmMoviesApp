@@ -1,11 +1,16 @@
 package br.com.concrete.components
 
-import androidx.compose.ui.graphics.vector.ImageVector
 
 sealed class AppComposeScreen(
     val route: String,
+    val name: String = "composeHome"
 ) {
     object SampleComposeHome : AppComposeScreen("composeHome")
-    object XmlCompose : AppComposeScreen("xmlCompose")
-    object ModifiersCompose: AppComposeScreen("modifiers")
+    object XmlCompose : AppComposeScreen("xmlCompose", "Xml no compose")
+    object ModifiersCompose: AppComposeScreen("modifiers", "Modifiers")
 }
+
+val listItems = listOf(
+    AppComposeScreen.XmlCompose,
+    AppComposeScreen.ModifiersCompose,
+)
