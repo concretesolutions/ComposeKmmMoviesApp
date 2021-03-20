@@ -78,7 +78,7 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     testImplementation("com.squareup.retrofit2:retrofit-mock:$retrofitVersion")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion")
-    testImplementation("io.mockk:mockk:1.10.6")
+    testImplementation("io.mockk:mockk:1.11.0")
     testImplementation("androidx.test.ext:junit:1.1.2")
     testImplementation("androidx.test.espresso:espresso-core:3.3.0")
     testImplementation("org.robolectric:robolectric:4.5.1")

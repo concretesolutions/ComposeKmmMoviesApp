@@ -89,7 +89,7 @@ kotlin {
             dependencies {
                 implementation(kotlin("test-junit"))
                 implementation("junit:junit:4.13")
-                implementation("io.mockk:mockk:1.10.6")
+                implementation("io.mockk:mockk:1.11.0")
             }
         }
         val iosMain by getting {
