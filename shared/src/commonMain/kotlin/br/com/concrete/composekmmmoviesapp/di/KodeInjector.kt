@@ -1,8 +1,7 @@
 package br.com.concrete.composekmmmoviesapp.di
 
-import br.com.concrete.composekmmmoviesapp.MoviesSdk
-import br.com.concrete.composekmmmoviesapp.network.GenreApi
 import br.com.concrete.composekmmmoviesapp.database.MovieDao
+import br.com.concrete.composekmmmoviesapp.network.GenreApi
 import br.com.concrete.composekmmmoviesapp.network.MovieApi
 import br.com.concrete.composekmmmoviesapp.repository.GenreRepository
 import br.com.concrete.composekmmmoviesapp.repository.MovieRepository
@@ -19,9 +18,9 @@ val di = DI {
 
     bind<DataDriverManager>() with provider { instance() }
 
-    bind<MovieApi>() with provider { MovieApi() }
+    bind<MovieApi>() with provider { MovieApi(instance()) }
 
-    bind<GenreApi>() with provider { GenreApi() }
+    bind<GenreApi>() with provider { GenreApi(instance()) }
 
     bind<MovieRepository>() with singleton { MovieRepository(instance(), instance()) }
 

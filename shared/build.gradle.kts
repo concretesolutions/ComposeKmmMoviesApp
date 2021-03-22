@@ -1,6 +1,8 @@
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+apply(plugin = "org.jlleitschuh.gradle.ktlint")
+
 plugins {
     kotlin("multiplatform")
     kotlin("plugin.serialization")
