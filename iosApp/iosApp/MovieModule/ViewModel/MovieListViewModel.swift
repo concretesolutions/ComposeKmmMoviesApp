@@ -28,7 +28,6 @@ final class MovieListViewModel: ObservableObject {
             
             var column: [MovieViewModel] = []
             
-            
             for i in 0..<movies.count {
                 
                 if column.count == numberOfColumns {

@@ -1,3 +1,11 @@
+//
+//  MovieListView.swift
+//  iosApp
+//
+//  Created by lucas.henrique.costa on 19/03/21.
+//  Copyright © 2021 orgName. All rights reserved.
+//
+
 import SwiftUI
 
 struct MovieListView: View {
@@ -7,20 +15,24 @@ struct MovieListView: View {
     
     var body: some View {
         NavigationView {
-            //No iOS 14 é possível utilizar LazyVStack
-            ScrollView {
-                ForEach(0..<movieViewModel.moviesInColumns.count, id: \.self) { index in
-                    HStack(spacing: 15) {
-                        ForEach(movieViewModel.moviesInColumns[index]) { movie in
+            GeometryReader { reader in
+                ScrollView {
+                    ZStack {
+                        Rectangle()
+                            .foregroundColor(.clear)
+                        
+                        GridView(rows: movieViewModel.moviesInColumns.count,
+                                 columns: maxColumns) { row, column in
+                            
+                            let movie = movieViewModel.moviesInColumns[row][column]
                             MovieCell(viewModel: movie, tapSaveButton: tapSaveButton(movie:))
-                                .frame(height: 250)
+                                .frame(width: reader.size.width * 0.45, height: reader.size.height * 0.4)
                         }
                     }
                 }
+                .frame(maxWidth: reader.size.width)
+                .navigationBarTitle("Movies", displayMode: .inline)
             }
-            .frame(maxWidth: .infinity)
-            .padding([.leading, .trailing], 15)
-            .navigationBarTitle("Movies", displayMode: .inline)
         }
         .onAppear {
             movieViewModel.fetchMoviesInColumns(numberOfColumns: maxColumns)
