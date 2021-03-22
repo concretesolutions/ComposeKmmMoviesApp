@@ -58,6 +58,10 @@ dependencies {
     implementation ("androidx.appcompat:appcompat:1.2.0")
     implementation ("com.google.android.material:material:1.3.0")
 
+    //layout imagem
+    implementation ("com.squareup.picasso:picasso:2.71828")
+    implementation ("de.hdodenhof:circleimageview:2.0.0")
+
     // Compose
     implementation("androidx.compose.ui:ui:$composeVersion")
     implementation("androidx.compose.ui:ui-tooling:$composeVersion")
