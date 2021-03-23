@@ -230,7 +230,6 @@
 			children = (
 				7555FF7E242A565900829871 /* AppDelegate.swift */,
 				7555FF80242A565900829871 /* SceneDelegate.swift */,
-				E640B2D6260A6CA300C927AB /* BuildModule.swift */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -283,6 +282,7 @@
 		E6FCFD4A2601317400FA15BF /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				E640B2D6260A6CA300C927AB /* BuildModule.swift */,
 				E640B2B6260A1A0400C927AB /* Model */,
 				E6D76B2826093DDD00E8C3D0 /* SDKs */,
 				E64F03B1260270AF0044CE3B /* AppDelegate */,
