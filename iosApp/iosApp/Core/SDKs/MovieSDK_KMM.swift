@@ -41,7 +41,7 @@ extension MoviesSdk: MoviesSDKProtocol {
     }
     
     func fetchPopularMovies(completionHandler: @escaping (Result<[MovieViewModel], Error>) -> Void) {
-        getPopularMovies { (response, error) in
+        getPopularMovies(page: 1) { (response, error) in
             if let response = response as? ResponseSuccess,
                let result = response.data?.results {
             
