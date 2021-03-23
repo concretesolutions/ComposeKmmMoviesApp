@@ -8,18 +8,13 @@
 
 import SwiftUI
 
-enum ModuleType {
-    case kmm
-    case native
-}
-
 struct SelectModuleView: View {
     
     var body: some View {
         NavigationView {
             VStack(spacing: 30) {
                 NavigationLink(
-                    destination: MainView(manager: SceneDelegate.createManager(type: .native)),
+                    destination: MainView(manager: BuildModule.create(type: .native)),
                     label: {
                         Text("Native module")
                             .padding()
@@ -29,7 +24,7 @@ struct SelectModuleView: View {
                     })
                 
                 NavigationLink(
-                    destination: MainView(manager: SceneDelegate.createManager(type: .kmm)),
+                    destination: MainView(manager: BuildModule.create(type: .kmm)),
                     label: {
                         Text("KMM module")
                             .padding()
