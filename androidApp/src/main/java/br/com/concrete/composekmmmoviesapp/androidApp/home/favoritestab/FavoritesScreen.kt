@@ -8,9 +8,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.navigation.NavController
 import androidx.navigation.compose.navigate
 import br.com.concrete.composekmmmoviesapp.androidApp.favoriteslist.SetFavoriteMovieList
+import br.com.concrete.composekmmmoviesapp.androidApp.util.SCREEN_FAVORITES
 import org.koin.java.KoinJavaComponent.inject
 
 val favoritesViewModel: FavoritesViewModel by inject(FavoritesViewModel::class.java)
@@ -21,7 +23,7 @@ fun FavoritesScreen(navController: NavController) {
 
     val favoriteList = favorites
     Box(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.testTag(SCREEN_FAVORITES).fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
         if (favoriteList.isNullOrEmpty()) {

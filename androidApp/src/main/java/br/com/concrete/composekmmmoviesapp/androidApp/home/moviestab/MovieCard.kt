@@ -14,10 +14,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import br.com.concrete.composekmmmoviesapp.androidApp.common.FavoriteMovieButton
 import br.com.concrete.composekmmmoviesapp.androidApp.data.model.Movie
+import br.com.concrete.composekmmmoviesapp.androidApp.util.COMPONENT_ITEM_MOVIES
+import br.com.concrete.composekmmmoviesapp.androidApp.util.COMPONENT_LIST_MOVIES
 import dev.chrisbanes.accompanist.coil.CoilImage
 
 @ExperimentalFoundationApi
@@ -28,6 +31,7 @@ fun MovieListView(
     clickMovieAction: (Movie) -> Unit
 ) {
     LazyVerticalGrid(cells = GridCells.Fixed(2),
+        modifier = Modifier.testTag(COMPONENT_LIST_MOVIES),
         contentPadding = PaddingValues(8.dp),
         content = {
             items(list) { movie ->
@@ -45,6 +49,7 @@ fun MovieItemView(
     Card(
         backgroundColor = Color(34, 20, 80),
         modifier = Modifier
+            .testTag(COMPONENT_ITEM_MOVIES)
             .padding(8.dp)
             .clip(RoundedCornerShape(4.dp))
             .clickable { clickMovieAction(movie) }

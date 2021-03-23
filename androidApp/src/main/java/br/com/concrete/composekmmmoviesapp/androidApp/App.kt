@@ -21,6 +21,7 @@ import br.com.concrete.composekmmmoviesapp.androidApp.home.favoritestab.favorite
 import br.com.concrete.composekmmmoviesapp.androidApp.home.moviestab.MoviesScreen
 import br.com.concrete.composekmmmoviesapp.androidApp.moviedetail.MovieDetailScreen
 import br.com.concrete.composekmmmoviesapp.androidApp.theme.ComposeMoviesAppTheme
+import br.com.concrete.composekmmmoviesapp.androidApp.util.tagButton
 
 @OptIn(ExperimentalAnimationApi::class)
 @Preview(device = Devices.PIXEL_4_XL)
@@ -67,7 +68,7 @@ fun MoviesApp() {
                     }
                     composable(Screen.Favorites.route) {
                         showBottomBar.value = true
-                        FavoritesScreen(navController)
+                       FavoritesScreen(navController)
                     }
                     composable("detail") {
                         showBottomBar.value = true
@@ -104,7 +105,7 @@ fun MoviesAppBottomBar(
             val title = stringResource(id = screen.titleRes)
             BottomNavigationItem(
                 selected = currentRoute == screen.route,
-                modifier = Modifier.testTag("Button-$title"),
+                modifier = Modifier.testTag(tagButton(title)),
                 icon = { Icon(imageVector = screen.icon, title) },
                 onClick = {
                     navController.navigate(screen.route) {

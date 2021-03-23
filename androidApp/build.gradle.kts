@@ -150,6 +150,7 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.3.0")
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:$composeVersion")
 
+
     //Kodein
     implementation("org.kodein.di:kodein-di-framework-android-x:$kodeinVersion")
 }

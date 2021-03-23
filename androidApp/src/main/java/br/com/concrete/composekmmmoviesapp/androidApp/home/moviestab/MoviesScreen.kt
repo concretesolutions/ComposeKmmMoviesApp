@@ -10,8 +10,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.navigation.NavController
 import androidx.navigation.compose.navigate
+import br.com.concrete.composekmmmoviesapp.androidApp.data.model.Movie
+import br.com.concrete.composekmmmoviesapp.androidApp.util.SCREEN_MOVIES
 import org.koin.java.KoinJavaComponent.inject
 
 val moviesViewModel: MoviesViewModel by inject(MoviesViewModel::class.java)
@@ -20,9 +23,9 @@ val moviesViewModel: MoviesViewModel by inject(MoviesViewModel::class.java)
 @Composable
 fun MoviesScreen(navController: NavController) {
     val moviesUiState by moviesViewModel.moviesList.observeAsState(MoviesListUiState.Loading)
-
+       // val moviesUiState:MoviesListUiState = MoviesListUiState.Error(0)
     Box(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.testTag(SCREEN_MOVIES).fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
         when (val uiState = moviesUiState) {
