@@ -9,6 +9,15 @@
           "revision": "bbc4bc4def7eb05a7ba8e1219f80ee9be327334e",
           "version": "6.2.1"
         }
+      },
+      {
+        "package": "MoviesSDK",
+        "repositoryURL": "https://github.com/cs-lucas-costa/MoviesSDK.git",
+        "state": {
+          "branch": "master",
+          "revision": "c041e29da987b75954f0af9c8effca24fa853ed2",
+          "version": null
+        }
       }
     ]
   },
