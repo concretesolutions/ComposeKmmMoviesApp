@@ -14,25 +14,22 @@ struct MovieListView: View {
     private let maxColumns = 2
     
     var body: some View {
-        NavigationView {
-            GeometryReader { reader in
-                ScrollView {
-                    ZStack {
-                        Rectangle()
-                            .foregroundColor(.clear)
+        GeometryReader { reader in
+            ScrollView {
+                ZStack {
+                    Rectangle()
+                        .foregroundColor(.clear)
+                    
+                    GridView(rows: movieViewModel.moviesInColumns.count,
+                             columns: maxColumns) { row, column in
                         
-                        GridView(rows: movieViewModel.moviesInColumns.count,
-                                 columns: maxColumns) { row, column in
-                            
-                            let movie = movieViewModel.moviesInColumns[row][column]
-                            MovieCell(viewModel: movie, tapSaveButton: tapSaveButton(movie:))
-                                .frame(width: reader.size.width * 0.45, height: reader.size.height * 0.4)
-                        }
+                        let movie = movieViewModel.moviesInColumns[row][column]
+                        MovieCell(viewModel: movie, tapSaveButton: tapSaveButton(movie:))
+                            .frame(width: reader.size.width * 0.45, height: reader.size.height * 0.4)
                     }
                 }
-                .frame(maxWidth: reader.size.width)
-                .navigationBarTitle("Movies", displayMode: .inline)
             }
+            .frame(maxWidth: reader.size.width)
         }
         .onAppear {
             movieViewModel.fetchMoviesInColumns(numberOfColumns: maxColumns)

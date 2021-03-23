@@ -1,12 +1,13 @@
 import UIKit
 import SwiftUI
 import shared
+import MoviesSDK
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
-
+ 
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
@@ -14,15 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Create the SwiftUI view that provides the window contents.
         
-        let sdk = MoviesSdk(databaseDriverFactory: DatabaseDriverFactory())
-        let manager = MovieManager(moviesSdk: sdk)
-        
-        let moviesViewModel = MovieListViewModel(manager: manager)
-        let favoriteMovieListModel = FavoriteMovieListViewModel(manager: manager)
-        
-        let contentView = MainView()
-            .environmentObject(moviesViewModel)
-            .environmentObject(favoriteMovieListModel)
+        let contentView = SelectModuleView()
         
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
@@ -64,3 +57,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+extension SceneDelegate {
+    
+    static func createManager(type: ModuleType) -> MovieManagerProtocol {
+        
+        var sdk: MoviesSDKProtocol
+        
+        switch type {
+        case .kmm:
+            sdk = MoviesSdk(databaseDriverFactory: DatabaseDriverFactory())
+        case .native:
+            sdk = MoviesSDKManager()
+        }
+        
+        return MovieManager(moviesSDK: sdk)
+    }
+    
+}
