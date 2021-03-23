@@ -1,9 +1,6 @@
-package br.com.concrete.composekmmmoviesapp.androidApp.data.model
+package br.com.concrete.composekmmmoviesapp.domain
 
-import android.os.Parcelable
-import kotlinx.parcelize.Parcelize
 
-@Parcelize
 data class Movie(
     val id: Int,
     val title: String,
@@ -12,4 +9,4 @@ data class Movie(
     val releaseYear: Int,
     val genres: List<Genre>,
     val isfavorite: Boolean
-) : Parcelable
+)

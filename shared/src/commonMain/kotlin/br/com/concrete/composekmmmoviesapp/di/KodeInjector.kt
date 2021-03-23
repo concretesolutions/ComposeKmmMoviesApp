@@ -1,9 +1,10 @@
 package br.com.concrete.composekmmmoviesapp.di
 
-import br.com.concrete.composekmmmoviesapp.MoviesSdk
+import br.com.concrete.composekmmmoviesapp.database.DatabaseDriverFactory
 import br.com.concrete.composekmmmoviesapp.database.GenreDao
-import br.com.concrete.composekmmmoviesapp.network.GenreApi
 import br.com.concrete.composekmmmoviesapp.database.MovieDao
+import br.com.concrete.composekmmmoviesapp.mapper.MoviesMapper
+import br.com.concrete.composekmmmoviesapp.network.GenreApi
 import br.com.concrete.composekmmmoviesapp.network.MovieApi
 import br.com.concrete.composekmmmoviesapp.network.SearchMovieApi
 import br.com.concrete.composekmmmoviesapp.repository.GenreRepository
@@ -20,7 +21,7 @@ import kotlin.native.concurrent.ThreadLocal
 @ThreadLocal
 val di = DI {
 
-    bind<DataDriverManager>() with provider { instance() }
+//    bind<DataDriverManager>() with provider { DataDriverManager(instance()) }
 
     bind<MovieApi>() with provider { MovieApi() }
 
@@ -28,15 +29,33 @@ val di = DI {
 
     bind<SearchMovieApi>() with provider { SearchMovieApi() }
 
-    bind<MovieRepository>() with singleton { MovieRepository(instance(), instance()) }
+    bind<MovieRepository>() with factory { movieDao: MovieDao ->
+        MovieRepository(
+            instance(),
+            movieDao,
+            instance(),
+            instance()
+        )
+    }
 
     bind<MovieDao>() with singleton { MovieDao(instance()) }
 
-    bind<GenreDao>() with singleton { GenreDao(instance()) }
+    bind<GenreDao>() with factory { dataDriverManager: DataDriverManager ->
+        GenreDao(
+            dataDriverManager
+        )
+    }
 
-    bind<GenreRepository>() with singleton { GenreRepository(instance(), instance()) }
+    bind<GenreRepository>() with factory { genreDao: GenreDao ->
+        GenreRepository(
+            instance(),
+            genreDao
+        )
+    }
 
     bind<SearchMovieRepository>() with singleton { SearchMovieRepository(instance()) }
+
+    bind<MoviesMapper>() with provider { MoviesMapper() }
 
     bind<HttpClient>() with provider {
         HttpClient {
@@ -51,3 +70,5 @@ val di = DI {
         }
     }
 }
+
+

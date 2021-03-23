@@ -18,6 +18,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import br.com.concrete.composekmmmoviesapp.androidApp.common.FavoriteMovieButton
 import br.com.concrete.composekmmmoviesapp.androidApp.data.model.Movie
+import br.com.concrete.composekmmmoviesapp.domain.MovieResponse
 import dev.chrisbanes.accompanist.coil.CoilImage
 
 @ExperimentalFoundationApi

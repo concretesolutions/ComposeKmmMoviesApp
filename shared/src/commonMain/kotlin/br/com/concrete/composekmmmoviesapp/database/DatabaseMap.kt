@@ -1,7 +1,7 @@
 package br.com.concrete.composekmmmoviesapp.database
 
 import br.com.concrete.composekmmmoviesapp.domain.FavoriteMovie
-import br.com.concrete.composekmmmoviesapp.domain.Genre
+import br.com.concrete.composekmmmoviesapp.domain.GenreResponse
 
 fun mapMovieSelecting(
     id: Long,
@@ -24,8 +24,8 @@ fun mapMovieSelecting(
 fun mapGenreSelecting(
     id: Long,
     name: String
-): Genre {
-    return Genre(
+): GenreResponse {
+    return GenreResponse(
         id = id,
         name = name,
     )

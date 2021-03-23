@@ -9,11 +9,10 @@ import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.ui.Alignment
 import br.com.concrete.composekmmmoviesapp.MoviesSdk
-import br.com.concrete.composekmmmoviesapp.cache.Movies
 import br.com.concrete.composekmmmoviesapp.data.Response
 import br.com.concrete.composekmmmoviesapp.database.DatabaseDriverFactory
 import br.com.concrete.composekmmmoviesapp.domain.FavoriteMovie
-import br.com.concrete.composekmmmoviesapp.domain.Genres
+import br.com.concrete.composekmmmoviesapp.domain.GenresResponse
 import br.com.concrete.composekmmmoviesapp.domain.MoviesResponse
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
@@ -85,11 +84,11 @@ class TestActivity : ComponentActivity() {
 
 
         mainScope.launch {
-            val response: Response<MoviesResponse> = moviesSdk.getPopularMovies()
-            if (response is Response.Success)
+            val movies = moviesSdk.getPopularMovies()
+            if (movies.isNotEmpty())
                 Toast.makeText(
                     this@TestActivity,
-                    response.data.results[0].originalTitle,
+                    movies[0].title,
                     Toast.LENGTH_SHORT
                 ).show()
             else
@@ -97,7 +96,7 @@ class TestActivity : ComponentActivity() {
         }
 
         mainScope.launch {
-            val response: Response<Genres> = moviesSdk.getGenresList()
+            val response: Response<GenresResponse> = moviesSdk.getGenresList()
             if (response is Response.Success)
                 Toast.makeText(this@TestActivity, response.data.genres[0].name, Toast.LENGTH_SHORT)
                     .show()

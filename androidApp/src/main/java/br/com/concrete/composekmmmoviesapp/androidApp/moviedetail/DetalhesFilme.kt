@@ -17,6 +17,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import br.com.concrete.composekmmmoviesapp.androidApp.common.FavoriteMovieButton
 import br.com.concrete.composekmmmoviesapp.androidApp.data.model.Movie
+import br.com.concrete.composekmmmoviesapp.domain.MovieResponse
 import br.com.concrete.composekmmmoviesapp.androidApp.util.DataSamples
 import dev.chrisbanes.accompanist.coil.CoilImage
 

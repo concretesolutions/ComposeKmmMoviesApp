@@ -3,12 +3,12 @@ package br.com.concrete.composekmmmoviesapp.domain
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Genres (
-    val genres: List<Genre>
-        )
+data class GenresResponse(
+    val genres: List<GenreResponse>
+)
 
 @Serializable
-data class Genre (
+data class GenreResponse(
     val id: Long,
     val name: String
-     )
+)

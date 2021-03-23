@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.com.concrete.composekmmmoviesapp.androidApp.data.MovieDbRepository
 import br.com.concrete.composekmmmoviesapp.androidApp.data.model.Movie
+import br.com.concrete.composekmmmoviesapp.domain.MovieResponse
 import kotlinx.coroutines.launch
 
 class FavoritesViewModel(

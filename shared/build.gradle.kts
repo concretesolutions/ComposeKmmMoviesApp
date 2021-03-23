@@ -32,6 +32,8 @@ android {
     tasks.withType<KotlinCompile> {
         kotlinOptions {
             jvmTarget = "1.8"
+            useIR = true
+            freeCompilerArgs = listOf("-Xallow-result-return-type")
         }
     }
 
@@ -55,7 +57,7 @@ kotlin {
     val ktorVersion = "1.4.0"
     val serializationVersion = "1.0.0-RC"
     val sqlDelightVersion = "1.4.4"
-    val coroutinesVersion = "1.3.9-native-mt"
+    val coroutinesVersion = "1.4.3"
     val kodeinVersion = "7.4.0"
 
     sourceSets {
