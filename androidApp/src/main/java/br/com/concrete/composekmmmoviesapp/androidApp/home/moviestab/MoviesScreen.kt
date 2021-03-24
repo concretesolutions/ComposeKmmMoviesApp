@@ -1,5 +1,6 @@
 package br.com.concrete.composekmmmoviesapp.androidApp.home.moviestab
 
+import android.util.Log
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -28,16 +29,19 @@ fun MoviesScreen(navController: NavController) {
         modifier = Modifier.testTag(SCREEN_MOVIES).fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
+        Log.d("AppMovieNovo","movieUiState: $moviesUiState")
         when (val uiState = moviesUiState) {
             MoviesListUiState.Loading -> {
+                Log.d("AppMovieNovo","Loading View")
                 CircularProgressIndicator()
             }
             is MoviesListUiState.Error -> {
+                Log.d("AppMovieNovo","Erro View")
                 Text("Error")
             }
             is MoviesListUiState.Success -> {
                 val movies = uiState.moviesList
-
+                Log.d("AppMovieNovo","SUCCESS")
                 MovieListView(list = movies, favoriteUnfavoriteAction = { movie ->
                     if (movie.isfavorite) {
                         moviesViewModel.removeFrom(movie)

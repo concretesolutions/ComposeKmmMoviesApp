@@ -1,5 +1,6 @@
 package br.com.concrete.composekmmmoviesapp.androidApp.data
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.map
 import br.com.concrete.composekmmmoviesapp.androidApp.data.db.FavoriteMovieDbDao
@@ -20,7 +21,9 @@ class MovieDbRepository(
     suspend fun getPopularMovies(): List<Movie> = withContext(dispatcher) {
         try {
             val popularMovies = api.getPopularMovies().body()
+            Log.d("AppMovie","popularMovies: $popularMovies")
             val genres = api.getGenres().body()
+            Log.d("AppMovie","getGeneres: $genres")
             val favoriteMovies = favoriteDao.getFavoriteMovies().map {
                 favoritesMapper.mapDbToMovie(it)
             }
@@ -31,6 +34,7 @@ class MovieDbRepository(
                 throw IllegalStateException()
             }
         } catch (ex: Throwable) {
+            Log.d("AppMovie","Erro: ${ex.message}")
             throw ex
         }
     }

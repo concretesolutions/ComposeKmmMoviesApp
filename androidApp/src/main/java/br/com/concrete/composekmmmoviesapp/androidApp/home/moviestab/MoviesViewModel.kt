@@ -1,5 +1,6 @@
 package br.com.concrete.composekmmmoviesapp.androidApp.home.moviestab
 
+import android.util.Log
 import androidx.annotation.StringRes
 import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData
@@ -32,6 +33,7 @@ class MoviesViewModel(
             try {
                 val resultPopularMovies = moviesDbRepository.getPopularMovies()
                 _moviesList.value = MoviesListUiState.Success(resultPopularMovies)
+                Log.d("AppMovieNovo","movieList:${_moviesList.value}")
             }catch (ex: Throwable){
                 _moviesList.value = MoviesListUiState.Error(R.string.generic_error)
             }

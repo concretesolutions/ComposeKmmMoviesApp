@@ -1,6 +1,7 @@
 package br.com.concrete.composekmmmoviesapp.androidApp.data
 
 import android.content.Context
+import android.util.Log
 import androidx.annotation.VisibleForTesting
 import br.com.concrete.composekmmmoviesapp.androidApp.BuildConfig
 import com.google.gson.GsonBuilder
