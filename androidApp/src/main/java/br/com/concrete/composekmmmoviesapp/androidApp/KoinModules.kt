@@ -19,7 +19,7 @@ val screenModules = module {
     }
 
     viewModel {
-        FavoritesViewModel(get())
+        FavoritesViewModel(get(),get())
     }
 
     single {

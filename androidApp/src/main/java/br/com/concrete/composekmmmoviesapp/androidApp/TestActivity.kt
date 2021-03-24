@@ -62,13 +62,13 @@ class TestActivity : ComponentActivity() {
                 }
 
                 Button(onClick = {
-                    moviesSdk.getFavoriteMovies().forEach {
-                        Toast.makeText(
-                            this@TestActivity,
-                            it.originalTitle,
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
+//                    moviesSdk.getFavoriteMovies().forEach {
+//                        Toast.makeText(
+//                            this@TestActivity,
+//                            it.originalTitle,
+//                            Toast.LENGTH_SHORT
+//                        ).show()
+//                    }
 
                 }) {
                     Text("Favorites")

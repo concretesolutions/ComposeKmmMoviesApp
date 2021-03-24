@@ -56,7 +56,9 @@ class MoviesSdk(databaseDriverFactory: DatabaseDriverFactory) {
         movieRepository.unsaveFavoriteMovie(idMovie)
     }
 
-    fun getFavoriteMovies(): List<FavoriteMovie> = movieRepository.getFavoriteMovies()
+    suspend fun getFavoriteMovies(): List<Movie> = withContext(dispatcher) {
+        movieRepository.getFavoriteMovies()
+    }
 
     suspend fun findMovie() {
         TODO()

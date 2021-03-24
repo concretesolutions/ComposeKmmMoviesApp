@@ -32,12 +32,12 @@ class GenreDao(dataDriverManager: DataDriverManager) {
     }
 
     fun insertGenre(genreResponse: GenreResponse) {
-//        if (dbQuery.selectGenreById(genreResponse.id).executeAsOneOrNull() == null) {
+        if (dbQuery.selectGenreById(genreResponse.id).executeAsOneOrNull() == null) {
             dbQuery.insertGenre(
                 id = genreResponse.id,
                 name = genreResponse.name
             )
-//        }
+        }
     }
 
     fun removeAllGenres() {

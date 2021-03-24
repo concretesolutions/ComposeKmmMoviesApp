@@ -17,7 +17,7 @@ val favoritesViewModel: FavoritesViewModel by inject(FavoritesViewModel::class.j
 
 @Composable
 fun FavoritesScreen(navController: NavController) {
-    val favorites by favoritesViewModel.favoritesLiveData.observeAsState()
+    val favorites by favoritesViewModel.favoriteMovieList.observeAsState()
 
     val favoriteList = favorites
     Box(

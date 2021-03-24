@@ -1,6 +1,5 @@
 package br.com.concrete.composekmmmoviesapp.di
 
-import br.com.concrete.composekmmmoviesapp.database.DatabaseDriverFactory
 import br.com.concrete.composekmmmoviesapp.database.GenreDao
 import br.com.concrete.composekmmmoviesapp.database.MovieDao
 import br.com.concrete.composekmmmoviesapp.mapper.MoviesMapper
@@ -21,7 +20,7 @@ import kotlin.native.concurrent.ThreadLocal
 @ThreadLocal
 val di = DI {
 
-//    bind<DataDriverManager>() with provider { DataDriverManager(instance()) }
+//    bind<DataDriverManager>() with provider { DataDriverManager() }
 
     bind<MovieApi>() with provider { MovieApi() }
 

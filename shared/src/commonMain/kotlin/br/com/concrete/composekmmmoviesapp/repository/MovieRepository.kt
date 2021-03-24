@@ -14,8 +14,6 @@ class MovieRepository(
     private val mapper: MoviesMapper,
 ) {
 
-//    suspend fun getPopularMovies(page: Int): Response<MoviesResponse> = movieApi.getMovies(page)
-
     suspend fun getPopularMovies(page: Int): List<Movie> {
         val popularMovies = movieApi.getMovies(page)
         val genres = genreRepository.getGenresList()
@@ -39,6 +37,19 @@ class MovieRepository(
         movieDao.removeFavoriteMovie(idMovie)
     }
 
-    fun getFavoriteMovies(): List<FavoriteMovie> = movieDao.getAllFavoriteMovies()
+    suspend fun getFavoriteMovies(): List<Movie> {
+        val genres = genreRepository.getGenresList()
+        val favoriteMovie = movieDao.getAllFavoriteMovies()
+
+
+        return if ((genres is Response.Success)) {
+            mapper.mapFavoriteDtoToMovie(
+                favoriteMovies = favoriteMovie,
+                genresResponse = genres.data
+            )
+        } else {
+            listOf()
+        }
+    }
 
 }
