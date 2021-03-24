@@ -5,7 +5,7 @@ import br.com.concrete.composekmmmoviesapp.database.GenreDao
 import br.com.concrete.composekmmmoviesapp.domain.GenresResponse
 import br.com.concrete.composekmmmoviesapp.network.GenreApi
 
-class GenreRepository (private val genreApi : GenreApi, private val genreDao: GenreDao) {
+class GenreRepository(private val genreApi: GenreApi, private val genreDao: GenreDao) {
 
     suspend fun getGenresList(): Response<GenresResponse> {
         val genres = genreDao.getAllGenres()

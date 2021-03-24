@@ -22,5 +22,5 @@ data class MovieResponse(
     @SerialName("release_date")
     val releaseDate: String,
     @SerialName("overview")
-    val overview:String
+    val overview: String
 )

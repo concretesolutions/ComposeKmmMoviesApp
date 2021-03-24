@@ -22,9 +22,9 @@ val di = DI {
 
 //    bind<DataDriverManager>() with provider { DataDriverManager() }
 
-    bind<MovieApi>() with provider { MovieApi() }
+    bind<MovieApi>() with provider { MovieApi(instance()) }
 
-    bind<GenreApi>() with provider { GenreApi() }
+    bind<GenreApi>() with provider { GenreApi(instance()) }
 
     bind<SearchMovieApi>() with provider { SearchMovieApi() }
 
