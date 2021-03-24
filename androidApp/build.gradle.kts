@@ -150,6 +150,10 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.3.0")
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:$composeVersion")
 
+    //Mock
+    androidTestImplementation("com.squareup.okhttp3:mockwebserver:4.9.0")
+    androidTestImplementation("com.jakewharton.espresso:okhttp3-idling-resource:1.0.0")
+
 
     //Kodein
     implementation("org.kodein.di:kodein-di-framework-android-x:$kodeinVersion")

@@ -1,8 +1,8 @@
 package br.com.concrete.composekmmmoviesapp.androidApp.data
 
 import android.content.Context
+import androidx.annotation.VisibleForTesting
 import br.com.concrete.composekmmmoviesapp.androidApp.BuildConfig
-import br.com.concrete.composekmmmoviesapp.androidApp.R
 import com.google.gson.GsonBuilder
 import okhttp3.Cache
 import okhttp3.Interceptor
@@ -13,6 +13,10 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
+
+
+@VisibleForTesting
+var baseUrl = "https://api.themoviedb.org/3/"
 
 val networkModule = module {
     single {
@@ -51,7 +55,7 @@ val networkModule = module {
     }
 
     single<MoviesDbApi> {
-        val baseUrl = get<Context>().getString(R.string.movies_db_base_url)
+
         Retrofit.Builder().baseUrl(baseUrl)
             .client(get())
             .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))

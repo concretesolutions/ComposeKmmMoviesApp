@@ -1,6 +1,5 @@
 package br.com.concrete.composekmmmoviesapp.androidApp
 
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.test.ext.junit.runners.AndroidJUnit4

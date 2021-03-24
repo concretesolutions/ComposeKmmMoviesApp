@@ -18,6 +18,9 @@ class MoviesTabTest {
     @get:Rule
     val composeRule = createAndroidComposeRule<MainActivity>()
 
+    @get:Rule
+    val mockWebServerRule = MockWebServerRule()
+
     @Before
     fun setup(){
         composeRule.setContent {
@@ -27,12 +30,8 @@ class MoviesTabTest {
 
     @Test
     fun givenMoviesList_shouldShowAllItemsOfMoviesList(){
-        // NECESSITA MOCK
-     /*   ESPRESSO
-        onView // EQUIVALENTE AO FINDER
-     (ViewMatchers.withText(text))  //MATCHER
-            .check(ViewAssertions.matches(ViewMatchers.isDisplayed())) //ASSERTION
-            */
+
+        composeRule.onNode(hasTestTag("Input")).assertTextEquals("Hello!")
 
         composeRule
             .onNode(  //FINDER
