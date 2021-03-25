@@ -21,11 +21,13 @@ import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
 import br.com.concrete.components.design.Modifiers
 import br.com.concrete.components.devexperience.xml.XmlCompose
+import br.com.concrete.components.devexperience.xml.XmlVsCompose
 
 @Composable
 fun ListComponents() {
-    val navController = rememberNavController()
     val context = LocalContext.current
+
+    val navController = rememberNavController()
 
     Column(
         modifier = Modifier
@@ -36,8 +38,20 @@ fun ListComponents() {
             composable(AppComposeScreen.SampleComposeHome.route) {
                 AppComposeHome(navController)
             }
+
+            composable(AppComposeScreen.XmlHome.route) {
+                XmlHome(navController)
+
+            }
             composable(AppComposeScreen.XmlCompose.route) {
                 XmlCompose()
+
+            }
+            composable(AppComposeScreen.XmlComposeActivity.route) {
+
+                context.startActivity(Intent(context, XmlVsCompose()::class.java))
+
+
             }
             composable(AppComposeScreen.ModifiersCompose.route) {
                 Modifiers()
@@ -56,10 +70,36 @@ fun ListComponents() {
     }
 }
 
+@Composable
+fun XmlHome(navController: NavController) {
+    Button(modifier = Modifier.padding(top = 64.dp, start = 124.dp), onClick = {
+        navController.navigate(AppComposeScreen.XmlCompose.route) {
+            popUpTo = navController.graph.startDestination
+            launchSingleTop = true
+        }
 
+
+    }) {
+        Text("XML no Compose")
+
+    }
+    Button(modifier = Modifier.padding(top = 64.dp, start = 124.dp), onClick = {
+        navController.navigate(AppComposeScreen.XmlComposeActivity.route) {
+            popUpTo = navController.graph.startDestination
+            launchSingleTop = true
+        }
+
+
+    }) {
+        Text("XML")
+
+    }
+
+
+}
 @Composable
 fun TextHome(navController: NavController) {
-    Column {
+    Column() {
         Button(modifier = Modifier.padding(top = 64.dp, start = 124.dp), onClick = {
             navController.navigate(AppComposeScreen.TextActivity.route) {
                 popUpTo = navController.graph.startDestination
