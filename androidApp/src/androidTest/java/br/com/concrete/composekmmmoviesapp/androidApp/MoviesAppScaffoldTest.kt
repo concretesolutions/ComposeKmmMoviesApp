@@ -12,36 +12,46 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
-class MoviesAppScaffoldTest{
+class MoviesAppScaffoldTest {
+
     @get:Rule
     val composeRule = createAndroidComposeRule<MainActivity>()
 
-    private val buttonMovies = tagButton("Movies")
-    private val buttonFavorites =  tagButton("Favorites")
 
     @Before
-    fun setup(){
+    fun setup() {
         composeRule.setContent {
             MoviesApp()
         }
     }
 
+    private val buttonMovies = tagButton("Movies")
+    private val buttonFavorites = tagButton("Favorites")
+
     @Test
-    fun givenInitialState_shouldShowMoviesTabSelected(){
+    fun givenInitialState_shouldShowMoviesTabSelected() {
+
         composeRule.onNode(hasTestTag(buttonMovies)).assertIsSelected()
         composeRule.onNode(hasTestTag(buttonFavorites)).assertIsNotSelected()
 
         composeRule.onNode(hasTestTag(SCREEN_MOVIES)).assertIsDisplayed()
     }
 
+
     @Test
     fun givenInitialState_whenFavoritesIsClicked_shouldSelectFavoritesTab(){
-        composeRule.onNode(hasTestTag(buttonFavorites)).performClick()
+
+        composeRule
+            .onNode( // FINDER
+                hasTestTag(buttonFavorites) // MATCHER
+            )
+            .performClick() // ACTION
 
         composeRule.onNode(hasTestTag(buttonMovies)).assertIsNotSelected()
         composeRule.onNode(hasTestTag(buttonFavorites)).assertIsSelected()
 
         composeRule.onNode(hasTestTag(SCREEN_FAVORITES)).assertIsDisplayed()
+
     }
 
     @Test

@@ -17,15 +17,15 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
+
+
 @RunWith(AndroidJUnit4::class)
 class MoviesTabTest {
     @get:Rule
     val composeRule = createAndroidComposeRule<MainActivity>()
 
-
     @get:Rule
     val mockWebServerRule = MockWebServerRule()
-
 
     fun enqueueResponse(responseFileName:String){
         val file = responseFileName.loadAsFixture()
@@ -34,11 +34,8 @@ class MoviesTabTest {
     }
 
     fun enqueueResponseError(){
-        mockWebServerRule.mockWebServer.enqueue(MockResponse().setResponseCode(404))
+        mockWebServerRule.mockWebServer.enqueue(MockResponse().setResponseCode(400))
     }
-
-
-
 
     @Before
     fun setup(){
@@ -48,12 +45,12 @@ class MoviesTabTest {
         }
     }
 
-
     @Test
     fun givenMoviesList_shouldShowAllItemsOfMoviesList(){
         enqueueResponse("response_movies_success.json")
         enqueueResponse("response_gender_success.json")
         retryer {
+
             composeRule
                 .onNode(  //FINDER
                     hasTestTag(SCREEN_MOVIES)  //MATCHER
@@ -75,7 +72,7 @@ class MoviesTabTest {
                     )
                 )
         }
-        Log.d("AppMovieTeste", "QueueCount:${mockWebServerRule.mockWebServer.requestCount}")
+        Log.d("AppMovieTeste", "QueueCount0:${mockWebServerRule.mockWebServer.requestCount}")
     }
 
   /*  composeRule.onNode(hasTestTag("Input")).assertTextEquals("Hello!")*/
@@ -96,15 +93,16 @@ class MoviesTabTest {
                     hasTestTag(COMPONENT_LIST_MOVIES)
                 )
                 .assertExists()
+
             composeRule
                 .onNode(hasTestTag(COMPONENT_LIST_MOVIES)
                 )
                 .assert(!hasAnyChild(
                     hasTestTag(COMPONENT_ITEM_MOVIES)))
-        }
-        Log.d("AppMovieTeste", "QueueCount:${mockWebServerRule.mockWebServer.requestCount}")
-    }
 
+        }
+        Log.d("AppMovieTeste", "QueueCount1:${mockWebServerRule.mockWebServer.requestCount}")
+    }
 
     @Test
     fun givenMoviesList_shouldShowErrorState(){
@@ -119,7 +117,8 @@ class MoviesTabTest {
             composeRule
                 .onNode(hasText("Error")).assertIsDisplayed()
         }
-        Log.d("AppMovieTeste", "QueueCount:${mockWebServerRule.mockWebServer.requestCount}")
+        Log.d("AppMovieTeste", "QueueCount2:${mockWebServerRule.mockWebServer.requestCount}")
     }
+
 
 }

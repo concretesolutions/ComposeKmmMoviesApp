@@ -12,12 +12,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import br.com.concrete.composekmmmoviesapp.androidApp.common.FavoriteMovieButton
 import br.com.concrete.composekmmmoviesapp.androidApp.data.model.Movie
 import br.com.concrete.composekmmmoviesapp.androidApp.util.DataSamples
+import br.com.concrete.composekmmmoviesapp.androidApp.util.SCREEN_DETAILS
 import dev.chrisbanes.accompanist.coil.CoilImage
 
 @Composable
@@ -26,6 +28,7 @@ fun MovieDetailScreen(movie: Movie, onClickFavorite: (Movie) -> Unit) {
         val typography = MaterialTheme.typography
         Column(
             modifier = Modifier
+                .testTag(SCREEN_DETAILS)
                 .padding(16.dp)
                 .verticalScroll(rememberScrollState())
         ) {
