@@ -10,15 +10,19 @@ import SwiftUI
 
 final class FavoriteMovieListViewModel: ObservableObject {
     
-    private let manager: MovieManager
-    @Published var movies: [FavoriteMovieViewModel] = []
+    private let manager: MovieManagerProtocol
+    @Published var movies: [MovieViewModelProtocol] = []
     
-    init(manager: MovieManager) {
+    init(manager: MovieManagerProtocol) {
         self.manager = manager
     }
     
     func fetchMovies() {
-        movies = manager.fetchFavoriteMovies()
+        DispatchQueue.main.async { [weak self] in
+            self?.manager.fetchFavoriteMovies(completionHandler: { (favorites) in
+                self?.movies = favorites
+            })
+        }
     }
     
     func updateMovie(_ movie: MovieViewModelProtocol) {
@@ -27,8 +31,8 @@ final class FavoriteMovieListViewModel: ObservableObject {
     
     func removeMovie(at index: Int) {
         let movie = movies[index]
-        manager.updateMovie(movie)
         movies.remove(at: index)
+        manager.updateMovie(movie)
     }
     
 }

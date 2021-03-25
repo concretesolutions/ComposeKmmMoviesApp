@@ -89,15 +89,13 @@ fun FavoritesCard(
                     .align(Alignment.CenterVertically)
             ) {
                 Row() {
-
                     Text(
                         modifier = Modifier
                             .fillMaxWidth(0.85f)
                             .wrapContentWidth(Alignment.Start),
                         text = movie.title,
                         fontWeight = FontWeight.Bold,
-                        style = typography.h5,
-                        color = Color.Black
+                        style = typography.h5
                     )
                     Surface(
                         modifier = Modifier
@@ -111,7 +109,6 @@ fun FavoritesCard(
                     text = movie.releaseYear.toString(),
                     fontWeight = FontWeight.Black,
                     style = typography.body1/*TextStyle(fontSize = 17.sp)*/,
-                    color = Color.Black
                 )
                 CompositionLocalProvider(
                     LocalContentAlpha provides ContentAlpha.medium

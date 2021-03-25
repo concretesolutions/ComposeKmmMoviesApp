@@ -5,6 +5,9 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -16,12 +19,14 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
+import br.com.concrete.components.design.Modifiers
 import br.com.concrete.components.devexperience.xml.XmlCompose
 
 @Composable
 fun ListComponents() {
     val navController = rememberNavController()
     val context = LocalContext.current
+
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -31,8 +36,11 @@ fun ListComponents() {
             composable(AppComposeScreen.SampleComposeHome.route) {
                 AppComposeHome(navController)
             }
-            composable(AppComposeScreen.EditText.route) {
+            composable(AppComposeScreen.XmlCompose.route) {
                 XmlCompose()
+            }
+            composable(AppComposeScreen.ModifiersCompose.route) {
+                Modifiers()
             }
             composable(AppComposeScreen.TextHome.route) {
                 TextHome(navController)
@@ -43,70 +51,53 @@ fun ListComponents() {
             composable(AppComposeScreen.TextActivity.route) {
                 context.startActivity(Intent(context, TextCompose()::class.java))
             }
+
         }
     }
 }
 
+
 @Composable
-fun TextHome(navController: NavController){
+fun TextHome(navController: NavController) {
     Column {
-
-
         Button(modifier = Modifier.padding(top = 64.dp, start = 124.dp), onClick = {
             navController.navigate(AppComposeScreen.TextActivity.route) {
                 popUpTo = navController.graph.startDestination
                 launchSingleTop = true
             }
-
-
         }) {
-            Text("Text na activity")
-
+            Text("TextView Android")
         }
         Button(modifier = Modifier.padding(top = 64.dp, start = 124.dp), onClick = {
             navController.navigate(AppComposeScreen.TextViewText.route) {
                 popUpTo = navController.graph.startDestination
                 launchSingleTop = true
             }
-
-
         }) {
-            Text("TextView no Compose")
-
+            Text("TextView Compose")
         }
-
     }
-
 }
-
 
 @Composable
 fun AppComposeHome(navController: NavController) {
     Column() {
-
-
-        Button(modifier = Modifier.padding(top = 64.dp, start = 124.dp), onClick = {
-            navController.navigate(AppComposeScreen.EditText.route) {
-                popUpTo = navController.graph.startDestination
-                launchSingleTop = true
+        LazyColumn(
+            verticalArrangement = Arrangement.spacedBy(4.dp)
+        ) {
+            items(listItems) { item ->
+                Button(
+                    modifier = Modifier.fillMaxWidth(),
+                    onClick = {
+                        navController.navigate(item.route) {
+                            popUpTo = navController.graph.startDestination
+                            launchSingleTop = true
+                        }
+                    }
+                ) {
+                    Text(item.name)
+                }
             }
-
-
-        }) {
-            Text("XML no Compose")
-
         }
-        Button(modifier = Modifier.padding(top = 64.dp, start = 124.dp), onClick = {
-            navController.navigate(AppComposeScreen.TextHome.route) {
-                popUpTo = navController.graph.startDestination
-                launchSingleTop = true
-            }
-
-
-        }) {
-            Text("TextView Home")
-
-        }
-
     }
 }

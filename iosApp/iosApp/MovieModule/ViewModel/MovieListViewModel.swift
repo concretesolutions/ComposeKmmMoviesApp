@@ -26,17 +26,19 @@ final class MovieListViewModel: ObservableObject {
             
             guard let self = self else { return }
             
-            var column: [MovieViewModel] = []
-            
-            
-            for i in 0..<movies.count {
+            DispatchQueue.main.async {
                 
-                if column.count == numberOfColumns {
-                    self.moviesInColumns.append(column)
-                    column = []
+                var column: [MovieViewModel] = []
+                
+                for i in 0..<movies.count {
+                    
+                    if column.count == numberOfColumns {
+                        self.moviesInColumns.append(column)
+                        column = []
+                    }
+                    
+                    column.append(movies[i])
                 }
-                
-                column.append(movies[i])
             }
         }
     }
