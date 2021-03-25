@@ -5,6 +5,9 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -97,6 +100,22 @@ fun AppComposeHome(navController: NavController) {
             }
         }) {
             Text("TextView no Compose")
+        }
+    LazyColumn(
+        verticalArrangement = Arrangement.spacedBy(4.dp)
+    ) {
+        items(listItems) { item ->
+            Button(
+                modifier = Modifier.fillMaxWidth(),
+                onClick = {
+                    navController.navigate(item.route) {
+                        popUpTo = navController.graph.startDestination
+                        launchSingleTop = true
+                    }
+                }
+            ) {
+                Text(item.name)
+            }
         }
     }
 }

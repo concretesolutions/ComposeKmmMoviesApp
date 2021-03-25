@@ -7,19 +7,16 @@
 //
 
 import Foundation
-import shared
 
 final class FavoriteMovieViewModel: MovieViewModelProtocol, Identifiable {
         
-    private let favoriteMovie: FavoriteMovie
+    private let favoriteMovie: MovieProtocol
     
-    init(favoriteMovie: FavoriteMovie) {
+    init(favoriteMovie: MovieProtocol) {
         self.favoriteMovie = favoriteMovie
     }
     
-    var title: String {
-        favoriteMovie.originalTitle
-    }
+    var title: String { favoriteMovie.title }
     
     var id: Int {
         Int(favoriteMovie.id)
@@ -36,11 +33,9 @@ final class FavoriteMovieViewModel: MovieViewModelProtocol, Identifiable {
     }
     
     var releaseYear: Int {
-        Int(favoriteMovie.releaseYear)
+        favoriteMovie.releaseYear
     }
     
-    var overview: String {
-        favoriteMovie.overview ?? "Sem descrição"
-    }
+    var overview: String { favoriteMovie.overview }
     
 }

@@ -7,20 +7,19 @@
 //
 
 import Foundation
-import shared
 
 final class MovieViewModel: MovieViewModelProtocol, Identifiable {
         
-    private let movie: Movie
+    private let movie: MovieProtocol
     
-    init(movie: Movie) {
+    init(movie: MovieProtocol) {
         self.movie = movie
     }
     
     var isFavorite: Bool = false
     
     var title: String {
-        movie.originalTitle
+        movie.title
     }
     
     var id: Int {
@@ -40,11 +39,7 @@ final class MovieViewModel: MovieViewModelProtocol, Identifiable {
     }
     
     var releaseYear: Int {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "YYYY-MM-dd"
-        guard let date = dateFormatter.date(from: movie.releaseDate) else { return 0 }
-        let year = Calendar.current.component(.year, from: date)
-        return year
+        movie.releaseYear
     }
     
 }
