@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.com.concrete.components">
+    <application>
+        <activity android:name=".devexperience.xml.XmlVsCompose"/>
+  </application>
+    <application>
+        <activity
+            android:name=".TextCompose"
+            android:exported="true"></activity>
+    </application>
 </manifest>
