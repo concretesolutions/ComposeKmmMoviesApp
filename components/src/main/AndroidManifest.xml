@@ -3,7 +3,10 @@
     package="br.com.concrete.components">
     <application>
         <activity android:name=".devexperience.xml.XmlVsCompose"/>
+  </application>
+    <application>
+        <activity
+            android:name=".TextCompose"
+            android:exported="true"></activity>
     </application>
-
-
 </manifest>

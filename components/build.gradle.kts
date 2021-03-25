@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     kotlin("android")
+    id("kotlin-android")
 }
 val composeVersion: String by project
 
@@ -72,7 +73,7 @@ dependencies {
 
     // Compose integrations
     implementation("androidx.activity:activity-compose:1.3.0-alpha04")
-    implementation("androidx.fragment:fragment-ktx:1.3.1")
+    implementation("androidx.constraintlayout:constraintlayout:2.0.4")
 
     // Unit test
     testImplementation("org.koin:koin-test:$koinVersion")

@@ -1,5 +1,6 @@
 package br.com.concrete.composekmmmoviesapp
 
+import br.com.concrete.composekmmmoviesapp.cache.Movies
 import br.com.concrete.composekmmmoviesapp.data.Response
 import br.com.concrete.composekmmmoviesapp.database.DatabaseDriverFactory
 import br.com.concrete.composekmmmoviesapp.database.GenreDao
@@ -11,6 +12,7 @@ import br.com.concrete.composekmmmoviesapp.domain.MoviesResponse
 import br.com.concrete.composekmmmoviesapp.domain.Genres
 import br.com.concrete.composekmmmoviesapp.repository.GenreRepository
 import br.com.concrete.composekmmmoviesapp.repository.MovieRepository
+import br.com.concrete.composekmmmoviesapp.repository.SearchMovieRepository
 import org.kodein.di.instance
 import org.kodein.di.newInstance
 
@@ -29,6 +31,8 @@ class MoviesSdk(databaseDriverFactory: DatabaseDriverFactory) {
             GenreDao(driverManager)
         )
     }
+    private val SearchMovieRepository by di.newInstance { SearchMovieRepository(instance()) }
+
 
     suspend fun getPopularMovies(page:Int = 1): Response<MoviesResponse> {
         return movieRepository.getPopularMovies(page)
@@ -55,4 +59,10 @@ class MoviesSdk(databaseDriverFactory: DatabaseDriverFactory) {
     fun removeGenresCache() {
         genreRepository.removeAllGenres()
     }
+
+    suspend fun searchMovie(originalTitle: String) : Response<MoviesResponse>{
+        return SearchMovieRepository.searchMovies(originalTitle)
+    }
+
+
 }

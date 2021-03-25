@@ -13,18 +13,16 @@ struct FavoriteMoviesView: View {
     @EnvironmentObject var favoriteListViewModel: FavoriteMovieListViewModel
     
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(favoriteListViewModel.movies) { movie in
-                    FavoriteMovieCell(viewModel: movie)
-                        .listRowInsets(EdgeInsets(top: 2, leading: 0, bottom: 2, trailing: 0))
-                }
-                .onDelete(perform: { indexSet in
-                    removeMovie(indexSet)
-                })
+        List {
+            ForEach(0..<favoriteListViewModel.movies.count, id: \.self) { index in
+                FavoriteMovieCell(viewModel: favoriteListViewModel.movies[index])
+                    .listRowInsets(EdgeInsets(top: 2, leading: 0, bottom: 2, trailing: 0))
             }
-            .navigationBarTitle("Movies", displayMode: .inline)
+            .onDelete(perform: { indexSet in
+                removeMovie(indexSet)
+            })
         }
+        .navigationBarTitle("Favorites", displayMode: .inline)
         .environment(\.defaultMinListRowHeight, 140)
         .onAppear {
             favoriteListViewModel.fetchMovies()
