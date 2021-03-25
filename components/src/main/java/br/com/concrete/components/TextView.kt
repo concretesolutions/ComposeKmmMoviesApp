@@ -8,7 +8,6 @@ import androidx.compose.runtime.Composable
 @Composable
 fun TextViewCompose() {
     Text(text = "TextView Compose")
-
 }
 
 class TextCompose: AppCompatActivity() {
