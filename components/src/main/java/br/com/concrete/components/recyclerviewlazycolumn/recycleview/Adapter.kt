@@ -23,8 +23,8 @@ class Adapter (
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val posicaoItem = minhalista[position]
-        //holder.imageView1.setImageResource(posicaoItem.poster)
-        holder.imageView1.loadImageUrl(posicaoItem.poster.toString())
+        holder.imageView1.setImageResource(posicaoItem.poster)
+        //holder.imageView1.loadImageUrl(posicaoItem.poster.toString())
         holder.textView1.text = posicaoItem.title
         holder.textView2.text = posicaoItem.year
         holder.textView3.text = posicaoItem.synopsis

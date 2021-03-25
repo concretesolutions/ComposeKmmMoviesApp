@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <style name="RoundedSquare">
+        <item name="cornerSize">15%</item>
+    </style>
+
+
+</resources>
 <!--
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
 android:shape="rectangle">

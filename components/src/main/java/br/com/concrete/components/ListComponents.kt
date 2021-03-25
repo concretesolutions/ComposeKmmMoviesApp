@@ -7,6 +7,7 @@ import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
@@ -20,7 +21,7 @@ import br.com.concrete.components.recyclerviewlazycolumn.ListRecyclerViewVSLazyC
 @Composable
 fun ListComponents() {
     val navController = rememberNavController()
-    Column (
+    Column(
         modifier = Modifier
             .fillMaxWidth()
             .fillMaxHeight()
@@ -34,7 +35,9 @@ fun ListComponents() {
             }
             composable(AppComposeScreen.RecyclerVsLazy.route) {
                 ListRecyclerViewVSLazyColumn()
-            composable(AppComposeScreen.ModifiersCompose.route) {
+
+            }
+            composable(AppComposeScreen.Modifiers.route) {
                 Modifiers()
             }
         }
@@ -59,4 +62,6 @@ fun AppComposeHome(navController: NavController) {
             ) {
                 Text(item.name)
             }
+        }
+    }
 }

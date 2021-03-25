@@ -1,5 +1,6 @@
 package br.com.concrete.components.recyclerviewlazycolumn
 
+import android.content.Intent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -8,6 +9,7 @@ import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -16,10 +18,11 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
 import br.com.concrete.components.recyclerviewlazycolumn.recycleview.RecycleViewPage
-import br.com.concrete.components.recyclerviewlazycolumn.LazyColumnPage as LazyColumnPage1
+
 
 @Composable
 fun ListRecyclerViewVSLazyColumn() {
+    val context = LocalContext.current
     val navController = rememberNavController()
     Column (
         modifier = Modifier
@@ -31,7 +34,8 @@ fun ListRecyclerViewVSLazyColumn() {
                 RecyclerViewVSLazyColumn(navController)
             }
             composable(AppComposeRecycleVSLazy.RecyclerPage.route) {
-                RecycleViewPage()
+                context.startActivity(Intent(context,RecycleViewPage()::class.java))
+
             }
             composable(AppComposeRecycleVSLazy.LazyPage.route) {
                 SetLazyColumnList()

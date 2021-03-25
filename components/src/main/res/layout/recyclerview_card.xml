@@ -21,22 +21,27 @@ android:id="@+id/cardview1">
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="276dp"
-        android:layout_marginBottom="8dp">
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="250dp"
+        android:layout_marginBottom="2dp">
 
-        <ImageView
-            android:id="@+id/imageRecycler"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            tools:srcCompat="@drawable/thor" />
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imageRecycler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:srcCompat="@drawable/thor"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        app:shapeAppearanceOverlay="@style/RoundedSquare"
+        android:scaleType="centerCrop">
+
+    </com.google.android.material.imageview.ShapeableImageView>
+
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

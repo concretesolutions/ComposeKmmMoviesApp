@@ -36,9 +36,9 @@ class RecycleViewPage () : AppCompatActivity()/*, Adapter.ItemClickListener*/{
             }
             val item = ListaRecycleView(
                 drawable1,
-                "Titulo",
+                "Thor",
                 "2020 ",
-                "Descrição da Sinopse" )
+                "Como filho de Odin, rei dos deuses nórdicos, Thor logo herdará o trono de Asgard de seu idoso pai. Porém, no dia de sua coroação, Thor reage com brutalidade quando os inimigos dos deuses entram no palácio violando o tratado. Como punição, Odin manda Thor para a Terra. Enquanto seu irmão Loki conspira em Asgard, Thor, agora sem seus poderes, enfrenta sua maior ameaça." )
             lista += item
         }
         return lista
