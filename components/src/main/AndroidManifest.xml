@@ -12,10 +12,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-    <application>
         <activity android:name=".devexperience.xml.XmlVsCompose"/>
-  </application>
-    <application>
         <activity
             android:name=".TextCompose"
             android:exported="true"></activity>

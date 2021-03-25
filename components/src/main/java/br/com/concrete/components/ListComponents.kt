@@ -49,16 +49,12 @@ fun ListComponents() {
 
             }
             composable(AppComposeScreen.XmlComposeActivity.route) {
-
                 context.startActivity(Intent(context, XmlVsCompose()::class.java))
-
-
             }
             composable(AppComposeScreen.RecyclerVsLazy.route) {
                 ListRecyclerViewVSLazyColumn()
-
             }
-            composable(AppComposeScreen.Modifiers.route) {
+            composable(AppComposeScreen.ModifiersCompose.route) {
                 Modifiers()
             }
             composable(AppComposeScreen.TextHome.route) {
@@ -70,12 +66,37 @@ fun ListComponents() {
             composable(AppComposeScreen.TextActivity.route) {
                 context.startActivity(Intent(context, TextCompose()::class.java))
             }
-
         }
     }
 }
 
+@Composable
+fun XmlHome(navController: NavController) {
+    Button(modifier = Modifier.padding(top = 64.dp, start = 124.dp), onClick = {
+        navController.navigate(AppComposeScreen.XmlCompose.route) {
+            popUpTo = navController.graph.startDestination
+            launchSingleTop = true
+        }
 
+
+    }) {
+        Text("XML no Compose")
+
+    }
+    Button(modifier = Modifier.padding(top = 64.dp, start = 124.dp), onClick = {
+        navController.navigate(AppComposeScreen.XmlComposeActivity.route) {
+            popUpTo = navController.graph.startDestination
+            launchSingleTop = true
+        }
+
+
+    }) {
+        Text("XML")
+
+    }
+
+
+}
 @Composable
 fun TextHome(navController: NavController) {
     Column() {
