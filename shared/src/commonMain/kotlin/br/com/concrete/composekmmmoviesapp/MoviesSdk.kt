@@ -64,5 +64,8 @@ class MoviesSdk(databaseDriverFactory: DatabaseDriverFactory) {
         return SearchMovieRepository.searchMovies(originalTitle)
     }
 
-
+    // NOTE: For Swift interfacing performance tests
+    fun objectFeedback(obj: FavoriteMovie): FavoriteMovie {
+        return obj
+    }
 }

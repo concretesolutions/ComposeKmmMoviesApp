@@ -3,7 +3,7 @@ import MoviesSDK
 @testable import iosApp
 
 class SwiftPMPerformanceTests: XCTestCase {
-    var sdk: MoviesSDKProtocol!
+    var sdk: MoviesSDKManager!
     
     override func setUp() {
         super.setUp()

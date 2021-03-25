@@ -3,7 +3,7 @@ import shared
 @testable import iosApp
 
 class KMMPerformanceTests: XCTestCase {
-    var sdk: MoviesSDKProtocol!
+    var sdk: MoviesSdk!
     
     override func setUp() {
         super.setUp()
@@ -25,6 +25,24 @@ class KMMPerformanceTests: XCTestCase {
         measure {
             testWrapper.runRemoveMovie(iterations: 1_000)
         }
+    }
+    
+    func testObjectFeedback() {
+        let localSdk = MoviesSdk(databaseDriverFactory: DatabaseDriverFactory())
+        let movie = makeMovie()
+        
+        measure {
+            var i = 0
+            while i < 1_000_000 {
+                i += 1
+                
+                _ = localSdk.objectFeedback(obj: movie)
+            }
+        }
+    }
+    
+    private func makeMovie() -> FavoriteMovie {
+        return FavoriteMovie(id: 0, posterPath: "", originalTitle: "", genres: "", releaseYear: 0, overview: "")
     }
 }
 
