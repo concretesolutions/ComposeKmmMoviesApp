@@ -6,6 +6,9 @@ sealed class AppComposeScreen(
     val name: String = "composeHome"
 ) {
     object SampleComposeHome : AppComposeScreen("composeHome")
+    object TextViewText : AppComposeScreen("textViewText")
+    object TextActivity : AppComposeScreen("textActivity")
+    object TextHome : AppComposeScreen("textHome", "Text")
     object XmlCompose : AppComposeScreen("xmlCompose", "Xml no compose")
     object ModifiersCompose: AppComposeScreen("modifiers", "Modifiers")
 }
@@ -13,4 +16,5 @@ sealed class AppComposeScreen(
 val listItems = listOf(
     AppComposeScreen.XmlCompose,
     AppComposeScreen.ModifiersCompose,
+    AppComposeScreen.TextHome,
 )
