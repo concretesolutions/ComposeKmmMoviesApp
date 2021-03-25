@@ -11,6 +11,7 @@ import br.com.concrete.composekmmmoviesapp.androidApp.utils.MockWebServerRule
 import br.com.concrete.composekmmmoviesapp.androidApp.utils.loadAsFixture
 import br.com.concrete.composekmmmoviesapp.androidApp.utils.retryer
 import okhttp3.mockwebserver.MockResponse
+//import okhttp3.mockwebserver.MockResponse
 import org.junit.Before
 import org.junit.Ignore
 import org.junit.Rule
@@ -84,21 +85,15 @@ class MoviesTabTest {
         enqueueResponse("response_gender_empty.json")
         retryer {
             composeRule
-                .onNode(  //FINDER
-                    hasTestTag(SCREEN_MOVIES)  //MATCHER
-                )
+                .onNode(hasTestTag(SCREEN_MOVIES))
                 .assertIsDisplayed()  //ASSERTION
             composeRule
-                .onNode(
-                    hasTestTag(COMPONENT_LIST_MOVIES)
-                )
+                .onNode(hasTestTag(COMPONENT_LIST_MOVIES))
                 .assertExists()
 
             composeRule
-                .onNode(hasTestTag(COMPONENT_LIST_MOVIES)
-                )
-                .assert(!hasAnyChild(
-                    hasTestTag(COMPONENT_ITEM_MOVIES)))
+                .onNode(hasTestTag(COMPONENT_LIST_MOVIES))
+                .assert(!hasAnyChild(hasTestTag(COMPONENT_ITEM_MOVIES)))
 
         }
         Log.d("AppMovieTeste", "QueueCount1:${mockWebServerRule.mockWebServer.requestCount}")
