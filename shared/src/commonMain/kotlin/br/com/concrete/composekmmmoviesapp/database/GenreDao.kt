@@ -2,36 +2,40 @@ package br.com.concrete.composekmmmoviesapp.database
 
 import br.com.concrete.composekmmmoviesapp.cache.AppDatabase
 import br.com.concrete.composekmmmoviesapp.di.DataDriverManager
-import br.com.concrete.composekmmmoviesapp.domain.Genre
-import br.com.concrete.composekmmmoviesapp.domain.Genres
+import br.com.concrete.composekmmmoviesapp.domain.GenreResponse
+import br.com.concrete.composekmmmoviesapp.domain.GenresResponse
 
 class GenreDao(dataDriverManager: DataDriverManager) {
     private val database = AppDatabase(dataDriverManager.databaseDriverFactory.createDriver())
     private val dbQuery = database.appDatabaseQueries
 
-    fun getAllGenres(): List<Genre> {
-        return dbQuery.selectAllGenres(::mapGenreSelecting).executeAsList()
+    fun getAllGenres(): List<GenreResponse> {
+        return try {
+            dbQuery.selectAllGenres(::mapGenreSelecting).executeAsList()
+        } catch (ex: Throwable) {
+            listOf()
+        }
     }
 
-    fun getGenreById(id: Long): Genre? {
+    fun getGenreById(id: Long): GenreResponse? {
         return dbQuery.selectGenreById(id, ::mapGenreSelecting).executeAsOneOrNull()
     }
 
-    fun insertGenres(genres: Genres) {
-        insertGenres(genres.genres)
+    fun insertGenres(genresResponse: GenresResponse) {
+        insertGenres(genresResponse.genres)
     }
 
-    fun insertGenres(genres: List<Genre>) {
-        for (genre in genres) {
+    fun insertGenres(genreResponses: List<GenreResponse>) {
+        for (genre in genreResponses) {
             insertGenre(genre)
         }
     }
 
-    fun insertGenre(genre: Genre) {
-        if (dbQuery.selectGenreById(genre.id).executeAsOneOrNull() == null) {
+    fun insertGenre(genreResponse: GenreResponse) {
+        if (dbQuery.selectGenreById(genreResponse.id).executeAsOneOrNull() == null) {
             dbQuery.insertGenre(
-                id = genre.id,
-                name = genre.name
+                id = genreResponse.id,
+                name = genreResponse.name
             )
         }
     }

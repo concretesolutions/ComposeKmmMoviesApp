@@ -6,6 +6,7 @@ plugins {
     kotlin("android")
     kotlin("kapt")
     id("kotlin-parcelize")
+    id("jacoco")
 }
 val composeVersion: String by project
 val kodeinVersion: String by project
@@ -15,6 +16,25 @@ try {
     localProperties.load(FileInputStream("local.properties"))
 } catch (ex: java.io.IOException) {
     localProperties["apiKey"] = "\"Insert your key in local.properties;\""
+}
+
+jacoco {
+    toolVersion = "0.8.3"
+}
+
+tasks.withType(JacocoReport::class.java).all {
+    reports {
+        xml.isEnabled = true
+        xml.destination = File("$buildDir/reports/jacoco/report.xml")
+    }
+}
+
+tasks.withType<Test> {
+    jacoco {
+        toolVersion = "0.8.3"
+        reportsDir = file("$buildDir/reports/jacoco")
+    }
+    finalizedBy("jacocoTestReport")
 }
 
 android {
@@ -63,6 +83,7 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = composeVersion
     }
+
     packagingOptions {
         exclude("META-INF/DEPENDENCIES")
         exclude("META-INF/LICENSE")

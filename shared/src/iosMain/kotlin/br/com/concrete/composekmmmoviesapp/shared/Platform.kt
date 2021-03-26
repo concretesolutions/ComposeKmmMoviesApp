@@ -1,6 +1,5 @@
 package br.com.concrete.composekmmmoviesapp.shared
 
-
 import platform.UIKit.UIDevice
 
 actual class Platform actual constructor() {

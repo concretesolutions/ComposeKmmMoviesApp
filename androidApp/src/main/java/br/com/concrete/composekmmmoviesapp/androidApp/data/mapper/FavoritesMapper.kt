@@ -9,7 +9,7 @@ class FavoritesMapper {
         return favoriteMovies.map { mapDbToMovie(it) }
     }
 
-    fun mapDbToMovie(favoriteEntity: FavoriteMovieDbEntity): Movie{
+    fun mapDbToMovie(favoriteEntity: FavoriteMovieDbEntity): Movie {
         return Movie(
             id = favoriteEntity.id,
             title = favoriteEntity.title,

@@ -1,7 +1,5 @@
 package br.com.concrete.composekmmmoviesapp.androidApp.common
 
-import android.annotation.SuppressLint
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
@@ -12,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import br.com.concrete.composekmmmoviesapp.androidApp.data.model.Movie
+import br.com.concrete.composekmmmoviesapp.domain.MovieResponse
 import br.com.concrete.composekmmmoviesapp.androidApp.theme.Yellow
 import br.com.concrete.composekmmmoviesapp.androidApp.util.DataSamples
 

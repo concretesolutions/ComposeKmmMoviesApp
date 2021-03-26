@@ -2,9 +2,7 @@ package br.com.concrete.composekmmmoviesapp.database
 
 import br.com.concrete.composekmmmoviesapp.cache.AppDatabase
 import br.com.concrete.composekmmmoviesapp.di.DataDriverManager
-import br.com.concrete.composekmmmoviesapp.di.di
 import br.com.concrete.composekmmmoviesapp.domain.FavoriteMovie
-import org.kodein.di.instance
 
 class MovieDao(dataDriverManager: DataDriverManager) {
     private val database = AppDatabase(dataDriverManager.databaseDriverFactory.createDriver())
@@ -12,7 +10,6 @@ class MovieDao(dataDriverManager: DataDriverManager) {
 
     internal fun clearDatabase() {
         dbQuery.transaction {
-
         }
     }
 

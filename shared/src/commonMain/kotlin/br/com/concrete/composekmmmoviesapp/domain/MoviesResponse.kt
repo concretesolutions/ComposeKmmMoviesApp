@@ -6,11 +6,11 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class MoviesResponse(
     val page: Int,
-    val results: List<Movie>
+    val results: List<MovieResponse>
 )
 
 @Serializable
-data class Movie(
+data class MovieResponse(
     @SerialName("id")
     val id: Int,
     @SerialName("poster_path")
@@ -22,5 +22,5 @@ data class Movie(
     @SerialName("release_date")
     val releaseDate: String,
     @SerialName("overview")
-    val overview:String
+    val overview: String
 )

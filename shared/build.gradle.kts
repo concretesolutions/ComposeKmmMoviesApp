@@ -1,11 +1,65 @@
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+//apply(plugin = "org.jlleitschuh.gradle.ktlint")
+
 plugins {
     kotlin("multiplatform")
     kotlin("plugin.serialization")
     id("com.android.library")
     id("com.squareup.sqldelight")
+    jacoco
+}
+
+jacoco {
+    toolVersion = "0.8.7-SNAPSHOT"
+}
+
+val jacocoTestReport by tasks.creating(JacocoReport::class.java) {
+    val coverageSourceDirs = arrayOf(
+        "src/commonMain",
+        "src/androidMain"
+    )
+
+    println("buildDIr : ${buildDir}")
+    println("src : ${project.projectDir}/src/commonMain/")
+
+    val classFiles = File("${buildDir}/tmp/kotlin-classes/debug/")
+        .walkBottomUp()
+        .toSet()
+
+    classDirectories.setFrom(classFiles)
+    sourceDirectories.setFrom(files(coverageSourceDirs))
+
+    executionData
+        .setFrom(files("${buildDir}/jacoco/testDebugUnitTest.exec"))
+
+    reports {
+        xml.isEnabled = true
+        csv.isEnabled = false
+        html.isEnabled = true
+        html.destination = file("${buildDir}/jacocoHtml")
+    }
+}
+
+val jacocoTestCoverageVerification by tasks.creating(JacocoCoverageVerification::class.java) {
+    dependsOn(jacocoTestReport)
+    violationRules {
+        rule {
+            limit {
+                minimum = "0.8".toBigDecimal()
+            }
+        }
+    }
+}
+
+val testCoverage by tasks.registering {
+    group = "verification"
+    description = "Runs the unit tests with coverage."
+
+    dependsOn("testDebugUnitTest", jacocoTestReport, jacocoTestCoverageVerification)
+    tasks["jacocoTestReport"].mustRunAfter("testDebugUnitTest")
+    tasks["jacocoTestCoverageVerification"].mustRunAfter("jacocoTestReport")
 }
 
 android {
@@ -32,14 +86,21 @@ android {
     tasks.withType<KotlinCompile> {
         kotlinOptions {
             jvmTarget = "1.8"
+            useIR = true
+            freeCompilerArgs = listOf("-Xallow-result-return-type")
         }
     }
 
-//    buildTypes {
+    buildTypes {
+        getByName("debug") {
+            isTestCoverageEnabled = true
+        }
 //        debug {
 //            buildConfigField("String", "API_URL", "https://api.themoviedb.org/3/")
 //        }
-//    }
+    }
+
+
 }
 
 kotlin {
@@ -55,12 +116,12 @@ kotlin {
     val ktorVersion = "1.4.0"
     val serializationVersion = "1.0.0-RC"
     val sqlDelightVersion = "1.4.4"
-    val coroutinesVersion = "1.3.9-native-mt"
+    val coroutinesVersion = "1.4.3"
     val kodeinVersion = "7.4.0"
 
     sourceSets {
-        val commonMain by getting{
-            dependencies{
+        val commonMain by getting {
+            dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
                 implementation("io.ktor:ktor-client-core:$ktorVersion")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
@@ -93,7 +154,7 @@ kotlin {
             }
         }
         val iosMain by getting {
-            dependencies{
+            dependencies {
                 implementation("io.ktor:ktor-client-ios:$ktorVersion")
                 implementation("com.squareup.sqldelight:native-driver:$sqlDelightVersion")
             }
@@ -114,7 +175,8 @@ val packForXcode by tasks.creating(Sync::class) {
     val mode = System.getenv("CONFIGURATION") ?: "DEBUG"
     val sdkName = System.getenv("SDK_NAME") ?: "iphonesimulator"
     val targetName = "ios" + if (sdkName.startsWith("iphoneos")) "Arm64" else "X64"
-    val framework = kotlin.targets.getByName<KotlinNativeTarget>(targetName).binaries.getFramework(mode)
+    val framework =
+        kotlin.targets.getByName<KotlinNativeTarget>(targetName).binaries.getFramework(mode)
     inputs.property("mode", mode)
     dependsOn(framework.linkTask)
     val targetDir = File(buildDir, "xcode-frameworks")

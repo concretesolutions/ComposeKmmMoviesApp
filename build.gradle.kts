@@ -6,8 +6,8 @@ buildscript {
 
     repositories {
         gradlePluginPortal()
-        jcenter()
         google()
+        maven("https://oss.sonatype.org/content/repositories/snapshots")
         mavenCentral()
     }
     dependencies {
@@ -22,6 +22,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven("https://oss.sonatype.org/content/repositories/snapshots")
         mavenCentral()
     }
 }
