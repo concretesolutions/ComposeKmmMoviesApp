@@ -1,8 +1,5 @@
 package br.com.concrete.composekmmmoviesapp.androidApp.home.moviestab
 
-import android.util.Log
-import android.util.Log.ERROR
-import android.util.Log.INFO
 import androidx.annotation.StringRes
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -13,7 +10,6 @@ import br.com.concrete.composekmmmoviesapp.androidApp.R
 import br.com.concrete.composekmmmoviesapp.androidApp.data.MovieDbRepository
 import br.com.concrete.composekmmmoviesapp.androidApp.data.mapper.MoviesMapper
 import br.com.concrete.composekmmmoviesapp.androidApp.data.model.Movie
-import br.com.concrete.composekmmmoviesapp.domain.MovieResponse
 import br.com.concrete.composekmmmoviesapp.domain.FavoriteMovie
 import kotlinx.coroutines.launch
 
@@ -79,13 +75,4 @@ class MoviesViewModel(
         releaseYear = movie.releaseYear,
         overview = movie.overview
     )
-
-//    private fun favoriteMovieToMovieMapper(favoriteMovie: FavoriteMovie): Movie = Movie(
-//        id = favoriteMovie.id.toInt(),
-//        title = favoriteMovie.originalTitle,
-//        imageUrl = favoriteMovie.posterPath,
-//        genres = favoriteMovie.genres,
-//        releaseYear = favoriteMovie.releaseYear,
-//        overview = favoriteMovie.overview ?: ""
-//    )
 }
