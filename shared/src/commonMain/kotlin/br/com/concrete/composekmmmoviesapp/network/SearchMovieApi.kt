@@ -1,13 +1,13 @@
 package br.com.concrete.composekmmmoviesapp.network
 
-import br.com.concrete.composekmmmoviesapp.cache.Movies
 import br.com.concrete.composekmmmoviesapp.data.Response
 import br.com.concrete.composekmmmoviesapp.domain.MoviesResponse
+import io.ktor.client.*
 
-class SearchMovieApi {
+class SearchMovieApi(val httpClient: HttpClient) {
 
     suspend fun searchMovie(originalTitle: String): Response<MoviesResponse> =
-        call(SEARCH_URL + "&query=${originalTitle}")
+        call(SEARCH_URL + "&query=${originalTitle}", httpClient)
 
     private companion object {
 

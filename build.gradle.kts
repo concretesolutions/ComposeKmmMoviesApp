@@ -6,18 +6,15 @@ buildscript {
 
     repositories {
         gradlePluginPortal()
-        jcenter()
         google()
+        maven("https://oss.sonatype.org/content/repositories/snapshots")
         mavenCentral()
-        maven("https://plugins.gradle.org/m2/")
     }
-
     dependencies {
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
         classpath("com.android.tools.build:gradle:7.0.0-alpha10")
         classpath("org.jetbrains.kotlin:kotlin-serialization:$kotlinVersion")
         classpath("com.squareup.sqldelight:gradle-plugin:$sqlDelightVersion")
-        classpath("org.jlleitschuh.gradle:ktlint-gradle:10.0.0")
     }
 }
 
@@ -25,6 +22,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven("https://oss.sonatype.org/content/repositories/snapshots")
         mavenCentral()
     }
 }

@@ -26,7 +26,7 @@ val di = DI {
 
     bind<GenreApi>() with provider { GenreApi(instance()) }
 
-    bind<SearchMovieApi>() with provider { SearchMovieApi() }
+    bind<SearchMovieApi>() with provider { SearchMovieApi(instance()) }
 
     bind<MovieRepository>() with factory { movieDao: MovieDao ->
         MovieRepository(

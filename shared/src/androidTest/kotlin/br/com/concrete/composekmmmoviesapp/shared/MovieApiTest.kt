@@ -14,7 +14,7 @@ import kotlinx.serialization.json.Json
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class MovieApiTest {
+class MovieAndroidApiTest {
 
     @Test
     fun when_movies_succeeds_returns_expected_members() = runTest {
