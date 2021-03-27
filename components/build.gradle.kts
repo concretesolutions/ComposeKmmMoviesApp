@@ -56,7 +56,7 @@ val roomVersion = "2.2.6"
 dependencies {
 
     implementation ("androidx.core:core-ktx:1.3.2")
-    implementation ("androidx.appcompat:appcompat:1.3.0-beta01")
+    implementation ("androidx.appcompat:appcompat:1.3.0-rc01")
     implementation ("com.google.android.material:material:1.3.0")
 
     // Compose
