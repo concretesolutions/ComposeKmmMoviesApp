@@ -6,7 +6,7 @@ This project showcases Jetpack Compose and KMM
 # Android app setup instructions
 
 ## Requirements:
-- Android Studio Canary 9 or higher
+- Latest Android Canary
 - JDK 11 as required by Android Gradle Plugin 7
 
 ## Api usage
