@@ -106,7 +106,7 @@ dependencies {
     implementation("androidx.compose.material:material:$composeVersion")
     implementation("androidx.compose.material:material-icons-core:$composeVersion")
     implementation("androidx.compose.material:material-icons-extended:$composeVersion")
-    implementation("androidx.navigation:navigation-compose:1.0.0-alpha09")
+    implementation("androidx.navigation:navigation-compose:1.0.0-alpha10")
     implementation("dev.chrisbanes.accompanist:accompanist-coil:0.6.2")
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha03")
