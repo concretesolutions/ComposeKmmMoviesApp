@@ -112,7 +112,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha03")
 
     // Compose integrations
-    implementation("androidx.activity:activity-compose:1.3.0-alpha05")
+    implementation("androidx.activity:activity-compose:1.3.0-alpha08")
 
     // Networking
     implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
