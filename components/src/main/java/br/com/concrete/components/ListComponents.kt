@@ -17,7 +17,6 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
 import br.com.concrete.components.design.Modifiers
 import br.com.concrete.components.devexperience.xml.XmlCompose
@@ -74,7 +73,7 @@ fun ListComponents() {
 fun XmlHome(navController: NavController) {
     Button(modifier = Modifier.padding(top = 64.dp, start = 124.dp), onClick = {
         navController.navigate(AppComposeScreen.XmlCompose.route) {
-            popUpTo = navController.graph.startDestination
+            popUpTo(navController.graph.startDestinationId)
             launchSingleTop = true
         }
 
@@ -85,7 +84,7 @@ fun XmlHome(navController: NavController) {
     }
     Button(modifier = Modifier.padding(top = 64.dp, start = 124.dp), onClick = {
         navController.navigate(AppComposeScreen.XmlComposeActivity.route) {
-            popUpTo = navController.graph.startDestination
+            popUpTo(navController.graph.startDestinationId)
             launchSingleTop = true
         }
 
@@ -102,7 +101,7 @@ fun TextHome(navController: NavController) {
     Column() {
         Button(modifier = Modifier.padding(top = 64.dp, start = 124.dp), onClick = {
             navController.navigate(AppComposeScreen.TextActivity.route) {
-                popUpTo = navController.graph.startDestination
+                popUpTo(navController.graph.startDestinationId)
                 launchSingleTop = true
             }
         }) {
@@ -110,7 +109,7 @@ fun TextHome(navController: NavController) {
         }
         Button(modifier = Modifier.padding(top = 64.dp, start = 124.dp), onClick = {
             navController.navigate(AppComposeScreen.TextViewText.route) {
-                popUpTo = navController.graph.startDestination
+                popUpTo(navController.graph.startDestinationId)
                 launchSingleTop = true
             }
         }) {
@@ -130,7 +129,7 @@ fun AppComposeHome(navController: NavController) {
                     modifier = Modifier.fillMaxWidth(),
                     onClick = {
                         navController.navigate(item.route) {
-                            popUpTo = navController.graph.startDestination
+                            popUpTo(navController.graph.startDestinationId)
                             launchSingleTop = true
                         }
                     }

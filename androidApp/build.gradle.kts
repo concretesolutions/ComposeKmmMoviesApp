@@ -49,7 +49,6 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
         useIR = true
-        freeCompilerArgs = listOf("-Xallow-result-return-type")
     }
 
     buildFeatures {
@@ -93,8 +92,8 @@ dependencies {
     implementation(project(":shared"))
 
     // Android X & Material
-    implementation("androidx.core:core-ktx:1.3.2")
-    implementation ("androidx.appcompat:appcompat:1.3.0-rc01")
+    implementation("androidx.core:core-ktx:1.5.0")
+    implementation ("androidx.appcompat:appcompat:1.3.0")
     implementation("com.google.android.material:material:1.3.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.3.1")
@@ -106,13 +105,13 @@ dependencies {
     implementation("androidx.compose.material:material:$composeVersion")
     implementation("androidx.compose.material:material-icons-core:$composeVersion")
     implementation("androidx.compose.material:material-icons-extended:$composeVersion")
-    implementation("androidx.navigation:navigation-compose:1.0.0-alpha09")
-    implementation("dev.chrisbanes.accompanist:accompanist-coil:0.6.2")
+    implementation("androidx.navigation:navigation-compose:1.0.0-alpha10")
+    implementation("com.google.accompanist:accompanist-coil:0.10.0")
 
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha03")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha05")
 
     // Compose integrations
-    implementation("androidx.activity:activity-compose:1.3.0-alpha05")
+    implementation("androidx.activity:activity-compose:1.3.0-alpha08")
 
     // Networking
     implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")

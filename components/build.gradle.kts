@@ -6,14 +6,11 @@ plugins {
 val composeVersion: String by project
 
 android {
-    compileSdkVersion(30)
-    //buildToolsVersion "30.0.3"
+    compileSdk = 30
 
     defaultConfig {
-        minSdkVersion(21)
-        targetSdkVersion(30)
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = 21
+        targetSdk = 30
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         //consumerProguardFiles "consumer-rules.pro"
@@ -32,7 +29,6 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
         useIR = true
-        freeCompilerArgs = listOf("-Xallow-result-return-type")
     }
     buildFeatures {
         compose = true
@@ -55,8 +51,8 @@ val roomVersion = "2.2.6"
 
 dependencies {
 
-    implementation ("androidx.core:core-ktx:1.3.2")
-    implementation ("androidx.appcompat:appcompat:1.3.0-rc01")
+    implementation ("androidx.core:core-ktx:1.5.0")
+    implementation ("androidx.appcompat:appcompat:1.3.0")
     implementation ("com.google.android.material:material:1.3.0")
 
     // Compose
@@ -66,13 +62,13 @@ dependencies {
     implementation("androidx.compose.material:material:$composeVersion")
     implementation("androidx.compose.material:material-icons-core:$composeVersion")
     implementation("androidx.compose.material:material-icons-extended:$composeVersion")
-    implementation("androidx.navigation:navigation-compose:1.0.0-alpha09")
-    implementation("dev.chrisbanes.accompanist:accompanist-coil:0.6.2")
+    implementation("androidx.navigation:navigation-compose:2.4.0-alpha01")
+    implementation("com.google.accompanist:accompanist-coil:0.10.0")
 
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha03")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha05")
 
-    // Compose integrations
-    implementation("androidx.activity:activity-compose:1.3.0-alpha05")
+    // Compose integrationsCp
+    implementation("androidx.activity:activity-compose:1.3.0-alpha08")
     implementation("androidx.constraintlayout:constraintlayout:2.0.4")
 
     // Unit test

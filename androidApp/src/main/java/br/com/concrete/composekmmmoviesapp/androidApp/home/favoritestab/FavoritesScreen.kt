@@ -9,7 +9,6 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
-import androidx.navigation.compose.navigate
 import br.com.concrete.composekmmmoviesapp.androidApp.favoriteslist.SetFavoriteMovieList
 import org.koin.java.KoinJavaComponent.inject
 

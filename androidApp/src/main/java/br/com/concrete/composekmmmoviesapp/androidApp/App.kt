@@ -97,7 +97,7 @@ fun MoviesAppBottomBar(
     navController: NavController
 ) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
-    val currentRoute = navBackStackEntry?.arguments?.getString(KEY_ROUTE)
+    val currentRoute = navBackStackEntry?.destination?.route
 
     BottomNavigation {
         bottomBarItems.forEach { screen ->
@@ -108,7 +108,7 @@ fun MoviesAppBottomBar(
                 icon = { Icon(imageVector = screen.icon, title) },
                 onClick = {
                     navController.navigate(screen.route) {
-                        popUpTo = navController.graph.startDestination
+                        popUpTo(navController.graph.startDestinationId)
                         launchSingleTop = true
                     }
                 },
