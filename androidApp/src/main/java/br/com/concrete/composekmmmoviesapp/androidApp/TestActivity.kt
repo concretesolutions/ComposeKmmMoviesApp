@@ -9,7 +9,6 @@ import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.ui.Alignment
 import br.com.concrete.composekmmmoviesapp.MoviesSdk
-import br.com.concrete.composekmmmoviesapp.cache.Movies
 import br.com.concrete.composekmmmoviesapp.data.Response
 import br.com.concrete.composekmmmoviesapp.database.DatabaseDriverFactory
 import br.com.concrete.composekmmmoviesapp.domain.FavoriteMovie

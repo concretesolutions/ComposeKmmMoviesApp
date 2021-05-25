@@ -1,6 +1,7 @@
 package br.com.concrete.composekmmmoviesapp.androidApp.home.moviestab
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.GridCells
@@ -18,7 +19,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import br.com.concrete.composekmmmoviesapp.androidApp.common.FavoriteMovieButton
 import br.com.concrete.composekmmmoviesapp.androidApp.data.model.Movie
-import dev.chrisbanes.accompanist.coil.CoilImage
+import com.google.accompanist.coil.rememberCoilPainter
 
 @ExperimentalFoundationApi
 @Composable
@@ -54,8 +55,8 @@ fun MovieItemView(
                 .fillMaxWidth()
                 .padding(8.dp)
         ) {
-            CoilImage(
-                data = movie.imageUrl,
+            Image(
+                painter = rememberCoilPainter(request = movie.imageUrl),
                 contentDescription = "",
                 contentScale = ContentScale.Crop,
                 modifier = Modifier

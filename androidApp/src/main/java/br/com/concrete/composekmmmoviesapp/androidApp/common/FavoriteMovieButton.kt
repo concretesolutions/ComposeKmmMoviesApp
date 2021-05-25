@@ -1,7 +1,5 @@
 package br.com.concrete.composekmmmoviesapp.androidApp.common
 
-import android.annotation.SuppressLint
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton

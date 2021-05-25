@@ -12,7 +12,6 @@ import br.com.concrete.composekmmmoviesapp.androidApp.util.CoroutineTestRule
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Rule

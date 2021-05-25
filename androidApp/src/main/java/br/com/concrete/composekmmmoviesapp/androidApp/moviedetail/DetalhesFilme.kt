@@ -1,5 +1,6 @@
 package br.com.concrete.composekmmmoviesapp.androidApp.moviedetail
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -18,7 +19,7 @@ import androidx.compose.ui.unit.dp
 import br.com.concrete.composekmmmoviesapp.androidApp.common.FavoriteMovieButton
 import br.com.concrete.composekmmmoviesapp.androidApp.data.model.Movie
 import br.com.concrete.composekmmmoviesapp.androidApp.util.DataSamples
-import dev.chrisbanes.accompanist.coil.CoilImage
+import com.google.accompanist.coil.rememberCoilPainter
 
 @Composable
 fun MovieDetailScreen(movie: Movie, onClickFavorite: (Movie) -> Unit) {
@@ -34,8 +35,8 @@ fun MovieDetailScreen(movie: Movie, onClickFavorite: (Movie) -> Unit) {
                 .fillMaxWidth()
                 .clip(shape = RoundedCornerShape(4.dp))
 
-            CoilImage(
-                data = movie.imageUrl,
+            Image(
+                painter = rememberCoilPainter(request = movie.imageUrl),
                 modifier = imageModifier,
                 contentDescription = "",
                 contentScale = ContentScale.Crop

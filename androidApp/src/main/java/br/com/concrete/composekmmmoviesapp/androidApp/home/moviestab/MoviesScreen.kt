@@ -11,7 +11,6 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
-import androidx.navigation.compose.navigate
 import org.koin.java.KoinJavaComponent.inject
 
 val moviesViewModel: MoviesViewModel by inject(MoviesViewModel::class.java)

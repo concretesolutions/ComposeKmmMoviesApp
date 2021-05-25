@@ -1,11 +1,17 @@
 package br.com.concrete.composekmmmoviesapp.androidApp
 
-import androidx.compose.animation.*
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
@@ -13,7 +19,10 @@ import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import androidx.navigation.compose.*
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
 import br.com.concrete.components.ListComponents
 import br.com.concrete.composekmmmoviesapp.androidApp.data.model.Movie
 import br.com.concrete.composekmmmoviesapp.androidApp.home.favoritestab.FavoritesScreen
@@ -97,7 +106,7 @@ fun MoviesAppBottomBar(
     navController: NavController
 ) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
-    val currentRoute = navBackStackEntry?.arguments?.getString(KEY_ROUTE)
+    val currentRoute = navBackStackEntry?.destination?.route
 
     BottomNavigation {
         bottomBarItems.forEach { screen ->
@@ -108,7 +117,7 @@ fun MoviesAppBottomBar(
                 icon = { Icon(imageVector = screen.icon, title) },
                 onClick = {
                     navController.navigate(screen.route) {
-                        popUpTo = navController.graph.startDestination
+                        popUpTo(navController.graph.startDestinationId)
                         launchSingleTop = true
                     }
                 },

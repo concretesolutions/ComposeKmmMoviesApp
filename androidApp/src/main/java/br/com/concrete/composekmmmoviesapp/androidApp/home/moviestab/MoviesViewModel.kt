@@ -1,7 +1,6 @@
 package br.com.concrete.composekmmmoviesapp.androidApp.home.moviestab
 
 import androidx.annotation.StringRes
-import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

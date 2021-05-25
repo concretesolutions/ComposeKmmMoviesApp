@@ -1,5 +1,6 @@
 package br.com.concrete.composekmmmoviesapp.androidApp.favoriteslist
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -12,14 +13,13 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import br.com.concrete.composekmmmoviesapp.androidApp.common.FavoriteMovieButton
 import br.com.concrete.composekmmmoviesapp.androidApp.data.model.Movie
-import dev.chrisbanes.accompanist.coil.CoilImage
+import com.google.accompanist.coil.rememberCoilPainter
 
 @Composable
 fun SetFavoriteMovieList(
@@ -74,8 +74,8 @@ fun FavoritesCard(
                 shape = RoundedCornerShape(8),
                 color = MaterialTheme.colors.onSurface.copy(alpha = 0.2f)
             ) {
-                CoilImage(
-                    data = movie.imageUrl,
+                Image(
+                    painter = rememberCoilPainter(request = movie.imageUrl),
                     contentDescription = null,
                     modifier = Modifier
                         .height(120.dp)

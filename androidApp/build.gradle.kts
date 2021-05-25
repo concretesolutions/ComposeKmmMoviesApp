@@ -28,7 +28,7 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField("String", "MoviesDbApiKey", localProperties["apiKey"].toString() )
+        buildConfigField("String", "MoviesDbApiKey", localProperties["apiKey"].toString())
 
         javaCompileOptions {
             annotationProcessorOptions {
@@ -49,7 +49,6 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
         useIR = true
-        freeCompilerArgs = listOf("-Xallow-result-return-type")
     }
 
     buildFeatures {
@@ -61,7 +60,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = composeVersion
+        kotlinCompilerExtensionVersion = libs.versions.compose.get()
     }
     packagingOptions {
         exclude("META-INF/DEPENDENCIES")
@@ -93,26 +92,17 @@ dependencies {
     implementation(project(":shared"))
 
     // Android X & Material
-    implementation("androidx.core:core-ktx:1.3.2")
-    implementation ("androidx.appcompat:appcompat:1.3.0-rc01")
-    implementation("com.google.android.material:material:1.3.0")
+    implementation(libs.ktx.core)
+    implementation(libs.material)
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.3.1")
 
     // Compose
-    implementation("androidx.compose.ui:ui:$composeVersion")
-    implementation("androidx.compose.ui:ui-tooling:$composeVersion")
-    implementation("androidx.compose.runtime:runtime-livedata:$composeVersion")
-    implementation("androidx.compose.material:material:$composeVersion")
-    implementation("androidx.compose.material:material-icons-core:$composeVersion")
-    implementation("androidx.compose.material:material-icons-extended:$composeVersion")
-    implementation("androidx.navigation:navigation-compose:1.0.0-alpha09")
-    implementation("dev.chrisbanes.accompanist:accompanist-coil:0.6.2")
+    implementation(libs.bundles.compose)
+    implementation(libs.navigation.compose)
+    implementation(libs.accompanist)
 
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha03")
-
-    // Compose integrations
-    implementation("androidx.activity:activity-compose:1.3.0-alpha05")
+    implementation(libs.compose.viewmodel)
 
     // Networking
     implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
@@ -135,20 +125,20 @@ dependencies {
 
     // Unit test
     testImplementation("org.koin:koin-test:$koinVersion")
-    testImplementation("junit:junit:4.13.2")
+    testImplementation(libs.junit)
     testImplementation("com.squareup.retrofit2:retrofit-mock:$retrofitVersion")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion")
-    testImplementation("io.mockk:mockk:1.11.0")
-    testImplementation("androidx.test.ext:junit:1.1.2")
-    testImplementation("androidx.test.espresso:espresso-core:3.3.0")
-    testImplementation("org.robolectric:robolectric:4.5.1")
-    testImplementation("androidx.arch.core:core-testing:2.1.0")
+    testImplementation(libs.mockk)
+    testImplementation(libs.androidx.junit)
+    testImplementation(libs.espresso.core)
+    testImplementation(libs.robolectric)
+    testImplementation(libs.androidx.coretesting)
     testImplementation("androidx.room:room-testing:$roomVersion")
 
     // Instrumented tests
-    androidTestImplementation("androidx.test.ext:junit:1.1.2")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.3.0")
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:$composeVersion")
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.espresso.core)
+    androidTestImplementation(libs.compose.junit4)
 
     //Kodein
     implementation("org.kodein.di:kodein-di-framework-android-x:$kodeinVersion")
