@@ -1,10 +1,6 @@
 package br.com.concrete.components
 
 import android.content.Intent
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -93,9 +89,8 @@ fun XmlHome(navController: NavController) {
         Text("XML")
 
     }
-
-
 }
+
 @Composable
 fun TextHome(navController: NavController) {
     Column() {
@@ -120,7 +115,7 @@ fun TextHome(navController: NavController) {
 
 @Composable
 fun AppComposeHome(navController: NavController) {
-    Column() {
+    Column {
         LazyColumn(
             verticalArrangement = Arrangement.spacedBy(4.dp)
         ) {
