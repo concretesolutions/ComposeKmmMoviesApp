@@ -77,14 +77,7 @@ android {
     }
 }
 
-val retrofitVersion = "2.9.0"
-val okHttpVersion = "4.9.1"
-val coroutinesVersion = "1.4.3"
-val koinVersion = "2.2.2"
-val roomVersion = "2.2.6"
-
 dependencies {
-
     //Modulo Components
     implementation(project(":components"))
 
@@ -94,8 +87,8 @@ dependencies {
     // Android X & Material
     implementation(libs.ktx.core)
     implementation(libs.material)
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.3.1")
+    implementation(libs.lifecycleruntime)
+    implementation(libs.lifecyclelivedata)
 
     // Compose
     implementation(libs.bundles.compose)
@@ -105,35 +98,31 @@ dependencies {
     implementation(libs.compose.viewmodel)
 
     // Networking
-    implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
-    implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
-    implementation("com.squareup.okhttp3:okhttp:$okHttpVersion")
-    implementation("com.squareup.okhttp3:logging-interceptor:$okHttpVersion")
+    implementation(libs.bundles.retrofit)
 
     // DI
-    implementation("org.koin:koin-core:$koinVersion")
-    implementation("org.koin:koin-androidx-viewmodel:$koinVersion")
+    implementation(libs.bundles.koinandroid)
 
     // Threading
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")
+    implementation(libs.coroutines.core)
+    implementation(libs.coroutines.android)
 
     // DB
-    implementation("androidx.room:room-runtime:$roomVersion")
-    kapt("androidx.room:room-compiler:$roomVersion")
-    implementation("androidx.room:room-ktx:$roomVersion")
+    implementation(libs.room.core)
+    kapt(libs.room.compiler)
+    implementation(libs.room.ktx)
 
     // Unit test
-    testImplementation("org.koin:koin-test:$koinVersion")
+    testImplementation(libs.koin.test)
     testImplementation(libs.junit)
-    testImplementation("com.squareup.retrofit2:retrofit-mock:$retrofitVersion")
-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion")
+    testImplementation(libs.retrofit.mock)
+    testImplementation(libs.coroutines.test)
     testImplementation(libs.mockk)
     testImplementation(libs.androidx.junit)
     testImplementation(libs.espresso.core)
     testImplementation(libs.robolectric)
     testImplementation(libs.androidx.coretesting)
-    testImplementation("androidx.room:room-testing:$roomVersion")
+    testImplementation(libs.room.test)
 
     // Instrumented tests
     androidTestImplementation(libs.androidx.junit)

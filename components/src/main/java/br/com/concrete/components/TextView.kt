@@ -10,7 +10,7 @@ fun TextViewCompose() {
     Text(text = "TextView Compose")
 }
 
-class TextCompose: AppCompatActivity() {
+class TextCompose : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.text)

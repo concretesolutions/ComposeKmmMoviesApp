@@ -38,7 +38,7 @@ fun Modifiers() {
                 .fillMaxWidth()
                 .background(color = Color.Blue)
                 .padding(16.dp),
-                contentScale = ContentScale.Crop
+            contentScale = ContentScale.Crop
         )
         Button(modifier = Modifier
             .background(color = Color.Green)
