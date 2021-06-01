@@ -79,7 +79,7 @@ android {
 
 val retrofitVersion = "2.9.0"
 val okHttpVersion = "4.9.1"
-val coroutinesVersion = "1.4.3"
+val coroutinesVersion = "1.5.0"
 val koinVersion = "2.2.2"
 val roomVersion = "2.3.0"
 
