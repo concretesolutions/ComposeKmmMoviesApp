@@ -54,7 +54,7 @@ kotlin {
 
     val ktorVersion = "1.5.4"
     val serializationVersion = "1.0.0-RC"
-    val sqlDelightVersion = "1.4.4"
+    val sqlDelightVersion = "1.5.0"
     val coroutinesVersion = "1.3.9-native-mt"
     val kodeinVersion = "7.6.0"
 
