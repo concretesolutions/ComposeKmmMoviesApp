@@ -1,5 +1,5 @@
 buildscript {
-    val kotlinVersion by extra { "1.4.32" }
+    val kotlinVersion by extra { "1.5.10" }
     val sqlDelightVersion by extra { "1.4.4" }
     val kodeinVersion by extra { "7.6.0" }
 
@@ -11,7 +11,7 @@ buildscript {
     }
     dependencies {
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
-        classpath("com.android.tools.build:gradle:7.0.0-beta03")
+        classpath("com.android.tools.build:gradle:7.0.0-beta08")
         classpath("org.jetbrains.kotlin:kotlin-serialization:$kotlinVersion")
         classpath("com.squareup.sqldelight:gradle-plugin:$sqlDelightVersion")
     }
