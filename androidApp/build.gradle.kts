@@ -85,8 +85,8 @@ dependencies {
     // Android X & Material
     implementation(libs.ktx.core)
     implementation(libs.material)
-    implementation(libs.lifecycleruntime)
-    implementation(libs.lifecyclelivedata)
+    implementation(libs.androidx.lifecycleruntime)
+    implementation(libs.androidx.lifecyclelivedata)
 
     // Compose
     implementation(libs.bundles.compose)
