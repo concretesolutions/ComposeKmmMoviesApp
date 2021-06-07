@@ -7,8 +7,6 @@ plugins {
     kotlin("kapt")
     id("kotlin-parcelize")
 }
-val composeVersion: String by project
-val kodeinVersion: String by project
 
 val localProperties = Properties()
 try {
@@ -130,5 +128,5 @@ dependencies {
     androidTestImplementation(libs.compose.junit4)
 
     //Kodein
-    implementation("org.kodein.di:kodein-di-framework-android-x:$kodeinVersion")
+    implementation(libs.kodein.android)
 }

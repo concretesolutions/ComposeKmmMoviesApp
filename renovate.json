@@ -3,6 +3,13 @@
     "config:base"
   ],
   "schedule": ["every weekend"],
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    }
+  ],
+  "automerge": true,
   "semanticCommits": true,
   "labels": ["BOT", "lib_update"]
 }
