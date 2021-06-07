@@ -64,7 +64,7 @@ kotlin {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
                 implementation("io.ktor:ktor-client-serialization:$ktorVersion")
                 implementation(libs.sqldelight.runtime)
-                implementation("org.kodein.di:kodein-di:$kodeinVersion")
+                implementation(libs.kodein.core)
                 implementation("io.ktor:ktor-client-logging:$ktorVersion")
             }
         }
@@ -77,10 +77,10 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                implementation("com.google.android.material:material:1.2.1")
+                implementation("com.google.android.material:material:1.3.0")
                 implementation("io.ktor:ktor-client-android:$ktorVersion")
                 implementation(libs.sqldelight.androiddriver)
-                implementation("org.kodein.di:kodein-di-framework-android-x:$kodeinVersion")
+                implementation(libs.kodein.android)
             }
         }
         val androidTest by getting {

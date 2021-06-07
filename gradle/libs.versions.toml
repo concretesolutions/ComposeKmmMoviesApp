@@ -8,6 +8,7 @@ koin = "2.2.2"
 espresso = "3.3.0"
 coroutines = "1.5.0"
 sqldelight = "1.5.0"
+kodein = "7.6.0"
 
 [libraries]
 compose-core = { module = "androidx.compose.ui:ui", version.ref = "compose" }
@@ -48,6 +49,9 @@ sqldelight-androidplugin = { module = "com.squareup.sqldelight:gradle-plugin", v
 sqldelight-runtime = { module = "com.squareup.sqldelight:runtime", version.ref = "sqldelight" }
 sqldelight-androiddriver = { module = "com.squareup.sqldelight:android-driver", version.ref = "sqldelight" }
 sqldelight-iosdriver = { module = "com.squareup.sqldelight:native-driver", version.ref = "sqldelight" }
+
+kodein-core = { module = "org.kodein.di:kodein-di-framework-android-x", version.ref = "kodein" }
+kodein-android = { module = "org.kodein.di:kodein-di-framework-android-x", version.ref = "kodein" }
 
 [bundles]
 compose = ["compose-core",
