@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="150dp"
+android:layout_margin="4dp"
+android:id="@+id/cardview1">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp">
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="250dp"
+        android:layout_marginBottom="2dp">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imageRecycler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:srcCompat="@drawable/thor"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        app:shapeAppearanceOverlay="@style/RoundedSquare"
+        android:scaleType="centerCrop">
+
+    </com.google.android.material.imageview.ShapeableImageView>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <TextView
+        android:id="@+id/titleRecycler"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="159dp"
+        android:layout_toEndOf="@+id/imageRecycler"
+        android:text="Thor"
+        android:textStyle="bold"
+        android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"/>
+
+    <TextView
+        android:id="@+id/yearRecycler"
+        android:layout_width="80dp"
+        android:layout_height="29dp"
+        android:layout_below="@+id/titleRecycler"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="157dp"
+        android:layout_toEndOf="@+id/imageRecycler"
+        android:text="2008"
+        android:textStyle="bold"
+        android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"/>
+
+    <TextView
+        android:id="@+id/synopsisMultiLineRecycler"
+        android:layout_width="214dp"
+        android:layout_height="61dp"
+        android:layout_below="@+id/yearRecycler"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="0dp"
+        android:layout_toEndOf="@+id/imageRecycler"
+        android:ems="10"
+        android:gravity="start|top"
+        android:maxLines="3"
+        android:textStyle="bold"
+        android:text="Como filho de Odin, rei dos deuses nórdicos, Thor logo herdará o trono de Asgard de seu idoso pai. Porém, no dia de sua coroação, Thor reage com brutalidade quando os inimigos dos deuses entram no palácio violando o tratado. Como punição, Odin manda Thor para a Terra. Enquanto seu irmão Loki conspira em Asgard, Thor, agora sem seus poderes, enfrenta sua maior ameaça." />
+
+</RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

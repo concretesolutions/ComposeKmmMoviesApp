@@ -5,6 +5,7 @@ sealed class AppComposeScreen(
     val name: String = "composeHome"
 ) {
     object SampleComposeHome : AppComposeScreen("composeHome")
+    object RecyclerVsLazy : AppComposeScreen("recyclerV", "RecyclerView vs LazyComponents")
     object XmlHome: AppComposeScreen("xmlHome","Xml no compose")
     object XmlComposeActivity: AppComposeScreen("xml Activity")
     object XmlCompose : AppComposeScreen("xmlCompose", "Compose")
@@ -17,5 +18,7 @@ sealed class AppComposeScreen(
 val listItems = listOf(
     AppComposeScreen.ModifiersCompose,
     AppComposeScreen.TextHome,
-    AppComposeScreen.XmlHome
+    AppComposeScreen.XmlHome,
+    AppComposeScreen.RecyclerVsLazy
 )
+

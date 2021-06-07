@@ -16,6 +16,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import br.com.concrete.components.design.Modifiers
 import br.com.concrete.components.devexperience.xml.XmlCompose
+import br.com.concrete.components.recyclerviewlazycolumn.ListRecyclerViewVSLazyColumn
 import br.com.concrete.components.devexperience.xml.XmlVsCompose
 
 @Composable
@@ -43,10 +44,10 @@ fun ListComponents() {
 
             }
             composable(AppComposeScreen.XmlComposeActivity.route) {
-
                 context.startActivity(Intent(context, XmlVsCompose()::class.java))
-
-
+            }
+            composable(AppComposeScreen.RecyclerVsLazy.route) {
+                ListRecyclerViewVSLazyColumn()
             }
             composable(AppComposeScreen.ModifiersCompose.route) {
                 Modifiers()
@@ -60,7 +61,6 @@ fun ListComponents() {
             composable(AppComposeScreen.TextActivity.route) {
                 context.startActivity(Intent(context, TextCompose()::class.java))
             }
-
         }
     }
 }

@@ -46,6 +46,10 @@ dependencies {
     implementation(libs.appcompat)
     implementation(libs.material)
 
+    //layout imagem
+    implementation ("com.google.android.material:material:1.3.0")
+
+
     // Compose
     implementation(libs.bundles.compose)
     implementation(libs.navigation.compose)
