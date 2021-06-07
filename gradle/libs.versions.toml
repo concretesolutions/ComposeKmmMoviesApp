@@ -43,6 +43,7 @@ androidx-coretesting = { module = "androidx.arch.core:core-testing", version = "
 mockk = { module = "io.mockk:mockk", version = "1.11.0" }
 
 coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
 coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
 
 sqldelight-androidplugin = { module = "com.squareup.sqldelight:gradle-plugin", version.ref = "sqldelight" }
