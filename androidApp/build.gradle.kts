@@ -87,7 +87,7 @@ dependencies {
     implementation(project(":components"))
 
     // Shared
-//    implementation(project(":shared"))
+    implementation(project(":shared"))
 
     // Android X & Material
     implementation(libs.ktx.core)
