@@ -53,7 +53,7 @@ kotlin {
     }
 
     val ktorVersion = "1.6.0"
-    val serializationVersion = "1.0.0-RC"
+    val serializationVersion = "1.2.1"
 
     sourceSets {
         val commonMain by getting{
