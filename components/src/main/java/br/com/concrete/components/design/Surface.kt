@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun SurfaceModifiers() {
-    Column() {
+    Column {
         Card(
             backgroundColor = Color(34, 20, 80),
             modifier = Modifier
@@ -34,7 +34,7 @@ fun SurfaceModifiers() {
                 .fillMaxWidth()
         ) {
             Surface(contentColor = Color(34, 20, 80)) {
-                Text(text = "Teste com surface",  color = Color.White)
+                Text(text = "Teste com surface", color = Color.White)
 
             }
 

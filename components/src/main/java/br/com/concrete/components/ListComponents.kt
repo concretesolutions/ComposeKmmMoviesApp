@@ -93,7 +93,7 @@ fun XmlHome(navController: NavController) {
 
 @Composable
 fun TextHome(navController: NavController) {
-    Column() {
+    Column {
         Button(modifier = Modifier.padding(top = 64.dp, start = 124.dp), onClick = {
             navController.navigate(AppComposeScreen.TextActivity.route) {
                 popUpTo(navController.graph.startDestinationId)

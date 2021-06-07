@@ -5,13 +5,13 @@ sealed class AppComposeScreen(
     val name: String = "composeHome"
 ) {
     object SampleComposeHome : AppComposeScreen("composeHome")
-    object XmlHome: AppComposeScreen("xmlHome","Xml no compose")
-    object XmlComposeActivity: AppComposeScreen("xml Activity")
+    object XmlHome : AppComposeScreen("xmlHome", "Xml no compose")
+    object XmlComposeActivity : AppComposeScreen("xml Activity")
     object XmlCompose : AppComposeScreen("xmlCompose", "Compose")
     object TextViewText : AppComposeScreen("textViewText")
     object TextActivity : AppComposeScreen("textActivity")
     object TextHome : AppComposeScreen("textHome", "Text")
-    object ModifiersCompose: AppComposeScreen("modifiers", "Modifiers")
+    object ModifiersCompose : AppComposeScreen("modifiers", "Modifiers")
 }
 
 val listItems = listOf(
