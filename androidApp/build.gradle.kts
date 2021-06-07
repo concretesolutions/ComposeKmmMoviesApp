@@ -7,8 +7,6 @@ plugins {
     kotlin("kapt")
     id("kotlin-parcelize")
 }
-val composeVersion: String by project
-val kodeinVersion: String by project
 
 val localProperties = Properties()
 try {
@@ -115,8 +113,8 @@ dependencies {
     implementation("org.koin:koin-androidx-viewmodel:$koinVersion")
 
     // Threading
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")
+    implementation(libs.coroutines.core)
+    implementation(libs.coroutines.android)
 
     // DB
     implementation("androidx.room:room-runtime:$roomVersion")
@@ -127,7 +125,7 @@ dependencies {
     testImplementation("org.koin:koin-test:$koinVersion")
     testImplementation(libs.junit)
     testImplementation("com.squareup.retrofit2:retrofit-mock:$retrofitVersion")
-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion")
+    testImplementation(libs.coroutines.test)
     testImplementation(libs.mockk)
     testImplementation(libs.androidx.junit)
     testImplementation(libs.espresso.core)
@@ -141,5 +139,5 @@ dependencies {
     androidTestImplementation(libs.compose.junit4)
 
     //Kodein
-    implementation("org.kodein.di:kodein-di-framework-android-x:$kodeinVersion")
+    implementation(libs.kodein.android)
 }

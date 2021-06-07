@@ -54,19 +54,16 @@ kotlin {
 
     val ktorVersion = "1.6.0"
     val serializationVersion = "1.0.0-RC"
-    val sqlDelightVersion = "1.4.4"
-    val coroutinesVersion = "1.5.0"
-    val kodeinVersion = "7.6.0"
 
     sourceSets {
         val commonMain by getting{
             dependencies{
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
+                implementation(libs.coroutines.core)
                 implementation("io.ktor:ktor-client-core:$ktorVersion")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
                 implementation("io.ktor:ktor-client-serialization:$ktorVersion")
-                implementation("com.squareup.sqldelight:runtime:$sqlDelightVersion")
-                implementation("org.kodein.di:kodein-di:$kodeinVersion")
+                implementation(libs.sqldelight.runtime)
+                implementation(libs.kodein.core)
                 implementation("io.ktor:ktor-client-logging:$ktorVersion")
             }
         }
@@ -79,10 +76,10 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                implementation("com.google.android.material:material:1.2.1")
+                implementation("com.google.android.material:material:1.3.0")
                 implementation("io.ktor:ktor-client-android:$ktorVersion")
-                implementation("com.squareup.sqldelight:android-driver:$sqlDelightVersion")
-                implementation("org.kodein.di:kodein-di-framework-android-x:$kodeinVersion")
+                implementation(libs.sqldelight.androiddriver)
+                implementation(libs.kodein.android)
             }
         }
         val androidTest by getting {
@@ -95,7 +92,7 @@ kotlin {
         val iosMain by getting {
             dependencies{
                 implementation("io.ktor:ktor-client-ios:$ktorVersion")
-                implementation("com.squareup.sqldelight:native-driver:$sqlDelightVersion")
+                implementation(libs.sqldelight.iosdriver)
             }
         }
         val iosTest by getting
