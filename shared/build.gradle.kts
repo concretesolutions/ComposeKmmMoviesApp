@@ -52,7 +52,7 @@ kotlin {
         }
     }
 
-    val ktorVersion = "1.6.0"
+    val ktorVersion = "1.6.1"
     val serializationVersion = "1.2.1"
 
     sourceSets {
