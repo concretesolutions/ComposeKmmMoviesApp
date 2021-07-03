@@ -76,7 +76,7 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                implementation("com.google.android.material:material:1.3.0")
+                implementation("com.google.android.material:material:1.4.0")
                 implementation("io.ktor:ktor-client-android:$ktorVersion")
                 implementation(libs.sqldelight.androiddriver)
                 implementation(libs.kodein.android)
