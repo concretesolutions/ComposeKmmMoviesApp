@@ -10,7 +10,7 @@ coroutines = "1.5.2"
 sqldelight = "1.5.1"
 kodein = "7.8.0"
 retrofit = "2.9.0"
-okhttp = "4.9.1"
+okhttp = "4.9.2"
 androidxlifecycle = "2.3.1"
 room = "2.3.0"
 
