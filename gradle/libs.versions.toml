@@ -35,7 +35,7 @@ appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat"
 material = { module = "com.google.android.material:material", version.ref = "material" }
 accompanist = { module = "com.google.accompanist:accompanist-coil", version = "0.10.0" }
 
-robolectric = { module = "org.robolectric:robolectric", version = "4.7" }
+robolectric = { module = "org.robolectric:robolectric", version = "4.7.1" }
 junit = { module = "junit:junit", version = "4.13.2" }
 
 koin-core = { module = "org.koin:koin-core", version.ref = "koin" }
