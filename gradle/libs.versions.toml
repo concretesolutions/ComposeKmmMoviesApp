@@ -33,7 +33,7 @@ ktx-core = { module = "androidx.core:core-ktx", version.ref = "ktx" }
 appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
 
 material = { module = "com.google.android.material:material", version.ref = "material" }
-accompanist = { module = "com.google.accompanist:accompanist-coil", version = "0.10.0" }
+accompanist = { module = "com.google.accompanist:accompanist-coil", version = "0.15.0" }
 
 robolectric = { module = "org.robolectric:robolectric", version = "4.7.3" }
 junit = { module = "junit:junit", version = "4.13.2" }
